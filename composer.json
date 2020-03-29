@@ -1,0 +1,17 @@
+{
+    "name": "myamriko/mvc-site",
+    "description": "website",
+    "type": "project",
+    "require-dev": {
+        "n": "n"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleg Khyzhniak",
+            "email": "miamriko@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

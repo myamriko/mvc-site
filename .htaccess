@@ -1,0 +1,19 @@
+<ifModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{RECUEST_FILENAME} !-d
+#убрать WWW
+RewriteCond %{HTTP_HOST} ^www.
+RewriteCond %{HTTPS}s ^on(s)|off
+RewriteCond http%1://%{HTTP_HOST} ^(https?://)(www.)?(.+)$
+RewriteRule ^ %1%3%{REQUEST_URI} [R=301,L]
+# Убираем последний слеш
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+#убираем .php
+RewriteRule ^(\w+)$ $1.php [NC]
+RewriteRule ^(.*)$ public/index.php [PT,L]
+
+
+
+</ifModule>

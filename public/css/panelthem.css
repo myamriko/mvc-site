@@ -1,0 +1,21 @@
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #292b2c;
+    background-color: #fff;
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+    background-color: transparent;
+
+}
+
+.list-group-item.active {
+    background-color: #f8f9fa;
+    border-color: #aeb0b3;
+}
+
+hr {
+    border-top: 2px solid rgba(0, 0, 0, .1);
+}
