@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-28 20:40:16
+/* Smarty version 3.1.34-dev-7, created on 2020-03-31 10:38:24
   from 'D:\php\domains\mvc-site-ikeya\views\admin\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e7f8c003446d3_83766204',
+  'unifunc' => 'content_5e82f370d54d81_57375995',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a7d2df3a568c9e0df7b0da358e4a1c603bc65df4' => 
     array (
       0 => 'D:\\php\\domains\\mvc-site-ikeya\\views\\admin\\index.tpl',
-      1 => 1585414585,
+      1 => 1585640302,
       2 => 'file',
     ),
   ),
@@ -20,17 +20,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e7f8c003446d3_83766204 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e82f370d54d81_57375995 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8461136385e7f8c0033aa14_53663584', 'title');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2962778805e82f370d49b76_91439937', 'title');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9820505785e7f8c0033b680_67089609', 'body');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4486613315e82f370d4a6c2_58937132', 'body');
 ?>
 
 
@@ -38,12 +38,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9820505785e7f8c003
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "admin/layout.tpl");
 }
 /* {block 'title'} */
-class Block_8461136385e7f8c0033aa14_53663584 extends Smarty_Internal_Block
+class Block_2962778805e82f370d49b76_91439937 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'title' => 
   array (
-    0 => 'Block_8461136385e7f8c0033aa14_53663584',
+    0 => 'Block_2962778805e82f370d49b76_91439937',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,12 +53,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'title'} */
 /* {block 'body'} */
-class Block_9820505785e7f8c0033b680_67089609 extends Smarty_Internal_Block
+class Block_4486613315e82f370d4a6c2_58937132 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_9820505785e7f8c0033b680_67089609',
+    0 => 'Block_4486613315e82f370d4a6c2_58937132',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -72,30 +72,18 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 </div>
                 <div class="col-lg-6">
                     <div class="col-12">
-                        <div class="form-group row ">
-                            <span class="mr-1">
-                                <button id="update_sitename" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('sitename')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                                                            </span>
+                        <div class="form-group row">
                             <h4>Имя сайта:</h4>
-                            <div id="sitename" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="sitename" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead"><?php echo $_smarty_tpl->tpl_vars['sitedata']->value['sitename'];?>
 </span>
-
                             </div>
-
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="col-12">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_propaganda" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('propaganda')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Девиз:</h4>
-                            <div id="propaganda" class="col-lg-4 col-md-4 col-sm-4 col-11">
+                            <div id="propaganda" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead"><?php echo $_smarty_tpl->tpl_vars['sitedata']->value['propaganda'];?>
 </span>
                             </div>
@@ -103,41 +91,28 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_sitemail" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('sitemail')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>@mail сайта:</h4>
-                            <div id="sitemail" class="col-lg-4 col-md-4 col-sm-4 col-11">
+                            <div id="sitemail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead"><?php echo $_smarty_tpl->tpl_vars['sitedata']->value['sitemail'];?>
 </span>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_adminmail" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('adminmail')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>@mail администратора:</h4>
-                            <div id="adminmail" class="col-lg-4 col-md-4 col-sm-4 col-11">
+                            <div id="adminmail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead"><?php echo $_smarty_tpl->tpl_vars['sitedata']->value['adminmail'];?>
 </span>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_fbpixel" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('fbpixel')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>ID pixel FB:</h4>
-                            <div id="fbpixel" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="fbpixel" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead"><?php echo $_smarty_tpl->tpl_vars['sitedata']->value['fbpixel'];?>
 </span>
                             </div>
@@ -167,19 +142,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     </optgroup>
                                 </select>
                             </div>
-                            <div class="alert alert-info mt-1" role="alert"><strong>Время жизни кеша по умолчанию 1 день.</strong></div>
+                            <div class="alert alert-info mt-1" role="alert"><strong>Время жизни кеша по умолчанию 1
+                                    день (86400 сек).</strong></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="col-12">
                         <div class="form-group row">
-                            <span class="mr-1 mt-2">
-                                <button id="update_ico" class="btn badge-primary btn-sm" onclick="updatePicStart('ico')"><i
-                                            class="fas fa-file-download"></i></button>
-                            </span>
                             <h4 class="mt-2">Иконка:</h4>
-                            <div id="ico" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="ico" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <img src="/public/pic/res/<?php echo $_smarty_tpl->tpl_vars['sitedata']->value['ico'];?>
 " style="width: 40px; height: auto">
                             </div>
@@ -187,12 +159,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1 mt-2">
-                                <button id="update_logo" class="btn badge-primary btn-sm" onclick="updatePicStart('logo')"><i
-                                            class="fas fa-file-download"></i></button>
-                            </span>
                             <h4 class="mt-2">Логотип:</h4>
-                            <div id="logo" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="logo" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <img src="/public/pic/res/<?php echo $_smarty_tpl->tpl_vars['sitedata']->value['logo'];?>
 " style="width: 40px; height: auto">
                             </div>
@@ -221,13 +189,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     </div>
                     <div class="col-12">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_facebook" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('facebook')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Facebook:</h4>
-                            <div id="facebook" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="facebook" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">
                                     <i class="fab fa-facebook-f"></i> <?php echo $_smarty_tpl->tpl_vars['sitedata']->value['facebook'];?>
 
@@ -237,13 +200,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_instagram" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('instagram')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Instagram:</h4>
-                            <div id="instagram" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="instagram" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">
                                     <i class="fab fa-instagram"></i> <?php echo $_smarty_tpl->tpl_vars['sitedata']->value['instagram'];?>
 
@@ -253,13 +211,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_twitter" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('twitter')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Twitter:</h4>
-                            <div id="twitter" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="twitter" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">
                                     <i class="fab fa-twitter"></i> <?php echo $_smarty_tpl->tpl_vars['sitedata']->value['twitter'];?>
 

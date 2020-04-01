@@ -1,4 +1,4 @@
-<div class="modal" id="system" tabindex="-1" role="dialog" aria-labelledby="systemTitle"
+<div class="modal" id="removed" tabindex="-1" role="dialog" aria-labelledby="removedTitle"
      aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -12,8 +12,8 @@
 
 
             </div>
-            <div id="systeminfo" class="modal-body">
-                {*сообщения*}
+            <div id="removedinfo" class="modal-body">
+
             </div>
             <div class="modal-footer">
 

@@ -31,12 +31,13 @@
     <!-- NAVIGATION -->
     {include file="public/include/navigation.tpl"}
 </div>
-<script src="/public/js/regIog.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/public/them-js/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.8/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+<script src="/public/js/regIog.js"></script>
 <script src="/public/them-js/all.min.js"></script>{*иконки*}
 <script src="/public/them-js/wow.min.js"></script>
 <script src="/public/them-js/them.js"></script>{*навбар*WOW*прелоадер*}

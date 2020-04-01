@@ -1,18 +1,18 @@
 <?php
 /* Smarty version 3.1.34-dev-7, created on 2020-03-30 22:49:32
-  from 'D:\php\domains\mvc-site-ikeya\views\admin\modal\system.tpl' */
+  from 'D:\php\domains\mvc-site-ikeya\views\admin\modal\remove.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e824d4c26f3d1_29006405',
+  'unifunc' => 'content_5e824d4c27bff5_27500654',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b154feda27de5c14e2c9f562755f8f7c93bc41b3' => 
+    '1a9642dd7a47cd07f5fe355b9f51652dde170787' => 
     array (
-      0 => 'D:\\php\\domains\\mvc-site-ikeya\\views\\admin\\modal\\system.tpl',
-      1 => 1585499107,
+      0 => 'D:\\php\\domains\\mvc-site-ikeya\\views\\admin\\modal\\remove.tpl',
+      1 => 1585568512,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e824d4c26f3d1_29006405 (Smarty_Internal_Template $_smarty_tpl) {
-?><div class="modal" id="system" tabindex="-1" role="dialog" aria-labelledby="systemTitle"
+function content_5e824d4c27bff5_27500654 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="modal" id="removed" tabindex="-1" role="dialog" aria-labelledby="removedTitle"
      aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -35,8 +35,9 @@ function content_5e824d4c26f3d1_29006405 (Smarty_Internal_Template $_smarty_tpl)
 
 
             </div>
-            <div id="systeminfo" class="modal-body">
-                            </div>
+            <div id="removedinfo" class="modal-body">
+
+            </div>
             <div class="modal-footer">
 
             </div>

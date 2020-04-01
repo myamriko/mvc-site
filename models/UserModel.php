@@ -41,12 +41,12 @@ class UserModel
         return false;
     }
 
-    public function getUserByLogin($login)
+    public function getUserByLogin($login=null, $id=null)
     {
         $dbh = DB::getInstance();
-        $query = 'SELECT * FROM `users` WHERE `login` = :login';
+        $query = 'SELECT * FROM `users` WHERE `login` = :login OR `id` = :id';
         $res = $dbh->prepare($query);
-        $res->execute([':login' => $login]);
+        $res->execute([':login' => $login, ':id'=>$id]);
         return $res->fetch(PDO::FETCH_ASSOC);
     }
 

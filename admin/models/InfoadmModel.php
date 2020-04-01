@@ -5,7 +5,6 @@ class InfoadmModel
 
 {
     use ResponseTrait;
-    use errTrait;
     public $column;
     public $text;
     const CECHE_KEY ='info-site';

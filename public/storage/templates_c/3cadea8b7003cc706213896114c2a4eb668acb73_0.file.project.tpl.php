@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-28 21:14:40
+/* Smarty version 3.1.34-dev-7, created on 2020-04-01 11:38:27
   from 'D:\php\domains\mvc-site-ikeya\views\public\include\modal\project.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e7f9410da5f86_28095160',
+  'unifunc' => 'content_5e845303150f14_13885363',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e7f9410da5f86_28095160 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e845303150f14_13885363 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="modal right fade modal-active" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
         <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -1,11 +1,26 @@
-function updateStart(id) {
-    var text = $('#' + id).text().trim();
-    var html = "<input id='new_" + id + "' class='form-control  form-control-sm' style='width: 150px' type='text' value='" + text + "' >";
-    $('#' + id).html(html);
-    $('#new_' + id).select();//выделить текст
-    $('#update_' + id).html('<i class="far fa-save"></i>').attr('class', 'btn badge-success btn-sm').attr('onclick', 'endUpdate(\'' + id + '\')');
-}
+$(".edit").on("dblclick", function () {
+    var id = $(this).attr("id");
 
+
+    switch (true) {
+        case id === 'ico' || id === 'logo':
+            var oldHtml = $('#' + id).html().trim();
+            var html = '<div class="row"><input type="file" id="new_' + id + '" name="new_' + id + '" class="mt-2" style="width: 200px">' +
+                '<button id="update_' + id + '" class="btn badge-success btn-sm ml-2" onclick="endPicUpdate(\'' + id + '\')"><i class="fas fa-file-download"></i></button></div>';
+            $('#' + id).html(html);
+            esc(id,oldHtml);
+            break;
+        default:
+            var text = $('#' + id).text().trim();
+            var oldHtml = $('#' + id).html().trim();
+            var html = '<div class="row"><input id="new_' + id + '" class="form-control  form-control-sm" style="width: 150px" type="text" value="' + text + '" >' +
+                '<button id="update_' + id + '" class="btn badge-success btn-sm ml-2" onclick="endUpdate(\'' + id + '\')"><i class="fas fa-save"></i></button></div>';
+            $('#' + id).html(html);
+            $('#new_' + id).select();//выделить текст
+            esc(id,oldHtml);//esc.js подключен в admin/layout.tpl
+            break;
+    }
+})
 
 function endUpdate(id) {
     var text = $('#new_' + id).val().trim().replace(/<[^>]+>/g, '');
@@ -18,10 +33,7 @@ function endUpdate(id) {
                 $('#system').fadeOut().modal('hide');
             }, 3000);
             $('#system').fadeIn().modal('show');
-            var html = "<input id='new_" + id + "' class='form-control  form-control-sm' style='width: 150px' type='text' value='" + text + "' >";
-            $('#' + id).html(html);
-            $('#update_' + id).html('<i class="far fa-save"></i>').attr('class', 'btn badge-success btn-sm').attr('onclick', 'endUpdate(\'' + id + '\')');
-            return;
+
         }
     });
     $('#' + id).html('<span class="lead"><b>' + text + '</b></span>').attr('style', 'color: #a80000;');/*для отображения в броузере передаем новое значение категории в таблицу name*/
@@ -58,27 +70,22 @@ $("#social").change(function () {// изменяет значение select п�
     });
 })
 
-function updatePicStart(id) {
-    var html = '<input type="file" id="new_' + id + '" name="new_' + id + '" class="mt-2">';
-    $('#' + id).html(html);
-    $('#update_' + id).html('<i class="far fa-save"></i>').attr('class', 'btn badge-success btn-sm').attr('onclick', 'endPicUpdate(\'' + id + '\')');
-}
-
 function endPicUpdate(id) {
     var img = $('#new_' + id).prop('files')[0];
-    console.log(img);
-    var data = new FormData(); // создаем объект FormData для передачи через аякс данных на сервер
+    var data = new FormData();
     data.append('file', img);
     data.append('column', id);
     $.ajax({
-        url: '/infoadm/update', /*url где обрабатываем данные*/
-        type: 'POST',/*метод передачи*/
-        cache: false,/*кеш не используем, нам он тут не надо*/
-        processData: false,// отключаем приобразование в строку, чтобы отправить фаил. Данные передадутся как есть
-        contentType: false,// при передаче данных серверу сообщает content-type. По умолчанию - application/x-www-form-urlencoded. отключаем что бы сервер не говорил что это строка
+        url: '/infoadm/update',
+        type: 'POST',
+        cache: false,
+        processData: false,
+        contentType: false,
         data: data,
 
         success: function (res) {
+
+            $('#new_' + id).remove();
             if (!res[0].success) {
                 var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
                 $('#systeminfo').html(html);
@@ -86,14 +93,11 @@ function endPicUpdate(id) {
                     $('#system').fadeOut().modal('hide');
                 }, 3000);
                 $('#system').fadeIn().modal('show');
+                $('#' + id).html('<img src="/public/pic/res/' + res[0].name_pic_old + '" style="width: 40px; height: auto">');
                 return;
             }
             $('#' + id).html('<img src="/public/pic/res/' + res[0].name_pic + '" style="width: 40px; height: auto">');
-            $('#update_' + id).html('<i class="fas fa-file-download"></i>').attr('class', 'btn badge-primary btn-sm').attr('onclick', 'updatePicStart(\'' + id + '\')');
-
-
         }
     });
-
 }
 

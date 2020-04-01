@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/panelthem.css">
-    <link rel="stylesheet" href="/public/font-awesome/css/all.min.css">
+    <link  type="text/html" href="/public/font-awesome/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>{block name=title}{/block}</title>
 </head>
 <body>
 {include file="admin/modal/system.tpl"}
+{include file="admin/modal/remove.tpl"}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/info-adm"><img src="/public/pic/res/cogs.png" style="height: 35px; width: auto">
         Админ панель</a>
@@ -39,15 +40,15 @@
 
         </ul>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Пользватели
+            <li class="nav-item">
+                <a class="nav-link" href="/users-adm">Пользватели
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="#">Товары
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="#">Категории
                 </a>
             </li>
@@ -87,6 +88,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script src="/public/js/esc.js"></script>
 <script src="/public/js/cache-control.js"></script>
 <script src="/public/them-js/all.min.js"></script>{*иконки*}
 </body>

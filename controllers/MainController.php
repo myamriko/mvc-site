@@ -10,9 +10,7 @@ class MainController implements Controller
         $sitedata = Sitedata::info();
 
         $smarty->assign('sitedata',$sitedata);
-
         $smarty->display('public/index.tpl');
-
     }
 
 }

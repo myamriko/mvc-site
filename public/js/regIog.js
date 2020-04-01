@@ -1,10 +1,10 @@
 function makeRegister() {
 
-    var login = $('#reg_login').val();
-    var pass = $('#reg_pass').val();
-    var rePass = $('#reg_repass').val();
-    var userName = $('#reg_name').val();
-    var mail = $('#reg_mail').val();
+    var login = $('#reg_login').val().trim().replace(/<[^>]+>/g, '');
+    var pass = $('#reg_pass').val().trim().replace(/<[^>]+>/g, '');
+    var rePass = $('#reg_repass').val().trim().replace(/<[^>]+>/g, '');
+    var userName = $('#reg_name').val().trim().replace(/<[^>]+>/g, '');
+    var mail = $('#reg_mail').val().trim().replace(/<[^>]+>/g, '');
     var data = {
         login: login,
         pass: pass,
@@ -12,7 +12,7 @@ function makeRegister() {
         name: userName,
         mail: mail
     };
-    if (!login || !pass || !userName || !mail || !rePass){
+    if (!login || !pass || !userName || !mail || !rePass) {
         $('#message_reg').text(' Все поля обязательны для заполнения');
         $('#reg_err').fadeIn().show();
         /*  setTimeout(function () {
@@ -39,13 +39,13 @@ function makeRegister() {
 }
 
 function makeLogin() {
-    var login = $('#login1').val();
-    var pass = $('#pass').val();
+    var login = $('#login1').val().trim().replace(/<[^>]+>/g, '');
+    var pass = $('#pass').val().trim().replace(/<[^>]+>/g, '');
     var data = {
         login: login,
         pass: pass
     };
-    if (!login || !pass){
+    if (!login || !pass) {
         $('#message').text(' Все поля обязательны для заполнения');
         $('#login_err').fadeIn().show();
         /*  setTimeout(function () {
@@ -69,3 +69,17 @@ function makeLogin() {
     });
 }
 
+$(document).ready(function () {// отловим нажатие на энтер
+    $(".modal").keyup(function (event) {
+        var id = $(this).attr('id');// определяем id активного элемента
+        var key = event.which;// определяем нажатую клавишу
+        switch (true) {
+            case key === 13 && id === 'login':
+                makeLogin();
+                break;
+            case key === 13 && id === 'register':
+                makeRegister();
+                break;
+        }
+    });
+});

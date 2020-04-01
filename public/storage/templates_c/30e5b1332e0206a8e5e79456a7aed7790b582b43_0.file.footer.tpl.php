@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-28 21:14:40
+/* Smarty version 3.1.34-dev-7, created on 2020-04-01 11:38:27
   from 'D:\php\domains\mvc-site-ikeya\views\public\include\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e7f9410e5aba4_91754179',
+  'unifunc' => 'content_5e84530324ac56_16663549',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e7f9410e5aba4_91754179 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e84530324ac56_16663549 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="footer">
     <footer class="footer-inner">
         <div class="container">

@@ -9,70 +9,43 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="col-12">
-                        <div class="form-group row ">
-                            <span class="mr-1">
-                                <button id="update_sitename" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('sitename')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                                {*<button class="btn badge-danger btn-sm" onclick="#"><i class="far fa-times-circle"></i>
-                                </button>*}
-                            </span>
+                        <div class="form-group row">
                             <h4>Имя сайта:</h4>
-                            <div id="sitename" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="sitename" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">{$sitedata['sitename']}</span>
-
                             </div>
-
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="col-12">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_propaganda" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('propaganda')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Девиз:</h4>
-                            <div id="propaganda" class="col-lg-4 col-md-4 col-sm-4 col-11">
+                            <div id="propaganda" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">{$sitedata['propaganda']}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_sitemail" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('sitemail')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>@mail сайта:</h4>
-                            <div id="sitemail" class="col-lg-4 col-md-4 col-sm-4 col-11">
+                            <div id="sitemail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">{$sitedata['sitemail']}</span>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_adminmail" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('adminmail')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>@mail администратора:</h4>
-                            <div id="adminmail" class="col-lg-4 col-md-4 col-sm-4 col-11">
+                            <div id="adminmail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">{$sitedata['adminmail']}</span>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_fbpixel" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('fbpixel')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>ID pixel FB:</h4>
-                            <div id="fbpixel" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="fbpixel" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">{$sitedata['fbpixel']}</span>
                             </div>
                         </div>
@@ -99,31 +72,24 @@
                                     </optgroup>
                                 </select>
                             </div>
-                            <div class="alert alert-info mt-1" role="alert"><strong>Время жизни кеша по умолчанию 1 день.</strong></div>
+                            <div class="alert alert-info mt-1" role="alert"><strong>Время жизни кеша по умолчанию 1
+                                    день (86400 сек).</strong></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="col-12">
                         <div class="form-group row">
-                            <span class="mr-1 mt-2">
-                                <button id="update_ico" class="btn badge-primary btn-sm" onclick="updatePicStart('ico')"><i
-                                            class="fas fa-file-download"></i></button>
-                            </span>
                             <h4 class="mt-2">Иконка:</h4>
-                            <div id="ico" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="ico" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <img src="/public/pic/res/{$sitedata['ico']}" style="width: 40px; height: auto">
                             </div>
                         </div>
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1 mt-2">
-                                <button id="update_logo" class="btn badge-primary btn-sm" onclick="updatePicStart('logo')"><i
-                                            class="fas fa-file-download"></i></button>
-                            </span>
                             <h4 class="mt-2">Логотип:</h4>
-                            <div id="logo" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="logo" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <img src="/public/pic/res/{$sitedata['logo']}" style="width: 40px; height: auto">
                             </div>
                         </div>
@@ -149,13 +115,8 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_facebook" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('facebook')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Facebook:</h4>
-                            <div id="facebook" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="facebook" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">
                                     <i class="fab fa-facebook-f"></i> {$sitedata['facebook']}
                                 </span>
@@ -164,13 +125,8 @@
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_instagram" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('instagram')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Instagram:</h4>
-                            <div id="instagram" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="instagram" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">
                                     <i class="fab fa-instagram"></i> {$sitedata['instagram']}
                                 </span>
@@ -179,13 +135,8 @@
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <span class="mr-1">
-                                <button id="update_twitter" class="btn badge-primary btn-sm"
-                                        onclick="updateStart('twitter')"><i
-                                            class="fas fa-pencil-alt"></i></button>
-                            </span>
                             <h4>Twitter:</h4>
-                            <div id="twitter" class="col-lg-5 col-md-5 col-sm-5 col-11">
+                            <div id="twitter" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">
                                     <i class="fab fa-twitter"></i> {$sitedata['twitter']}
                                 </span>

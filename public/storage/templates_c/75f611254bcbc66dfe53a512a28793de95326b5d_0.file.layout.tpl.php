@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-28 21:14:40
+/* Smarty version 3.1.34-dev-7, created on 2020-04-01 11:55:38
   from 'D:\php\domains\mvc-site-ikeya\views\public\layout.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e7f9410d34ed2_75215180',
+  'unifunc' => 'content_5e84570a6e8980_60313002',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '75f611254bcbc66dfe53a512a28793de95326b5d' => 
     array (
       0 => 'D:\\php\\domains\\mvc-site-ikeya\\views\\public\\layout.tpl',
-      1 => 1585240897,
+      1 => 1585731334,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/include/navigation.tpl' => 1,
   ),
 ),false)) {
-function content_5e7f9410d34ed2_75215180 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e84570a6e8980_60313002 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -55,7 +55,7 @@ $_smarty_tpl->_subTemplateRender('file:public/include/modal/login.tpl', $_smarty
         <div class="site-inner">
         <section id="site" class="container-fluid">
             <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10991194865e7f9410d33a85_61736947', 'body');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17706492835e84570a6e6de3_00722503', 'body');
 ?>
 
     </div>
@@ -66,9 +66,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10991194865e7f9410
     <?php $_smarty_tpl->_subTemplateRender("file:public/include/navigation.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 </div>
-<?php echo '<script'; ?>
- src="/public/js/regIog.js"><?php echo '</script'; ?>
->
+
 <?php echo '<script'; ?>
  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"><?php echo '</script'; ?>
 >
@@ -85,6 +83,9 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10991194865e7f9410
  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
+ src="/public/js/regIog.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
  src="/public/them-js/all.min.js"><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
  src="/public/them-js/wow.min.js"><?php echo '</script'; ?>
@@ -95,12 +96,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10991194865e7f9410
 </body>
 </html><?php }
 /* {block 'body'} */
-class Block_10991194865e7f9410d33a85_61736947 extends Smarty_Internal_Block
+class Block_17706492835e84570a6e6de3_00722503 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_10991194865e7f9410d33a85_61736947',
+    0 => 'Block_17706492835e84570a6e6de3_00722503',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-28 21:14:40
+/* Smarty version 3.1.34-dev-7, created on 2020-04-01 11:38:27
   from 'D:\php\domains\mvc-site-ikeya\views\public\include\head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e7f9410d73e46_24134570',
+  'unifunc' => 'content_5e84530311e858_78551626',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e7f9410d73e46_24134570 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e84530311e858_78551626 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -35,7 +35,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/animate.min.css">
     <title><?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5648024245e7f9410d709d9_95673476', 'title');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10670002115e84530311c695_83963001', 'title');
 ?>
 </title>
     <!-- Facebook Pixel Code -->
@@ -63,12 +63,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5648024245e7f9410d
     <!-- End Facebook Pixel Code -->
 </head><?php }
 /* {block 'title'} */
-class Block_5648024245e7f9410d709d9_95673476 extends Smarty_Internal_Block
+class Block_10670002115e84530311c695_83963001 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'title' => 
   array (
-    0 => 'Block_5648024245e7f9410d709d9_95673476',
+    0 => 'Block_10670002115e84530311c695_83963001',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
