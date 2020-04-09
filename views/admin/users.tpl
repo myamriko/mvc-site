@@ -1,5 +1,5 @@
 {extends file="admin/layout.tpl"}
-{block name=title}Админ панель {/block}
+{block name=title}Пользователи - Админ панель {/block}
 {block name=body}
     <section>
         <div class="container">
@@ -16,7 +16,7 @@
                         <th scope="col">@mail</th>
                         <th scope="col">Логин</th>
                         <th scope="col">Роль</th>
-                        <th scope="col">#</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,13 +33,13 @@
                                 <td class="align-middle  text-black-50">{$User['login']}</td>
                                 <td class="align-middle text-black-50">{$User['role']}</td>
                                 <td class="align-middle">
-                                    <button class="btn badge-secondary btn-sm" onclick="#" disabled><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-linc btn-sm text-secondary" onclick="#" disabled><i class="far fa-trash-alt"></i>  Удалить</button>
                                 </td>
                             {else}
                                 <td id="login-{$User['id']}" class="align-middle">{$User['login']}</td>
                                 <td id="role-{$User['id']}" class="align-middle">{$User['role']}</td>
                                 <td class="align-middle">
-                                    <button class="btn badge-danger btn-sm" onclick="removedStart('{$User['id']}','{$User['login']}')"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-linc btn-sm text-danger" onclick="removedStart('{$User['id']}','{$User['login']}','users')"><i class="far fa-trash-alt"></i> Удалить</button>
                                 </td>
                             {/if}
                         </tr>

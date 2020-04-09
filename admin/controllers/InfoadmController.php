@@ -11,7 +11,7 @@ class InfoadmController implements Controller
     public function index()
     {
         global $smarty;
-        $siteData = Sitedata::info();//info сайта
+        $siteData = InfoModel::info();//info сайта
         if (!$siteData) {
             die('Ошибка получения данных от info сайта ;(');
         }
@@ -22,7 +22,7 @@ class InfoadmController implements Controller
     public function update()
 
     {
-        $siteData = Sitedata::info();
+        $siteData = InfoModel::info();
         if (!empty($_FILES)) {
             $uploads_dir = '../public/pic/res'; //дериктория куда сохраняем
             $oldIcoDir = $uploads_dir . '/' . $siteData[$_POST['column']];
@@ -34,15 +34,15 @@ class InfoadmController implements Controller
             $info->text = $name_pic;
             $info->column = $_POST['column'];
             $info = $info->update();
-            $this->getResponse(['success' => $info, 'err' => 'Вы не внесли изменения при редактировании.', 'name_pic' => $name_pic, 'name_pic_old' => $siteData[$_POST['column']]]);
+            $this->getResponse(['success' => $info, 'err' => 'Изменения не были внесены.', 'name_pic' => $name_pic, 'name_pic_old' => $siteData[$_POST['column']]]);
         }
         if (!empty($text = $_POST['text'])) {
             $info = new InfoadmModel();
             $info->text = filter_var(trim($text), FILTER_SANITIZE_STRING);
             $info->column = $_POST['column'];
             $info = $info->update();
-            $this->getResponse(['success' => $info, 'err' => 'Вы не внесли изменения при редактировании.']);
+            $this->getResponse(['success' => $info, 'err' => 'Изменения не были внесены.']);
         }
-        $this->getResponse(['success' => false, 'err' => 'Вы не внесли изменения при редактировании.', 'name_pic_old' => $siteData[$_POST['column']]]);
+        $this->getResponse(['success' => false, 'err' => 'Изменения не были внесены.', 'name_pic_old' => $siteData[$_POST['column']]]);
     }
 }

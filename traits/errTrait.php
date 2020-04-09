@@ -17,7 +17,8 @@ trait errTrait
      * @return string
      * На наличее переменной проверяем с джава и контроллере
      */
-    public function getErrUser($login=null, $pass=null,$rePass=null, $userName=null, $mail=null, $imgFile=null){
+    public function getErrUser($login = null, $pass = null, $rePass = null, $userName = null, $mail = null, $imgFile = null)
+    {
         $accepted = [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_BMP, IMAGETYPE_ICO];
         global $error;
 
@@ -49,6 +50,26 @@ trait errTrait
                 //in_array — Проверяет, присутствует ли в массиве значение $accepted,
                 // exif_imagetype считывает начальные байты изображения и проверяет их сигнатуру.
                 $error = ' Недопустимый формат файла. Только jpeg, png, bmp, gif и ico';
+                break;
+        }
+        return $error;
+    }
+
+    public function getErrMenu($menu_name, $title, $description = null, $url = null)
+    {
+        global $error;
+        switch (true) {
+            case $menu_name && !preg_match("/^[a-zA-Z0-9_]{4,20}$/", $menu_name):
+                $error = ' Административное название должно содержать не мение 4х символов, допустимы латинские буквы, цифры и символ "_"';
+                break;
+            case $title && strlen($title) < 4:
+                $error = 'Название не моет быть короче 4х символов';
+                break;
+            case $description && strlen($description) < 10:
+                $error = 'Описание не может быть короче 10ти символов';
+                break;
+            case $url && strlen($url) < 4:
+                $error = 'URL не может быть короче 4х символов';
                 break;
         }
         return $error;

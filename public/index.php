@@ -42,6 +42,7 @@ $arrUrl = str_replace('-', '', $arrUrl);//удалим -
 $controller = ($arrUrl == [""] || !$arrUrl) ? 'MainController' : ucfirst(array_shift($arrUrl)) . 'Controller';
 $action = ($arrUrl == [""] || !$arrUrl) ? 'index' : array_shift($arrUrl);
 $param = ($arrUrl) ?: [];
+
 //проверка на админа
 
 if (strpos($controller, 'admController') && Session::get('user', ['role' => ''])['role'] !== 'admin') {

@@ -12,8 +12,6 @@
     <title>{block name=title}{/block}</title>
 </head>
 <body>
-{include file="admin/modal/system.tpl"}
-{include file="admin/modal/remove.tpl"}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/info-adm"><img src="/public/pic/res/cogs.png" style="height: 35px; width: auto">
         Админ панель</a>
@@ -45,11 +43,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Товары
+                <a class="nav-link" href="/menu-adm">Меню
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Категории
+                <a class="nav-link" href="/categories-adm">Категории
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/articles-adm">Статьи
                 </a>
             </li>
         </ul>
@@ -77,9 +79,10 @@
     </div>
 </nav>
 <div class="container-fluid">
-
     {block name=body}{/block}
-
+    {include file="admin/modal/system.tpl"}
+    {include file="admin/modal/remove.tpl"}
+    {include file="admin/modal/menu-add.tpl"}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -89,6 +92,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 <script src="/public/js/esc.js"></script>
+<script src="/public/js/removed.js"></script>
 <script src="/public/js/cache-control.js"></script>
 <script src="/public/them-js/all.min.js"></script>{*иконки*}
 </body>

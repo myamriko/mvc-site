@@ -27,6 +27,10 @@ class UsersadmController implements Controller
         $id = array_shift($arrId);
         $userData = new UserModel();
         $userData = $userData->getUserByLogin($login = null, $id);
+        if (empty($userData)) {
+            $this->getResponse(['success' => false, 'err' =>
+                'Такой пользователь не существует, пожалуйста очистьте кеш, обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
+        }
 
         if (!empty($_FILES)) {
             $uploads_dir = '../public/pic/avatar'; //дериктория куда сохраняем
@@ -40,18 +44,38 @@ class UsersadmController implements Controller
             $users->id = $id;
             $users->column = $column;
             $users = $users->update();
-            $this->getResponse(['success' => $users, 'err' => 'Вы не внесли изменения при редактировании.', 'name_pic' => $name_pic, 'name_pic_old' => $userData[$column]]);
+            $this->getResponse(['success' => $users, 'err' => 'Изменения не были внесены.', 'name_pic' => $name_pic, 'name_pic_old' => $userData[$column]]);
         }
-
-        if (!empty($text = $_POST['text'])) {
+        if (!empty($_POST['text'])) {
+            $text = filter_var(trim($_POST['text']), FILTER_SANITIZE_STRING);
+            switch (true) {
+                case $column === 'username':
+                    $err = $this->getErrUser($login = null, $pass = null, $rePass = null, $text, $mail = null, $imgFile = null);
+                    if ($err) {
+                        $this->getResponse(['success' => false, 'err' => $err]);
+                    }
+                    break;
+                case $column === 'email':
+                    $err = $this->getErrUser($login = null, $pass = null, $rePass = null, $userName = null, $text, $imgFile = null);
+                    if ($err) {
+                        $this->getResponse(['success' => false, 'err' => $err]);
+                    }
+                    break;
+                case $column === 'login':
+                    $err = $this->getErrUser($text, $pass = null, $rePass = null, $userName = null, $mail = null, $imgFile = null);
+                    if ($err) {
+                        $this->getResponse(['success' => false, 'err' => $err]);
+                    }
+                    break;
+            }
             $users = new UsersadmModel();
-            $users->text = filter_var(trim($text), FILTER_SANITIZE_STRING);
+            $users->text = $text;
             $users->id = $id;
             $users->column = $column;
             $users = $users->update();
-            $this->getResponse(['success' => $users, 'err' => 'Вы не внесли изменения при редактировании.']);
+            $this->getResponse(['success' => $users, 'err' => 'Изменения не были внесены.']);
         }
-        $this->getResponse(['success' => false, 'err' => 'Вы не внесли изменения при редактировании.', 'name_pic_old' => $userData[$column]]);
+        $this->getResponse(['success' => false, 'err' => 'Изменения не были внесены.', 'name_pic_old' => $userData[$column]]);
     }
 
     public function removed()
@@ -61,13 +85,16 @@ class UsersadmController implements Controller
             $checkUser = new UserModel();
             $checkUser = $checkUser->getUserByLogin($login = null, $id);
             if (!$checkUser) {
-                $this->getResponse(['success' => false, 'err' => 'Такой пользователь не существует, обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
+                $this->getResponse(['success' => false, 'err' => 'Такой пользователь не существует, 
+                пожалуйста очистьте кеш, обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
             }
             $removedUser = new UsersadmModel();
             $removedUser->id = $id;
             $removedUser = $removedUser->removed();
-            $this->getResponse(['success' => $removedUser, 'err' => 'Пользователь не был удален из БД.']);
+            $this->getResponse(['success' => $removedUser, 'err' => 'Пользователь не был удален из БД, пожалуйста очистьте 
+            кеш, обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
         }
-        $this->getResponse(['success' => false, 'err' => 'Пришел пустой запрос на удаление']);
+        $this->getResponse(['success' => false, 'err' => 'Пришел пустой запрос на удаление, пожалуйста очистьте кеш, 
+        обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
     }
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-30 22:49:32
+/* Smarty version 3.1.34-dev-7, created on 2020-04-09 22:49:54
   from 'D:\php\domains\mvc-site-ikeya\views\admin\modal\remove.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e824d4c27bff5_27500654',
+  'unifunc' => 'content_5e8f7c62c27621_36489931',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e824d4c27bff5_27500654 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8f7c62c27621_36489931 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="modal" id="removed" tabindex="-1" role="dialog" aria-labelledby="removedTitle"
      aria-hidden="true">
 

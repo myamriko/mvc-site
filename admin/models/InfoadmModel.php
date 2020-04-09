@@ -7,7 +7,7 @@ class InfoadmModel
     use ResponseTrait;
     public $column;
     public $text;
-    const CECHE_KEY ='info-site';
+    const CECHE_KEY ='info-panel';
 
     public function update()
     {

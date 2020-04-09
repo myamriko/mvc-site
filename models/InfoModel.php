@@ -1,23 +1,23 @@
 <?php
 
 
-final class Sitedata
+final class InfoModel
 {
     use ResponseTrait;
     private static $res;
     const CECHE_KEY = 'info-site';
-
+    private $cechetime;
 
     /**
-     * @return false|mixed|PDOStatement
+     * @return false|mixed|PDOStatement|null
      * все данные сайта info сайта
      */
     public static function info()
     {
         $cacheKey = self::CECHE_KEY;
-        $cachedItems = Cache::get($cacheKey);
-        if ($cachedItems) {
-            return $cachedItems;
+        $cachedInfo = Cache::get($cacheKey);
+        if ($cachedInfo) {
+            return $cachedInfo;
         }
         $dbh = DB::getInstance();
         $query = 'SELECT * FROM `info-site`';

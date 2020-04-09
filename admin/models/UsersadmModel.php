@@ -3,33 +3,35 @@
 
 class UsersadmModel
 {
-    use ResponseTrait;
-    use errTrait;
+    const CECHE_KEY = 'users-panel';
     public $text;
     public $id;
     public $column;
 
     public function all()
     {
+        $siteData = InfoModel::info();
+        $expire = $siteData['cechetime'];
+        $cacheKey = self::CECHE_KEY;
+        $cachedUsers = Cache::get($cacheKey);
+        if ($cachedUsers) {
+            return $cachedUsers;
+        }
         $query = 'SELECT * FROM `users`';
         $dbh = DB::getInstance();
         $res = $dbh->query($query);
         $users = $res->fetchAll(PDO::FETCH_ASSOC);
+        Cache::set($cacheKey, $users, $expire);
         return $users;
     }
 
     public function update()
     {
-        $user = new UserModel();
-        $user = $user->getUserByLogin($login = null, $this->id);
-        if (empty($user)) {
-            $this->getResponse(['success' => false, 'err' =>
-                'Такой пользователь не существует, обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
-        }
         $query = 'UPDATE `users` SET `' . $this->column . '`=:text WHERE `id` = :id LIMIT 1';
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id, ':text' => $this->text]);
+        Cache::forget(self::CECHE_KEY);//очистить кеш
         return (bool)$res->rowCount();
     }
 
@@ -39,6 +41,7 @@ class UsersadmModel
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id]);
+        Cache::forget(self::CECHE_KEY);//очистить кеш
         return (bool)$res->rowCount();
     }
 

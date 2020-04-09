@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-01 13:14:05
+/* Smarty version 3.1.34-dev-7, created on 2020-04-09 22:49:54
   from 'D:\php\domains\mvc-site-ikeya\views\admin\layout.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e84696d258e62_31744510',
+  'unifunc' => 'content_5e8f7c62c09623_10960380',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '44f9d9b67034f4c8e87634327d5f8a9f7870b6ea' => 
     array (
       0 => 'D:\\php\\domains\\mvc-site-ikeya\\views\\admin\\layout.tpl',
-      1 => 1585736028,
+      1 => 1586356145,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'file:admin/modal/system.tpl' => 1,
     'file:admin/modal/remove.tpl' => 1,
+    'file:admin/modal/menu-add.tpl' => 1,
   ),
 ),false)) {
-function content_5e84696d258e62_31744510 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8f7c62c09623_10960380 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -40,14 +41,11 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"><?php echo '</script'; ?>
 >
     <title><?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9830483555e84696d252af0_54905204', 'title');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18095917555e8f7c62c02065_28075111', 'title');
 ?>
 </title>
 </head>
 <body>
-<?php $_smarty_tpl->_subTemplateRender("file:admin/modal/system.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-$_smarty_tpl->_subTemplateRender("file:admin/modal/remove.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/info-adm"><img src="/public/pic/res/cogs.png" style="height: 35px; width: auto">
         Админ панель</a>
@@ -79,11 +77,15 @@ $_smarty_tpl->_subTemplateRender("file:admin/modal/remove.tpl", $_smarty_tpl->ca
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Товары
+                <a class="nav-link" href="/menu-adm">Меню
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Категории
+                <a class="nav-link" href="/categories-adm">Категории
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/articles-adm">Статьи
                 </a>
             </li>
         </ul>
@@ -112,12 +114,16 @@ $_smarty_tpl->_subTemplateRender("file:admin/modal/remove.tpl", $_smarty_tpl->ca
     </div>
 </nav>
 <div class="container-fluid">
-
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10427747995e84696d258671_95341320', 'body');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2322290225e8f7c62c04430_32933235', 'body');
 ?>
 
-
+    <?php $_smarty_tpl->_subTemplateRender("file:admin/modal/system.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    <?php $_smarty_tpl->_subTemplateRender("file:admin/modal/remove.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    <?php $_smarty_tpl->_subTemplateRender("file:admin/modal/menu-add.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </div>
 
 <?php echo '<script'; ?>
@@ -133,7 +139,9 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10427747995e84696d
 <?php echo '<script'; ?>
  src="/public/js/esc.js"><?php echo '</script'; ?>
 >
-
+<?php echo '<script'; ?>
+ src="/public/js/removed.js"><?php echo '</script'; ?>
+>
 <?php echo '<script'; ?>
  src="/public/js/cache-control.js"><?php echo '</script'; ?>
 >
@@ -142,12 +150,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10427747995e84696d
 ></body>
 </html><?php }
 /* {block 'title'} */
-class Block_9830483555e84696d252af0_54905204 extends Smarty_Internal_Block
+class Block_18095917555e8f7c62c02065_28075111 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'title' => 
   array (
-    0 => 'Block_9830483555e84696d252af0_54905204',
+    0 => 'Block_18095917555e8f7c62c02065_28075111',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -155,12 +163,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'title'} */
 /* {block 'body'} */
-class Block_10427747995e84696d258671_95341320 extends Smarty_Internal_Block
+class Block_2322290225e8f7c62c04430_32933235 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_10427747995e84696d258671_95341320',
+    0 => 'Block_2322290225e8f7c62c04430_32933235',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

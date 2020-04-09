@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-01 13:14:05
+/* Smarty version 3.1.34-dev-7, created on 2020-04-09 22:49:54
   from 'D:\php\domains\mvc-site-ikeya\views\admin\users.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e84696d2415e8_81925420',
+  'unifunc' => 'content_5e8f7c62bf24c4_53557782',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5638d4696039416bcf60aff916ecbe52bdef191e' => 
     array (
       0 => 'D:\\php\\domains\\mvc-site-ikeya\\views\\admin\\users.tpl',
-      1 => 1585736042,
+      1 => 1586260143,
       2 => 'file',
     ),
   ),
@@ -20,17 +20,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e84696d2415e8_81925420 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8f7c62bf24c4_53557782 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3429356905e84696d1de330_04797657', 'title');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20736134705e8f7c62bddd29_53422364', 'title');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14655530795e84696d1df131_52784730', 'body');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18994585245e8f7c62bde899_07655531', 'body');
 ?>
 
 
@@ -38,27 +38,27 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14655530795e84696d
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "admin/layout.tpl");
 }
 /* {block 'title'} */
-class Block_3429356905e84696d1de330_04797657 extends Smarty_Internal_Block
+class Block_20736134705e8f7c62bddd29_53422364 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'title' => 
   array (
-    0 => 'Block_3429356905e84696d1de330_04797657',
+    0 => 'Block_20736134705e8f7c62bddd29_53422364',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
-Админ панель <?php
+Пользователи - Админ панель <?php
 }
 }
 /* {/block 'title'} */
 /* {block 'body'} */
-class Block_14655530795e84696d1df131_52784730 extends Smarty_Internal_Block
+class Block_18994585245e8f7c62bde899_07655531 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_14655530795e84696d1df131_52784730',
+    0 => 'Block_18994585245e8f7c62bde899_07655531',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -79,7 +79,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <th scope="col">@mail</th>
                         <th scope="col">Логин</th>
                         <th scope="col">Роль</th>
-                        <th scope="col">#</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -110,7 +110,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['User']->value) {
                                 <td class="align-middle text-black-50"><?php echo $_smarty_tpl->tpl_vars['User']->value['role'];?>
 </td>
                                 <td class="align-middle">
-                                    <button class="btn badge-secondary btn-sm" onclick="#" disabled><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-linc btn-sm text-secondary" onclick="#" disabled><i class="far fa-trash-alt"></i>  Удалить</button>
                                 </td>
                             <?php } else { ?>
                                 <td id="login-<?php echo $_smarty_tpl->tpl_vars['User']->value['id'];?>
@@ -120,9 +120,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['User']->value) {
 " class="align-middle"><?php echo $_smarty_tpl->tpl_vars['User']->value['role'];?>
 </td>
                                 <td class="align-middle">
-                                    <button class="btn badge-danger btn-sm" onclick="removedStart('<?php echo $_smarty_tpl->tpl_vars['User']->value['id'];?>
+                                    <button class="btn btn-linc btn-sm text-danger" onclick="removedStart('<?php echo $_smarty_tpl->tpl_vars['User']->value['id'];?>
 ','<?php echo $_smarty_tpl->tpl_vars['User']->value['login'];?>
-')"><i class="far fa-trash-alt"></i></button>
+','users')"><i class="far fa-trash-alt"></i> Удалить</button>
                                 </td>
                             <?php }?>
                         </tr>
@@ -137,9 +137,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </section>
     <?php echo '<script'; ?>
  src="/public/js/users.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="/public/js/enter.js"><?php echo '</script'; ?>
 >
 <?php
 }
