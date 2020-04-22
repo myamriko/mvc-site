@@ -45,12 +45,19 @@ class Cache
 
     public static function forget($key)
     {
-        $fileName = self::CACHE_DATA . $key . ".json";
-        if (!file_exists($fileName)) {
-            return false;
+        $cache = scandir(self::CACHE_DATA);
+        foreach ($cache as $item => $value) {
+            if ($value != '.' && $value != '..') {
+                $fileName = strstr($value, $key);
+                if ($fileName != '') {
+                    $fileName = self::CACHE_DATA . $fileName;
+                    if (!file_exists($fileName)) {
+                        return false;
+                    }
+                    unlink($fileName);
+                }
+            }
         }
-        unlink($fileName);
-        return false;
 
     }
 

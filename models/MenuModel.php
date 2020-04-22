@@ -3,7 +3,7 @@
 
 class MenuModel
 {
-    const CECHE_KEY = 'menu-site';
+    const CACHE_KEY = 'menu-site';
     public $menuName;
 
     /**
@@ -14,12 +14,12 @@ class MenuModel
     {
         $siteData = InfoModel::info();
         $expire = $siteData['cechetime'];
-        $cacheKey = self::CECHE_KEY.'-'.$this->menuName;
+        $cacheKey = self::CACHE_KEY.'-'.$this->menuName;
         $cachedData = Cache::get($cacheKey);
         if ($cachedData) {
             return $cachedData;
         }
-        $query = 'SELECT * FROM `menu` WHERE `menu_name` = :menuName';
+        $query = 'SELECT * FROM `menu` WHERE `menu_name` = :menuName  ORDER BY `id` DESC';
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':menuName' => $this->menuName]);

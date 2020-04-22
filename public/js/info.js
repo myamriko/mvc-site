@@ -21,6 +21,16 @@ $(".edit").on("dblclick", function () {
     }
 })
 
+$(document).ready(function () {// отловим нажатие на энтер
+    $(".edit").keyup(function (event) {
+        var id = $(this).attr('id');// определяем id активного элемента
+        var key = event.which;// определяем нажатую клавишу
+        if (key === 13 && id !== 'ico' && id !== 'logo'){
+            endUpdate(id);
+        };
+    });
+});
+
 function endUpdate(id) {
     var text = $('#new_' + id).val().trim().replace(/<[^>]+>/g, '');
     if (id === 'sitemail' && text.indexOf('@') <= 0 ||id === 'sitemail'&& text.indexOf('.') <= 0 || id === 'adminmail' && text.indexOf('@') <= 0 || id === 'adminmail' && text.indexOf('.') <= 0) {
@@ -33,7 +43,7 @@ function endUpdate(id) {
         return;
     }
 
-    $.post('/infoadm/update', {text: text, column: id}, function (res) {
+    $.post('/info-adm/update', {text: text, column: id}, function (res) {
         if (!res[0].success) {
             var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
             $('#systeminfo').html(html);
@@ -51,7 +61,7 @@ function endUpdate(id) {
 
 $('#cechetime').change(function () {// изменяет значение select при клике
     var text = $('#cechetime').val();
-    $.post('/infoadm/update', {text: text, column: 'cechetime'}, function (res) {
+    $.post('/info-adm/update', {text: text, column: 'cechetime'}, function (res) {
         if (!res[0].success) {
             var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
             $('#systeminfo').html(html);
@@ -65,7 +75,7 @@ $('#cechetime').change(function () {// изменяет значение select 
 
 $("#social").change(function () {// изменяет значение select при клике
     var text = $('#social').val();
-    $.post('/infoadm/update', {text: text, column: 'social'}, function (res) {
+    $.post('/info-adm/update', {text: text, column: 'social'}, function (res) {
         console.log(res[0].success)
         if (!res[0].success) {
             var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
@@ -84,7 +94,7 @@ function endPicUpdate(id) {
     data.append('file', img);
     data.append('column', id);
     $.ajax({
-        url: '/infoadm/update',
+        url: '/info-adm/update',
         type: 'POST',
         cache: false,
         processData: false,
@@ -108,4 +118,6 @@ function endPicUpdate(id) {
         }
     });
 }
+
+
 

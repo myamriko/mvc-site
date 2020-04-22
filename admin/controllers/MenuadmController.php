@@ -6,13 +6,28 @@ class MenuadmController implements Controller
 {
     use ResponseTrait;
     use errTrait;
+    use ExtraTrait;
+    const TABLE_NAME = 'menu-name';
+    const PAGE_NAME = 'menu-adm/index';
 
     public function index()
     {
         global $smarty;
+        $pageName = self::PAGE_NAME; //для пагинации
+        $siteData = InfoModel::info();//info сайта
+        $menuLimit = $siteData['pageLimitMenuPanel'];// колво статей на странице
+        $tableName = self::TABLE_NAME;
+        $data = $this->pagination($pageName,$menuLimit,$tableName);
         $menuName = new MenuadmModel();
+        $menuName->page=$data['page'];
+        $menuName->start = $menuLimit * ($data['page'] - 1);//LIMIT start
+        $menuName->limit = $menuLimit;//LIMIT finish
         $menuNames = $menuName->menu();
+        $hint = $this->hint($menuNames,'title');
+        $smarty->assign('hint', $hint);
         $smarty->assign('menuNames', $menuNames);
+        $smarty->assign('menuLimit',$menuLimit);
+        $smarty->assign('pagination', $data['pagination']);//пагинация
         $smarty->display('admin/menu.tpl');
     }
 
@@ -23,6 +38,8 @@ class MenuadmController implements Controller
             $title = filter_var(trim($_POST['title']), FILTER_SANITIZE_STRING);
             $description = filter_var(trim($_POST['description']), FILTER_SANITIZE_STRING);
             $enabled = filter_var(trim($_POST['enabled']), FILTER_SANITIZE_STRING);
+            $menuName= new Translite();
+            $menu_name = $menuName->cyrillic($menu_name);
             $err = $this->getErrMenu($menu_name, $title, $description);
             if ($err) {
                 $this->getResponse(['success' => false, 'err' => $err]);
@@ -33,14 +50,13 @@ class MenuadmController implements Controller
             $menuAdd->description = $description;
             $menuAdd->enabled = $enabled;
             $menuAdd = $menuAdd->add();
-            $this->getResponse(['success' => $menuAdd, 'err' => 'Не удалось внести новое меню в БД.']);
+            $this->getResponse(['success' => $menuAdd, 'err' => 'Не удалось внести новое меню в БД.', 'menu_name'=>$menu_name]);
         }
         $this->getResponse(['success' => false, 'err' => 'Пустой пост запрос']);
     }
 
     public function update()
     {
-        // $this->getResponse(['success' => false, 'err' => $_POST['text']]);
         if (!empty($_POST['id']) && !empty($_POST['text'])) {
             $arrId = explode('-', $_POST['id']);
             $column = array_shift($arrId);
@@ -60,18 +76,16 @@ class MenuadmController implements Controller
                     }
                     break;
             }
-            $menuExist = new MenuadmModel();
-            $menuExist->id = $id;
-            $menuExist = $menuExist->getMenu();
+            $menu = new MenuadmModel();
+            $menu->id = $id;
+            $menuExist = $menu->getMenu();
             if (!$menuExist) {
                 $this->getResponse(['success' => false, 'err' => 'Такое меню не существует, пожалуйста очистьте кеш, обновите страницу и 
             повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
             }
-            $menuUpdate = new MenuadmModel();
-            $menuUpdate->id = $id;
-            $menuUpdate->column = $column;
-            $menuUpdate->text = $text;
-            $menuUpdate = $menuUpdate->update();
+            $menu->column = $column;
+            $menu->text = $text;
+            $menuUpdate = $menu->update();
             $this->getResponse(['success' => $menuUpdate, 'err' => 'Изменения не были внесены.']);
         }
         $this->getResponse(['success' => false, 'err' => 'Изменения не были внесены.']);
@@ -81,9 +95,9 @@ class MenuadmController implements Controller
     {
         $id = filter_var(trim($_POST['id']), FILTER_SANITIZE_STRING);
         if (!empty($id)) {
-            $menuExist = new MenuadmModel();//проверим наличие меню и его отображение ВКЛ/ВЫКЛ
-            $menuExist->id = $id;
-            $menuExist = $menuExist->getMenu();
+            $menu = new MenuadmModel();//проверим наличие меню и его отображение ВКЛ/ВЫКЛ
+            $menu->id = $id;
+            $menuExist = $menu->getMenu();
             switch (true) {
                 case !$menuExist:
                     $this->getResponse(['success' => false, 'err' => 'Такое меню не существует, пожалуйста очистьте кеш, обновите страницу и 
@@ -106,9 +120,8 @@ class MenuadmController implements Controller
                  пожалуйста обновите страничку и повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта.']);
                 }
             }
-            $removedMenu = new MenuadmModel();
-            $removedMenu->id = $id;
-            $removedMenu = $removedMenu->removed();
+            $menu->id = $id;
+            $removedMenu = $menu->removed();
             $this->getResponse(['success' => $removedMenu, 'err' => 'Не удалось удалить меню, пожалуйста очистьте кеш, пожалуйста обновите 
             страничку и повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта.']);
         }

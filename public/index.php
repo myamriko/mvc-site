@@ -38,8 +38,7 @@ Session::start();
 $urlData = ltrim($_SERVER['REQUEST_URI'], '/');
 $urlData = array_shift(explode('?', $urlData));
 $arrUrl = explode('/', $urlData);
-$arrUrl = str_replace('-', '', $arrUrl);//удалим -
-$controller = ($arrUrl == [""] || !$arrUrl) ? 'MainController' : ucfirst(array_shift($arrUrl)) . 'Controller';
+$controller = ($arrUrl == [""] || !$arrUrl) ? 'MainController' : str_replace('-', '', ucfirst(array_shift($arrUrl))) . 'Controller';
 $action = ($arrUrl == [""] || !$arrUrl) ? 'index' : array_shift($arrUrl);
 $param = ($arrUrl) ?: [];
 

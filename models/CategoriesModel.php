@@ -3,13 +3,13 @@
 
 class CategoriesModel
 {
-    const CECHE_KEY = 'categories-site';
+    const CACHE_KEY = 'categories-site';
 
     public function all()
     {
         $siteData = InfoModel::info();
         $expire = $siteData['cechetime'];
-        $cacheKey = self::CECHE_KEY;
+        $cacheKey = self::CACHE_KEY;
         $cachedCategories = Cache::get($cacheKey);
         if ($cachedCategories) {
             return $cachedCategories;
@@ -21,4 +21,6 @@ class CategoriesModel
         Cache::set($cacheKey, $categories, $expire);
         return $categories;
     }
+
+
 }

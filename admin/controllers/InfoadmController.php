@@ -26,10 +26,14 @@ class InfoadmController implements Controller
         if (!empty($_FILES)) {
             $uploads_dir = '../public/pic/res'; //дериктория куда сохраняем
             $oldIcoDir = $uploads_dir . '/' . $siteData[$_POST['column']];
+            $err = $this->getErrImg();
+            if ($err) {
+                $this->getResponse(['success' => false, 'err' => $err, 'name_pic_old' => $siteData[$_POST['column']]]);
+            }
+            $name_pic=$this->uploadPic($uploads_dir);//трейт загрузки
             if (file_exists($oldIcoDir)) {
                 unlink($oldIcoDir);//удаляем старый фаил
             }
-            $name_pic=$this->uploadPic($uploads_dir);//трейт загрузки
             $info = new InfoadmModel();
             $info->text = $name_pic;
             $info->column = $_POST['column'];
@@ -38,6 +42,7 @@ class InfoadmController implements Controller
         }
         if (!empty($text = $_POST['text'])) {
             $info = new InfoadmModel();
+            $info->cacheName=$_POST['cacheName'];
             $info->text = filter_var(trim($text), FILTER_SANITIZE_STRING);
             $info->column = $_POST['column'];
             $info = $info->update();

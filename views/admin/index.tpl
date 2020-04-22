@@ -50,6 +50,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>Кол-во статей на стр:</h4>
+                            <div id="pagelimit" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['pagelimit']}</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-12 mt-3">
                         <div class="form-group row">
                             <h4>Кеш в секундах:</h4>

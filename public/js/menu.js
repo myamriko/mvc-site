@@ -1,3 +1,8 @@
+function call_menu(){
+    $('.menuName').show();
+    $('.link').hide();
+    $('#menu-add').modal('show');
+}
 /*при нажатии на элемент определяем id*/
 $("td").on("dblclick", function () {
     var id = $(this).attr("id");
@@ -42,7 +47,7 @@ $("td").on("dblclick", function () {
                 break;
             default :
                 var oldHtml = $('#' + id).html().trim();
-                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm' style='width: 150px' type='text' value='" + text + "' >" +
+                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm' style='width: 200px' type='text' value='" + text + "' >" +
                     "<button id='update_sitemail' type='button' class='btn badge-success btn-sm ml-2' onclick='updateMenu(\"" + id + "\")'><i class='far fa-save'></i></button></div>";
                 $('#' + id).html(html);
                 $('#new_' + id).select();//выделить текст в input
@@ -96,12 +101,13 @@ function add_menu() {
             $('#menu_err').fadeIn().show();
             return;
         }
+        $('#empty').html('');
         var html = '<tr id="' + res[0].success + '" style="color: #a80000; font-weight: bold;">\n' + //id передаем как res[0].success
-            '                            <td class="align-middle">' + res[0].success + '</td>\n' +
-            '                            <td class="align-middle">' + menu_name + '</td>\n' +
-            '                            <td class="align-middle">' + title + '</td>\n' +
-            '                            <td class="align-middle">' + description + '</td>\n' +
-            '                            <td class="align-middle">' + enabled + '</td>\n' +
+            '                            <td >' + res[0].success + '</td>\n' +
+            '                            <td >' + res[0].menu_name + '</td>\n' +
+            '                            <td >' + title + '</td>\n' +
+            '                            <td >' + description + '</td>\n' +
+            '                            <td >' + enabled + '</td>\n' +
             '                            <td>\n' +
             '                                <div class="btn-group dropleft">\n' +
             '                                    <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
@@ -121,3 +127,13 @@ function add_menu() {
     });
 }
 
+$(document).ready(function () {// отловим нажатие на энтер
+    $("td").keyup(function (event) {
+        var id = $(this).attr('id');// определяем id активного элемента
+        var idr = id.replace(/[0-9-]/g, '');
+        var key = event.which;// определяем нажатую клавишу
+        if (key === 13 && idr !== 'enabled'){
+            updateMenu(id);
+        };
+    });
+});

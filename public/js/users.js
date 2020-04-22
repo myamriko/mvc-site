@@ -7,7 +7,7 @@ $("td").on("dblclick", function () {
         switch (true) {
             case idr !== 'role' && idr !== 'avatar':
                 var oldHtml = $('#' + id).html().trim();
-                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm' style='width: 150px' type='text' value='" + text + "' >" +
+                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm' style='width: 200px' type='text' value='" + text + "' >" +
                     "<button id='update_sitemail' type='button' class='btn badge-success btn-sm ml-2' onclick='updateUser(\"" + id + "\")'><i class='far fa-save'></i></button></div>";
 
                 $('#' + id).html(html);
@@ -118,4 +118,15 @@ function updateUser(id) {
     });
 
 }
+
+$(document).ready(function () {// отловим нажатие на энтер
+    $("td").keyup(function (event) {
+        var id = $(this).attr('id');// определяем id активного элемента
+        var idr = id.replace(/[0-9-]/g, '');
+        var key = event.which;// определяем нажатую клавишу
+        if (key === 13 && idr !== 'avatar' && idr !== 'role'){
+            updateUser(id);
+        };
+    });
+});
 

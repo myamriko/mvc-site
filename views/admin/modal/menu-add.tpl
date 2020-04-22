@@ -10,20 +10,20 @@
             </div>
             <div class="modal-body">
                 <div class="form-group row">
-                    {if ($menuName)}
-                        <label for="menu_name" class="col-sm-3 col-form-label mt-3">Админ название:</label>
+
+                        <label for="menu_name" class="menuName col-sm-3 col-form-label mt-3" style="display: none;">Админ название:</label>
                         <div class="col-sm-9 mt-3">
-                            <input type="text" class="form-control" id="menu_name" placeholder="Техническое название *">
+                            <input type="text" class="menuName form-control" id="menu_name" style="display: none;" placeholder="Техническое название *">
                         </div>
-                        <div class="d-flex justify-content-end">
+                        <div class="menuName d-flex justify-content-end" style="display: none;">
                             <div class="col-sm-9 mt-2">
-                                <div class="p-2 alert alert-info hidden-xs hidden-sm" role="alert">* Сдужит для
+                                <div class="menuName p-2 alert alert-info hidden-xs hidden-sm" role="alert"  style="display: none;">* Сдужит для
                                     идентификации меню системой, может содержать только латинские буквы, цифры и символ
                                     "_".
                                 </div>
                             </div>
                         </div>
-                    {/if}
+
                     <label for="title" class="col-sm-3 col-form-label">Название:</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="title" placeholder="Название">
@@ -32,12 +32,12 @@
                     <div class="col-sm-9 mt-3">
                         <input type="text" class="form-control" id="description" placeholder="Описание">
                     </div>
-                    {if (!$menuName)}
-                        <label for="url" class="col-sm-3 col-form-label mt-3">URL:</label>
-                        <div class="col-sm-9 mt-3">
-                            <input type="text" class="form-control" id="url" placeholder="URL ссылки">
+
+                        <label for="url" class="link col-sm-3 col-form-label mt-3">URL:</label>
+                        <div class="col-sm-9 mt-3 link">
+                            <input type="text" class="link form-control" id="url" placeholder="URL ссылки">
                         </div>
-                    {/if}
+
                     <label for="enabled" class="col-sm-3 col-form-label mt-3">Отображение:</label>
                     <div class="col-sm-9 mt-3">
                         <select name="enabled" id="enabled" class="form-control">
@@ -54,7 +54,12 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
                 <button type="button"
-                        class="btn btn-primary" {if ($menuName)} onclick="add_menu()"{else}onclick ="add_link('{$param}')"{/if}>
+                        class="menuName btn btn-primary " style="display: none;" onclick="add_menu()">
+                    Добавить
+                </button>
+                <button type="button"
+                        class="link btn btn-primary"
+                        {if ($param)}onclick ="add_link('{$param}')"{else}onclick="add_category()"{/if}>
                     Добавить
                 </button>
             </div>

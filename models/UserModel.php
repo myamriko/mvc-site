@@ -9,6 +9,7 @@ class UserModel
     public $userName;
     public $mail;
 
+
     public function registrUser()
     {
         $login = $this->login;

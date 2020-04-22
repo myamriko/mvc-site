@@ -3,8 +3,7 @@
 
 class LinkadmModel
 {
-    use ResponseTrait;
-    const CECHE_KEY = 'menu-site';
+    const CACHE_KEY = 'menu-site';
     public $id;
     public $menu_name;
     public $title;
@@ -20,7 +19,7 @@ class LinkadmModel
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':menu_name' => $this->menu_name, ':title' => $this->title, ':description' => $this->description, ':url' => $this->url, ':enabled' => $this->enabled]);
-        Cache::forget(self::CECHE_KEY . '-' . $this->menu_name);//очистить кеш
+        Cache::forget(self::CACHE_KEY . '-' . $this->menu_name);//очистить кеш
         return $dbh->lastInsertId();
     }
 
@@ -30,7 +29,7 @@ class LinkadmModel
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id, ':text' => $this->text]);
-        Cache::forget(self::CECHE_KEY . '-' . $this->menu_name);//очистить кеш
+        Cache::forget(self::CACHE_KEY . '-' . $this->menu_name);//очистить кеш
         return (bool)$res->rowCount();
     }
 
@@ -40,7 +39,7 @@ class LinkadmModel
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id]);
-        Cache::forget(self::CECHE_KEY . '-' . $this->menu_name);//очистить кеш
+        Cache::forget(self::CACHE_KEY . '-' . $this->menu_name);//очистить кеш
         return (bool)$res->rowCount();
 
     }
@@ -66,7 +65,7 @@ class LinkadmModel
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([$menuName]);
-        Cache::forget(self::CECHE_KEY . '-' . $menuName);//очистить кеш
+        Cache::forget(self::CACHE_KEY . '-' . $menuName);//очистить кеш
         return (bool)$res->rowCount();
     }
 

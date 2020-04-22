@@ -6,6 +6,7 @@ class LinkadmController implements Controller
 {
     use ResponseTrait;
     use errTrait;
+    use ExtraTrait;
 
 
     /**
@@ -17,16 +18,16 @@ class LinkadmController implements Controller
         global $smarty;
         global $param;
         if (!empty($param[0])) {
-            $menuEdits = new MenuModel();
-            $menuEdits->menuName = trim(strip_tags($param[0]));
-            $menuEdits = $menuEdits->menu();
-            if (!$menuEdits) {
-                $empty = '<span class="blockquote">В этом меню еще нет ссылок.</span>';
-                $smarty->assign('empty', $empty);
-            }
+            $menuEdit = new MenuModel();
+            $menuName = trim(strip_tags($param[0]));
+            $menuEdit->menuName = $menuName;
+            $menuEdits = $menuEdit->menu();
+            $hint = $this->hint($menuEdits,'title');
+            $smarty->assign('hint', $hint);
             $smarty->assign('param', $param[0]);
             $smarty->assign('menuEdits', $menuEdits);
             $smarty->display('admin/menu-link.tpl');
+
             return;
         }
         $empty = '<span class="blockquote">Получен пустой параметр</span>';
@@ -60,7 +61,6 @@ class LinkadmController implements Controller
 
         }
         $this->getResponse(['success' => false, 'err' => 'Пустой пост запрос']);
-
     }
 
     public function update()
@@ -69,44 +69,19 @@ class LinkadmController implements Controller
             $arrId = explode('-', $_POST['id']);
             $column = array_shift($arrId);
             $id = array_shift($arrId);
-            $linkExist = new LinkadmModel();
-            $linkExist->id = $id;
-            $linkExist = $linkExist->getLink();
+            $link = new LinkadmModel();
+            $link->id = $id;
+            $linkExist = $link->getLink();
             if (!$linkExist) {
                 $this->getResponse(['success' => false, 'err' => 'Такая ссылка не существует, пожалуйста очистьте кеш, обновите страницу и 
             повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
             }
             $text = filter_var(trim($_POST['text']), FILTER_SANITIZE_STRING);
-
-            switch (true) {
-                case $column === 'title':
-                    $err = $this->getErrMenu($menu_name = null, $text, $description = null, $url = null);
-                    if ($err) {
-                        $this->getResponse(['success' => false, 'err' => $err]);
-                    }
-                    break;
-                case $column === 'description':
-                    $err = $this->getErrMenu($menu_name = null, $title = null, $text, $url = null);
-                    if ($err) {
-                        $this->getResponse(['success' => false, 'err' => $err]);
-                    }
-                    break;
-                case $column === 'url':
-                    $url=new Translite();
-                    $text=$url->cyrillic($text);
-                    $url=$text;
-                    $err = $this->getErrMenu($menu_name = null, $title = null, $description = null, $text);
-                    if ($err) {
-                        $this->getResponse(['success' => false, 'err' => $err]);
-                    }
-                    break;
-            }
-            $linkUpdate = new LinkadmModel();
-            $linkUpdate->menu_name=$linkExist[0]['menu_name'];
-            $linkUpdate->id = $id;
-            $linkUpdate->column = $column;
-            $linkUpdate->text = $text;
-            $linkUpdate = $linkUpdate->update();
+            $url=$this->getErrUpdate($column,$text);
+            $link->menu_name=$linkExist[0]['menu_name'];
+            $link->column = $column;
+            $link->text = $text;
+            $linkUpdate = $link->update();
             $this->getResponse(['success' => $linkUpdate, 'err' => 'Изменения не были внесены.', 'url' => $url]);
         }
         $this->getResponse(['success' => false, 'err' => 'Изменения не были внесены.']);

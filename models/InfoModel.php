@@ -5,7 +5,7 @@ final class InfoModel
 {
     use ResponseTrait;
     private static $res;
-    const CECHE_KEY = 'info-site';
+    const CACHE_KEY = 'info-site';
     private $cechetime;
 
     /**
@@ -14,7 +14,7 @@ final class InfoModel
      */
     public static function info()
     {
-        $cacheKey = self::CECHE_KEY;
+        $cacheKey = self::CACHE_KEY;
         $cachedInfo = Cache::get($cacheKey);
         if ($cachedInfo) {
             return $cachedInfo;

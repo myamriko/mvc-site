@@ -7,7 +7,8 @@ class InfoadmModel
     use ResponseTrait;
     public $column;
     public $text;
-    const CECHE_KEY ='info-panel';
+    public $cacheName;
+    const CACHE_KEY ='info-site';
 
     public function update()
     {
@@ -17,7 +18,8 @@ class InfoadmModel
             $dbh= DB::getInstance();
             $res = $dbh->prepare($query);
             $res->execute([':text'=>$this->text]);
-            Cache::forget(self::CECHE_KEY);//очистить кеш
+            Cache::forget(self::CACHE_KEY);
+            Cache::forget($this->cacheName);
             return (bool)$res->rowCount();
         }
         $this->getResponse(['success'=>false,'err'=>'Не указан столбец BD']);

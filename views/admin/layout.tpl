@@ -3,17 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="icon" href="/public/pic/res/cogs.svg"/>
+   {* <link rel="icon" href="/public/pic/res/cogs.svg"/>*}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/panelthem.css">
+    <link rel="stylesheet" href="/public/css/jquery-ui.css">
     <link  type="text/html" href="/public/font-awesome/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>{block name=title}{/block}</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/info-adm"><img src="/public/pic/res/cogs.png" style="height: 35px; width: auto">
+<nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-secondary ">
+    <a class="navbar-brand  text-white" href="/info-adm"><img src="/public/pic/res/cogs.png" style="height: 35px; width: auto">
         Админ панель</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mt-2 mt-lg-0">
             <li class="nav dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="cachnavbar" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle  text-white" href="#" id="cachnavbar" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Очистить кеш
                 </a>
@@ -39,19 +40,23 @@
         </ul>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/users-adm">Пользватели
+                <a class="nav-link  text-white" href="/users-adm">Пользователи
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/menu-adm">Меню
+                <a class="nav-link  text-white" href="/menu-adm">Меню
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/categories-adm">Категории
+                <a class="nav-link  text-white" href="/categories-adm">Категории
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link  text-white" href="/tags-adm">Теги
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/articles-adm">Статьи
+                <a class="nav-link  text-white" href="/articles-adm">Статьи
                 </a>
             </li>
         </ul>
@@ -59,7 +64,7 @@
         <ul class="navbar-nav mt-2 mt-lg-0">
             {if !empty($smarty.session.user.id)}
             <li class="nav dropdown dropleft">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     {$smarty.session.user.login}<!-- из сессии берем логин -->
                 </a>
@@ -91,9 +96,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script src="/public/them-js/jquery-ui.min.js"></script>
 <script src="/public/js/esc.js"></script>
 <script src="/public/js/removed.js"></script>
 <script src="/public/js/cache-control.js"></script>
 <script src="/public/them-js/all.min.js"></script>{*иконки*}
+<script type="text/javascript">
+    var hint = [{block name=hint}{/block}];
+    var tagSearch = [{block name=tagSearch}{/block}];
+</script>
+<script src="/public/js/search.js"></script>
+<script src="/public/js/pageLimit.js"></script>
+{include file="admin/footer.tpl"}
 </body>
 </html>

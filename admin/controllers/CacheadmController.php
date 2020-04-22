@@ -10,15 +10,15 @@ class CacheadmController
     /**
      * В SMARTY изменил путь кеша на ./public/storage/templates_c/
      */
-    public function removeAll()
+    public function removeAll($cache=null,$type=null)// при изменении пагинации приходит $cache и $type
     {
-        if ($_POST['cache']) {
+        if ($_POST['cache'] || $cache) {
             switch (true) {
                 case $_POST['type'] === 'smarty':
                     $cache_dir = self::CACHE_SRMATY;
                     $info =' Кеш шаблона очищен';
                     break;
-                case $_POST['type'] === 'data':
+                case $_POST['type'] === 'data' || $type === 'data' :
                     $cache_dir = self::CACHE_DATA;
                     $info = 'Кеш данных очищен';
                     break;
