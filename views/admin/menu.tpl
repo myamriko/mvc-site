@@ -15,7 +15,7 @@
                     <input type="search" class="ml-2 form-control acInput search-panel" id="searchTitle"
                            placeholder="Сортировка:" autocomplete="on">
                     <input type="text" class="ml-2 form-control pageLimit" id="pageLimitMenuPanel"
-                           placeholder="Отображать {$menuLimit} строк" data-cache="menu-all-panel">
+                           placeholder="Отображать {$menuLimit} строк" data-cache="menu-panel">
                 </div>
                 <table class="table table-striped">
                     <thead class="thead-dark">

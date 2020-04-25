@@ -10,3 +10,5 @@ gen
 /public/storage
 /smarty
 
+
+/vendor/

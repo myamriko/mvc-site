@@ -1,19 +1,9 @@
 {
-    "name": "myamriko/mvc-site",
-    "description": "website",
+    "name": "user/mvc-site-ikeya",
     "type": "project",
-    "require-dev": {
-        "n": "n"
-    },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Oleg Khyzhniak",
-            "email": "miamriko@gmail.com"
-        }
-    ],
     "minimum-stability": "stable",
     "require": {
-      "ext-pdo": "*"
+        "phpmailer/phpmailer": "^6.1"
     }
 }

@@ -4,7 +4,7 @@
 class MenuadmModel
 {
     use ResponseTrait;
-    const CACHE_KEY = 'menu-all-panel';
+    const CACHE_KEY = 'menu';
     public $id;
     public $menu_name;
     public $title;
@@ -20,7 +20,7 @@ class MenuadmModel
     {
         $siteData = InfoModel::info();
         $expire = $siteData['cechetime'];
-        $cacheKey = self::CACHE_KEY.'-'.$this->page;
+        $cacheKey = self::CACHE_KEY.'-panel'.'-'.$this->page;
         $cachedData = Cache::get($cacheKey);
         if ($cachedData) {
             return $cachedData;

@@ -86,13 +86,17 @@ a:hover {
 
 body {
 
-    font-family: "Roboto", sans-serif;
+   font-family: "Rockwell", sans-serif;
+    font-size: 1.63em;
+    line-height: 1.444em;
+    color: #343434;
     background: #fff;
     -webkit-animation: fade-in 1s linear; /* Safari 4+ */
     -moz-animation: fade-in 1s linear; /* Fx 5+ */
     -o-animation: fade-in 1s linear; /* Opera 12+ */
     animation: fade-in 1s linear; /* IE 10+, Fx 29+ */
 }
+
 .mg {
     margin: 7rem 0 4rem 0;
 }
@@ -117,6 +121,12 @@ body {
 }
 .site-outer {
     overflow: hidden;
+
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 4px;
+    border-color: #ca9964;
 }
 .site-outer .navbar {
     background-color: #fff;
@@ -433,6 +443,9 @@ body {
         width: auto;
     }
 }
+.part-content p {
+    margin-bottom: 0; }
+
 #search input {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1253,10 +1266,7 @@ header {
 @media (max-width: 992px){
     .modal.left .modal-dialog,
     .modal.right .modal-dialog {
-
         width: 100%;
-
-
     }
 }
 
@@ -1331,4 +1341,286 @@ header {
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
+}
+
+/*------------------------------------------*/
+/*contact page */
+/*-----------------------------------------*/
+
+/*google-map*/
+.google-map-container {
+    margin-top: 65px;
+    height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+.google-map{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(229, 227, 223);
+}
+.contactpage_details {
+    top: -115px;
+    z-index: 0;
+    padding: 60px 0px;
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #e4e4e4; }
+.contactpage_details .col-md-4:last-child .contact_d_icontext:after {
+    display: none;
+}
+.contact_d_icontext {
+    position: relative; }
+.contact_d_icontext .con_icon {
+    line-height: 1;
+    margin-bottom: 40px;
+    display: inline-block; }
+.contact_d_icontext .con_icon i {
+    font-size: 100px !important;
+    color: #b89b5e !important;}
+.contact_d_icontext .con_icon span {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    right: -15px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+    display: inline-block;
+    -webkit-box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.1); }
+.contact_d_icontext .con_text {
+    z-index: 1; }
+.contact_d_icontext .con_text h4 {
+    font-size: 30px;
+    padding-bottom: 20px; }
+.contact_d_icontext .con_text span {
+    font-size: 18px;
+    max-width: 205px;
+    margin: 0 auto;
+    display: inline-block; }
+.contact_d_icontext .con_bg {
+    line-height: 1;
+    bottom: -50px;
+    z-index: -1;
+    opacity: 0;
+    left: 40px;
+    position: absolute;
+    -webkit-transition: .5s all ease-in-out;
+    -o-transition: .5s all ease-in-out;
+    transition: .5s all ease-in-out; }
+.contact_d_icontext .con_bg i {
+    font-size: 180px;
+    color: #f7f0e2; }
+.contact_d_icontext:hover .con_bg {
+    opacity: 1;
+    left: 10px; }
+.contact_d_icontext:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    top: 0;
+    right: 0;
+    background-color: #e4e4e4; }
+.section_title_area p {
+    font-weight: 700;
+    color: #b89b5e;
+    letter-spacing: 3px;
+    padding-bottom: 10px;
+    text-transform: uppercase; }
+
+.section_title_area h2 {
+    font-size: 60px;
+    font-weight: 600; }
+
+.widget_title {
+    color: #fff;
+    font-size: 30px; }
+.widget_title span:before {
+    top: 20px; }
+.widget_title span:after {
+    top: 15px; }
+
+.estimate_contact_section {
+    padding-bottom: 120px; }
+
+.relative-position {
+    position: relative; }
+
+@media screen and (max-width: 991px) {
+    .contact_d_icontext {
+        margin-bottom: 30px;
+    }
+    .contact_d_icontext:after {
+
+        background-color: transparent; }
+}
+
+@media screen and (max-width: 580px) {
+    .contact_d_icontext .con_text h4 {
+        font-size: 24px; }
+}
+@media screen and (max-width: 420px){
+    .estimate_form {
+        margin-top: 20px; }
+    .estimate_form .contact-info input,
+    .faq_form_section .faq_form_area .contact-info input,
+    .estimate_form .contact-info textarea,
+    .faq_form_section .faq_form_area .contact-info textarea {
+        padding-left: 40px; }
+    .estimate_form .contact-info .icon-bg,
+    .faq_form_section .faq_form_area .contact-info .icon-bg {
+        left: 15px; }
+}
+.estimate_form {
+    margin-top: 50px; }
+
+.subscribe_content .testimonial_imgname .testi_text h3, .testimonial_two_Section .testimonial_item_content .testimonial_meta h4, .testimonial_style_three .testimonial_slide_item_three .testi_text h3, .blog_img_text .blog_text h3, .blog_img_text .blog_meta .author_meta .author_name, .news_post_item .news_text_area h3, .about_widget .ab_widget_text h3, .single_widget .latest-blog-widget .blog-text h3, .blog_details_text h2, .blog_details_text h3, .blog_details_text h4, .blog_details_extra_text .share_tag h3, .blog_details_extra_text .next_prev_post a h3, .blog_details_extra_text .related_postview h3, .blog_details_extra_text .related_postview .postitem_text h3, .blog_details_extra_text .postby_author h3, .blog_comment_box h3, .blog_comment_box .comment_content h4, .case_details_quoute .testi_text h3, .feature_section .revenue_ammount, .how_work_img_serial .how_work_serial, .how_work_text h4, .rex_video_section .video_play_area .video_text h4, .contact_d_icontext .con_text h4, .breadcrumb_section .breadcrumb_title, .footer_section .latest-blog-widget .blog-text h4, .footer_section_2 .background_waterprint h2 {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Poppins"; }
+.slider_style_two .slider_contect_box .slider_btn li, .slider_style_three .slider_contect_box .slider_btn li, .call_action_two .call_action_btn li, .servicepage_btn li, .team_growth .growth_btn li, .estimate_form .sub-button button, .faq_form_section .faq_form_area .sub-button button, .header_style_two .qoute_btn, .header_style_theree .qoute_btn, .about_page_section .about_btn, .about_service_section .about_service_box .abt_service_text .subs_form .nws-button button, .about_call_action_section .about_cta_content .about_cta_btn, .service_details_content .download_cv_btn, .choose_form_area .sub-button button, .team_feature_section .team_feature_content .team_feature_btn, .subscribe_content .subscribe_form .sub-button button, .case_title_text .case_study_btn, .how_work_content .work_btn, .pricing_plan_content .pricing_text .pricing_btn, .m_get_quote a {
+    border: none;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: transparent; }
+.slider_style_two .slider_contect_box .slider_btn li, .slider_style_three .slider_contect_box .slider_btn li, .call_action_two .call_action_btn li, .servicepage_btn li, .team_growth .growth_btn li, .estimate_form .sub-button button, .faq_form_section .faq_form_area .sub-button button, .header_style_two .qoute_btn, .header_style_theree .qoute_btn a, .about_page_section .about_btn a, .about_call_action_section .about_cta_content .about_cta_btn a, .service_details_content .download_cv_btn, .choose_form_area .sub-button button, .team_feature_section .team_feature_content .team_feature_btn a, .comment_formfield .quote_form .sub-button button, .how_work_content .work_btn a, .newslatter_content .newslatter-form .nws-button button, .pricing_plan_content .pricing_text .pricing_btn a, .m_get_quote a {
+    z-index: 1;
+    position: relative; }
+.slider_style_two .slider_contect_box .slider_btn li:after, .slider_style_three .slider_contect_box .slider_btn li:after, .call_action_two .call_action_btn li:after, .servicepage_btn li:after, .team_growth .growth_btn li:after, .estimate_form .sub-button button:after, .faq_form_section .faq_form_area .sub-button button:after, .header_style_two .qoute_btn:after, .header_style_theree .qoute_btn a:after, .about_page_section .about_btn a:after, .about_call_action_section .about_cta_content .about_cta_btn a:after, .service_details_content .download_cv_btn:after, .choose_form_area .sub-button button:after, .team_feature_section .team_feature_content .team_feature_btn a:after, .comment_formfield .quote_form .sub-button button:after, .how_work_content .work_btn a:after, .newslatter_content .newslatter-form .nws-button button:after, .pricing_plan_content .pricing_text .pricing_btn a:after, .m_get_quote a:after {
+    content: '';
+    position: absolute;
+    background-color: #343434;
+    height: 0%;
+    width: 100%;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    -webkit-transition: .3s all ease-in-out;
+    -o-transition: .3s all ease-in-out;
+    transition: .3s all ease-in-out;
+    z-index: -1; }
+.slider_style_two .slider_contect_box .slider_btn li:hover:after, .slider_style_three .slider_contect_box .slider_btn li:hover:after, .call_action_two .call_action_btn li:hover:after, .servicepage_btn li:hover:after, .team_growth .growth_btn li:hover:after, .estimate_form .sub-button button:hover:after, .faq_form_section .faq_form_area .sub-button button:hover:after, .header_style_two .qoute_btn:hover:after, .header_style_theree .qoute_btn a:hover:after, .about_page_section .about_btn a:hover:after, .about_call_action_section .about_cta_content .about_cta_btn a:hover:after, .service_details_content .download_cv_btn:hover:after, .choose_form_area .sub-button button:hover:after, .team_feature_section .team_feature_content .team_feature_btn a:hover:after, .comment_formfield .quote_form .sub-button button:hover:after, .how_work_content .work_btn a:hover:after, .newslatter_content .newslatter-form .nws-button button:hover:after, .pricing_plan_content .pricing_text .pricing_btn a:hover:after, .m_get_quote a:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%; }
+
+.estimate_form .contact-info, .faq_form_section .faq_form_area .contact-info {
+    position: relative; }
+.estimate_form .contact-info input, .faq_form_section .faq_form_area .contact-info input, .estimate_form .contact-info textarea, .faq_form_section .faq_form_area .contact-info textarea {
+    width: 100%;
+    height: 70px;
+    padding-left: 85px;
+    margin-bottom: 30px;
+    border: 2px solid #e7e7e7; }
+.estimate_form .contact-info textarea, .faq_form_section .faq_form_area .contact-info textarea {
+    height: 240px;
+    padding-top: 25px; }
+.estimate_form .contact-info .icon-bg, .faq_form_section .faq_form_area .contact-info .icon-bg {
+    position: absolute;
+    top: 25px;
+    left: 40px; }
+.estimate_form .contact-info .icon-bg i, .faq_form_section .faq_form_area .contact-info .icon-bg i {
+    color: #b89b5e; }
+
+.estimate_form .sub-button, .faq_form_section .faq_form_area .sub-button {
+    text-align: center; }
+.estimate_form .sub-button button, .faq_form_section .faq_form_area .sub-button button {
+    color: #fff;
+    padding: 20px 38px 18px 40px;
+    background-color: #b89b5e;
+    margin: -2px -7px;
+}
+.choose_form_area .contact-info label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase; }
+.choose_form_area .contact-info input,
+.choose_form_area .contact-info textarea {
+    border: none;
+    width: 100%;
+    background-color: transparent; }
+.choose_form_area .contact-info input::-webkit-input-placeholder,
+.choose_form_area .contact-info textarea::-webkit-input-placeholder {
+    font-size: 24px;
+    color: #cccccc; }
+.choose_form_area .contact-info input:-ms-input-placeholder,
+.choose_form_area .contact-info textarea:-ms-input-placeholder {
+    font-size: 24px;
+    color: #cccccc; }
+.choose_form_area .contact-info input::-ms-input-placeholder,
+.choose_form_area .contact-info textarea::-ms-input-placeholder {
+    font-size: 24px;
+    color: #cccccc; }
+.choose_form_area .contact-info input::placeholder,
+.choose_form_area .contact-info textarea::placeholder {
+    font-size: 24px;
+    color: #cccccc; }
+.subscribe_content .subscribe_form .contact-info {
+    position: relative; }
+.subscribe_content .subscribe_form .contact-info input {
+    width: 100%;
+    height: 80px;
+    padding-left: 40px;
+    margin-bottom: 18px; }
+.comment_formfield .quote_form .contact-info {
+    position: relative; }
+.comment_formfield .quote_form .contact-info .icon-bg {
+    top: 20px; }
+.faq_form_section .faq_form_area .contact-info input, .faq_form_section .faq_form_area .contact-info textarea {
+    border: none;
+    -webkit-box-shadow: 0px 16px 32px 0px rgba(184, 155, 94, 0.2);
+    box-shadow: 0px 16px 32px 0px rgba(184, 155, 94, 0.2); }
+.choose_form_area .contact-info input::-webkit-input-placeholder,
+.choose_form_area .contact-info textarea::-webkit-input-placeholder {
+    font-size: 18px; }
+.subscribe_content .subscribe_form .contact-info input {
+    padding-left: 15px; }
+
+.estimate_form .contact-info input,
+.faq_form_section .faq_form_area .contact-info input,
+.estimate_form .contact-info textarea,
+.faq_form_section .faq_form_area .contact-info textarea {
+    padding-left: 40px; }
+.estimate_form .contact-info .icon-bg,
+.faq_form_section .faq_form_area .contact-info .icon-bg {
+    left: 15px; }
+.choose_form_area .contact-info .icon-bg {
+    top: 20px;
+    right: 5px; }
+.comment_formfield .quote_form .contact-info .icon-bg {
+    display: none; }
+.pera-content p {
+    margin-bottom: 0; }
+
+.btn-log {
+    color: #fff;
+    background-color: #b89b5e;
+}
+
+.google-map-content{
+    margin: 5px 5px;
+    padding: 3px 3px;
+}
+.gm-style .gm-style-iw-c {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-100%);
+    background-color: white;
+    border-radius: 5px;
+    padding: 12px;
+    box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3);
 }

@@ -23,6 +23,10 @@ class UsersController
                 $this->getResponse(['success' => false, 'err' => $err]);
             }
             $user = new UserModel();//регистрация
+            $userExist = $user->getUserByLogin($login);
+            if ($userExist) {
+                $this->getResponse(['success' => false, 'err' => ' Пользователь с логином "' . $login . '" существует.']);
+            }
             $user->login = $login;//передаем переменные
             $user->pass = $pass;
             $user->userName = $userName;

@@ -17,21 +17,17 @@
     </div>
     <div id="bg" class="bgPreloader loaderArea"></div>
 </div>
-<div  class="site-outer">
+<div id="site" class="site-outer">{*id ->site отвечает за размытие*}
     {*navBar*}
     {include file="public/include/navbar.tpl"}
     {*Content*}
-    <div class="site-inner">
-        <section id="site" class="container-fluid">
-            {block name=body}{/block}
-    </div>
-    </section>
+    {block name=body}{/block}
     {*footer*}
     {include file="public/include/footer.tpl"}
-    <!-- NAVIGATION -->
-    {include file="public/include/navigation.tpl"}
 </div>
-
+<!-- NAVIGATION -->
+{include file="public/include/navigation.tpl"}
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/public/them-js/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -40,7 +36,13 @@
 <script src="/public/js/regIog.js"></script>
 <script src="/public/them-js/all.min.js"></script>{*иконки*}
 <script src="/public/them-js/wow.min.js"></script>
-<script src="/public/them-js/them.js"></script>{*навбар*WOW*прелоадер*}
-
+<script src="/public/them-js/them.js"></script>{*навбар WOW прелоадер*}
+{*Гугл АПИ, нужен ключ платный*}
+<script src="/public/them-js/google-map-settings.js"></script>
+{*ключ для гугл апи*}
+{*AIzaSyANwMfPkr9h6v6mzrSpEfwKZbz827FhAiU
+AIzaSyB6w8j2weabWNNnmQbh4Vsi2-sd7Sqv5zM - чужой*}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6w8j2weabWNNnmQbh4Vsi2-sd7Sqv5zM&callback=initMap"
+        async defer></script>
 </body>
 </html>

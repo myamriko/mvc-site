@@ -35,7 +35,7 @@
                     {/if}
                     {foreach $menuEdits as $menuEdit}
                         <tr id="{$menuEdit['id']}">
-                            <td >{$menuEdit['id']}</td>
+                            <td id="id-{$menuEdit['id']}">{$menuEdit['id']}</td>
                             <td id="title-{$menuEdit['id']}" >{$menuEdit['title']}</td>
                             <td id="description-{$menuEdit['id']}" >{$menuEdit['description']}</td>
                             <td id="url-{$menuEdit['id']}" >{$menuEdit['url']}</td>

@@ -29,7 +29,7 @@
             <div class="modal-footer">
                 <button type="button" class=" btn btn-secondary" data-dismiss="modal"  data-toggle="modal" data-target="#register">Регистрация</button>
                 <button type="button" class=" btn btn-secondary"  data-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary" onclick="makeLogin()">Войти</button>
+                <button type="button" class="btn btn-log" onclick="makeLogin()">Войти</button>
 
             </div>
 

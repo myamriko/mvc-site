@@ -26,40 +26,12 @@
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">
-                            <h4>@mail сайта:</h4>
-                            <div id="sitemail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
-                                <span class="lead">{$sitedata['sitemail']}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                        <div class="form-group row">
-                            <h4>@mail администратора:</h4>
-                            <div id="adminmail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
-                                <span class="lead">{$sitedata['adminmail']}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                        <div class="form-group row">
-                            <h4>ID pixel FB:</h4>
-                            <div id="fbpixel" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
-                                <span class="lead">{$sitedata['fbpixel']}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                        <div class="form-group row">
                             <h4>Кол-во статей на стр:</h4>
                             <div id="pagelimit" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
                                 <span class="lead">{$sitedata['pagelimit']}</span>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-12 mt-3">
                         <div class="form-group row">
                             <h4>Кеш в секундах:</h4>
@@ -86,7 +58,62 @@
                                     день (86400 сек).</strong></div>
                         </div>
                     </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>Почта сайта:</h4>
+                            <div id="sitemail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['sitemail']}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>Отправитель:</h4>
+                            <div id="sender" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['sender']}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>Тех. почта:</h4>
+                            <div id="adminmail" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['adminmail']}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>Пароль тех. почты:</h4>
+                            <div id="pss_admin" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">**********</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>SMTP Host:</h4>
+                            <div id="smtp_host" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['smtp_host']}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>Mail port:</h4>
+                            <div id="mail_port" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['mail_port']}</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+
                 <div class="col-lg-6">
                     <div class="col-12">
                         <div class="form-group row">
@@ -106,6 +133,14 @@
                     </div>
                     <div>
                         <hr>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h4>ID pixel FB:</h4>
+                            <div id="fbpixel" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">{$sitedata['fbpixel']}</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 mt-3">
                         <div class="form-group row">

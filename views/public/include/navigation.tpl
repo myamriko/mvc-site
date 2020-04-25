@@ -16,27 +16,44 @@
         </div>
     </div>
     <div class="navigation-content">
-
-        <h3>Menu</h3>
+        {if ($menu[0]['enabled'] === 'ON')}
+            <h3>{$menu[0]['title']}</h3>
+            <ul class="navigation-menu">
+                {foreach $links as $link}
+                    {foreach $link as $value}
+                        {if ({$value['menu_name'] === $menu[0]['menu_name']})}
+                            {if ($value['enabled'] === 'ON')}
+                                <li><a href="/{$value['url']}"
+                                       {if ({$value['url']}===$controller)||({$value['url']}===''&&$controller==='main')}class="active"{/if}>{$value['title']}</a>
+                                </li>
+                            {/if}
+                        {/if}
+                    {/foreach}
+                {/foreach}
+            </ul>
+        {/if}
+        {if !empty($smarty.session.user.id)}
+        {if ($menu[1]['enabled'] === 'ON')}
+        <h3>{$menu[1]['title']}</h3>
         <ul class="navigation-menu">
-            <li><a href="/" class="active">Главная</a></li>
-            {if !empty($smarty.session.user.id) && $smarty.session.user.role !='admin'}
-                <li><a href="#"> <i class="red fa fa-circle"></i> Личный кабинет</a></li>
+            {foreach $links as $link}
+            {foreach $link as $value}
+                {if ({$value['menu_name'] === $menu[1]['menu_name']})}
+                {if ($value['enabled'] === 'ON')}
+            {if  ($smarty.session.user.role === 'admin' && {$value['title']} === 'Admin panel')}
+                <li><a href="/{$value['url']}"> <i class="orange fa fa-circle"></i> {$value['title']}</a></li>
+                {elseif ({$value['title']} !== 'Admin panel')}
+                <li><a href="/{$value['url']}"> <i class="red fa fa-circle"></i> {$value['title']}</a></li>
             {/if}
-            {if !empty($smarty.session.user.id) && $smarty.session.user.role == 'admin'}
-                <li><a href="/info-adm"> <i class="red fa fa-circle"></i> Админ панель</a></li>
-            {/if}
-            <li><a href="#"><i class="beige fa fa-circle"></i> Kitchen cabinets</a></li>
+           {* <li><a href="#"><i class="beige fa fa-circle"></i> Kitchen cabinets</a></li>
             <li><a href="#"><i class="orange fa fa-circle"></i> Counters</a></li>
-            <li><a href="#"><i class="blue fa fa-circle"></i> Other</a></li>
+            <li><a href="#"><i class="blue fa fa-circle"></i> Other</a></li>*}
+                {/if}
+                {/if}
+            {/foreach}
+            {/foreach}
         </ul>
-        <h3>More</h3>
-        <ul class="navigation-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">Collaboration</a></li>
-            <li><a href="#">Customer Service</a></li>
-        </ul>
+        {/if}
+        {/if}
     </div>
 </div>

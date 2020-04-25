@@ -3,7 +3,7 @@
 
 class UserModel
 {
-    use ResponseTrait;
+
     public $login;
     public $pass;
     public $userName;
@@ -12,20 +12,13 @@ class UserModel
 
     public function registrUser()
     {
-        $login = $this->login;
-        $userExist = $this->getUserByLogin($login);
-        if ($userExist) {
-            $this->getResponse(['success' => false, 'err' => ' Пользователь с логином ' . $this->login . ' существует.']);
-        }
         $salt = new Salt();//класс Salt
         $salt = $salt->rnd();// случайная соль
         $pass = md5($this->pass . $salt);
-        $userName = $this->userName;
-        $mail = $this->mail;
         $dbh = DB::getInstance();
-        $query = 'INSERT INTO users(login,pass,salt,username,email) VALUES (?,?,?,?,?) LIMIT 1';
+        $query = 'INSERT INTO users(login,pass,salt,username,email) VALUES (?,?,?,?,?)';
         $res = $dbh->prepare($query);
-        $res->execute([$login, $pass, $salt, $userName, $mail]);
+        $res->execute([$this->login, $pass, $salt, $this->userName, $this->mail]);
         $this->loginUser();
         return (bool)$res->rowCount();
     }

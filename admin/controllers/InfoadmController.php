@@ -42,9 +42,14 @@ class InfoadmController implements Controller
         }
         if (!empty($text = $_POST['text'])) {
             $info = new InfoadmModel();
+            $text=filter_var(trim($text), FILTER_SANITIZE_STRING);
             $info->cacheName=$_POST['cacheName'];
-            $info->text = filter_var(trim($text), FILTER_SANITIZE_STRING);
             $info->column = $_POST['column'];
+            if ($info->column === 'pss_admin'){
+                $encrypts = new Encrypt();
+                $text=$encrypts->dsCrypt($text);
+            }
+            $info->text = $text;
             $info = $info->update();
             $this->getResponse(['success' => $info, 'err' => 'Изменения не были внесены.']);
         }

@@ -21,7 +21,7 @@ class LinkadmController implements Controller
             $menuEdit = new MenuModel();
             $menuName = trim(strip_tags($param[0]));
             $menuEdit->menuName = $menuName;
-            $menuEdits = $menuEdit->menu();
+            $menuEdits = $menuEdit->link();
             $hint = $this->hint($menuEdits,'title');
             $smarty->assign('hint', $hint);
             $smarty->assign('param', $param[0]);

@@ -32,14 +32,13 @@
                     <ul class="footer-list footer-list-inline">
                         {if ({$sitedata['facebook']})}
                             <li><a href="https://www.facebook.com/{$sitedata['facebook']}"><i
-                                            class="fab fa-facebook-f"></i></a></li>
+                                            class="fa-2x fab fa-facebook-f"></i></a></li>
                         {/if}
                         {if ({$sitedata['instagram']})}
-                        <li><a href="https://www.instagram.com/{$sitedata['instagram']}"><i
-                                        class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/{$sitedata['instagram']}"><i class="fa-2x fab fa-instagram"></i>
                         {/if}
                         {if ({$sitedata['twitter']})}
-                        <li><a href="https://twitter.com/{$sitedata['twitter']}"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://twitter.com/{$sitedata['twitter']}"><i class="fa-2x fab fa-twitter"></i></a></li>
                         {/if}
                     </ul>
                 </div>

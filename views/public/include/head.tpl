@@ -4,9 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="icon" href="/public/pic/res/{$sitedata['ico']}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/all.min.css">{*fontawesome иконки*}
     <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/animate.min.css">
+    <link rel="stylesheet" href="/public/font/flaticon.css">{*иконки в контвктах*}
+    <link rel="stylesheet" href="/public/css/jquery-ui.css">
     <title>{block name=title}{$sitedata['sitename']}{/block}</title>
     <!-- Facebook Pixel Code -->
     {literal}

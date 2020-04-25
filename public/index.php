@@ -1,6 +1,7 @@
 <?php
 require_once('../smarty/libs/Smarty.class.php');
 require_once('../interfaces/ControllerInterface.php');
+require_once ('../vendor/autoload.php');
 
 spl_autoload_register(function ($class) {
     $patch = '../%s/' . $class . '.php';
