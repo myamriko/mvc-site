@@ -1,4 +1,4 @@
-<div class="modal fade" id="menu-add" tabindex="-1" role="dialog" aria-labelledby="menu-addModalLongTitle"
+<div class="modal" id="menu-add" tabindex="-1" role="dialog" aria-labelledby="menu-addModalLongTitle"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -16,8 +16,8 @@
                             <input type="text" class="menuName form-control" id="menu_name" style="display: none;" placeholder="Техническое название *">
                         </div>
                         <div class="menuName d-flex justify-content-end" style="display: none;">
-                            <div class="col-sm-9 mt-2">
-                                <div class="menuName p-2 alert alert-info hidden-xs hidden-sm" role="alert"  style="display: none;">* Сдужит для
+                            <div class="col-sm-9 ml-2 mt-2">
+                                <div class="menuName px-4 alert alert-info hidden-xs hidden-sm" role="alert"  style="display: none;">* Сдужит для
                                     идентификации меню системой, может содержать только латинские буквы, цифры и символ
                                     "_".
                                 </div>

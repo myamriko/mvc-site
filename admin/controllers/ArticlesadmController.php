@@ -18,8 +18,9 @@ class ArticlesadmController implements Controller
         global $smarty;
 
         $pageName = self::PAGE_NAME; //для пагинации
-        $siteData = InfoModel::info();//info сайта
-        $articleLimit = $siteData['pageLimitArticlePanel'];// колво статей на странице
+        $pageLimit = new PageadmModel();//лимит на страние
+        $articleLimit=$pageLimit->pageLimit();
+        $articleLimit = $articleLimit['pageLimitArticlePanel'];// колво ссылок на странице
         $tableName = self::TABLE_NAME;
         $data = $this->pagination($pageName,$articleLimit,$tableName);
         $articles = new ArticlesadmModel();

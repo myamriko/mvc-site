@@ -86,6 +86,32 @@
                 </div>
             </div>
         </div>
+        <script>
+            //сдушаем input по отпущенной клавише извлекаем val потом передаем через POST
+            $('#searchArticle').on('keyup', function () {
+
+                var text = $('#searchArticle').val().trim();
+               /* if (text.length < 3) {
+                    return;//если мение 3х букв в запросе выходим
+                }*/
+                console.log(text);
+               /* $.post('/search/make', {
+                    text: text
+                }, function (res) {
+                    console.log('cache: '+res.cache);
+                    $('#holder').empty();//очистить блок
+                    var len = res.data.length;// колво элементов в массиве
+                    var html = '';
+                    for (var i = 0; i < len; i++) {
+                        html = "<div>" + res.data[i].name + "</div>" +
+                            "<div>" + res.data[i].description + "</div>" +
+                            "<div>" + res.data[i].price +"$" + "</div>" +
+                            "<hr>";
+                        $('#holder').append(html);//добавить в id holder
+                    }
+                });*/
+            });
+        </script>
     </section>
     {include file="admin/modal/img.tpl"}
     {include file="admin/modal/article-add.tpl"}

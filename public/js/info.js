@@ -55,6 +55,7 @@ function endUpdate(id) {
     }
 
     $.post('/info-adm/update', {text: text, column: id}, function (res) {
+        console.log(res[0].success);
         if (!res[0].success) {
             var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
             $('#systeminfo').html(html);

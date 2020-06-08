@@ -10,7 +10,7 @@ $(document).ready(function () {//изменим кол-во ссылок на с
             cacheName: cacheName
         };
         if (key === 13) {
-            $.post('/info-adm/update', data, function (res) {
+            $.post('/page-adm/update', data, function (res) {
                     if (!res[0].success) {
                         var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
                         $('#systeminfo').html(html);

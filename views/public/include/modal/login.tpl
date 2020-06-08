@@ -25,6 +25,7 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
             <div id="login_err" class="alert alert-danger ml-3 mr-3" style="display: none"><strong>Error:</strong><span id="message"></span></div>
             <div class="modal-footer">
                 <button type="button" class=" btn btn-secondary" data-dismiss="modal"  data-toggle="modal" data-target="#register">Регистрация</button>

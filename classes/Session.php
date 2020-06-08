@@ -26,7 +26,6 @@ class Session
     public static function set($kay, $value)
     {
         $_SESSION[$kay] = $value;
-
     }
 
     /**
@@ -37,7 +36,6 @@ class Session
     public static function get($kay, $default = null)
     {
         return !empty($_SESSION[$kay]) ? $_SESSION[$kay] : $default;
-
     }
 
     /**
@@ -67,6 +65,11 @@ class Session
     public static function checkUserOut()
     {
         return !is_null(Session::get('user', null));
+    }
+
+    public static function checkAdminOut()
+    {
+        return $_SESSION['user']['role']==='admin'?:true;
     }
 
 }

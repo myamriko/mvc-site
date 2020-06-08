@@ -1,4 +1,4 @@
-<div class="modal fade" id="article-edit" tabindex="-1" role="dialog" aria-labelledby="article-editModalLongTitle"
+<div class="modal" id="article-edit" tabindex="-1" role="dialog" aria-labelledby="article-editModalLongTitle"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -14,7 +14,7 @@
                            placeholder="Заголовок, он же title длина составляет 30-70 символов.">
                     <textarea class="form-control mb-2" rows="2" name="introEdit" id="introEdit"
                               placeholder="Описание, оно же description. Размер мета-тега description 150-160 символов."></textarea>
-                    <textarea name="text" id="editorEdit" placeholder="Текст статьи" style="min-height: 400px;"></textarea>
+                    <textarea name="text" id="editorEdit" placeholder="Текст статьи"></textarea>
                     <input type="search" class="form-control mt-2 acInputTag" id="tagsEdit" name="tagsEdit"
                            placeholder="Теги. Вводить через запятую. Чем меньше, тем лучше.">
                     <input type="text" class="form-control mb-2 mt-2" id="urlEdit" name="urlEdit"
@@ -29,7 +29,7 @@
                     </select>
                     <input type="text" class="form-control mb-2" id="authorEdit" name="authorEdit" placeholder="Аффтар"
                            value="{$smarty.session.user.username}">
-                    <div class="col" id="imgEdit"></div>
+                    <div class="col-12" id="imgEdit"></div>
                     <div class="row">
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="altEdit" name="altEdit"
@@ -37,7 +37,7 @@
                         </div>
                         <label for="file" class="row col-sm-4 col-form-label ml-1">Изменить изображение: </label>
                         <div  class="col-sm-2 mt-2">
-                            <input class="row" type="file" id="filesEdit" name="filesEdit" placeholder="Загрузить фаил">
+                            <input type="file" class="form-control-file row" id="filesEdit" name="filesEdit" placeholder="Загрузить фаил">
                         </div>
 
                     </div>

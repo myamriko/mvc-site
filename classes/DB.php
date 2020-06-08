@@ -8,8 +8,8 @@ final class DB
     public static function getInstance()
     {
         if (!self::$dbh) {
-            $dsn = 'mysql:host=localhost;dbname=c13mvc_sity';
-            $user = 'c7mvc_site';
+            $dsn = 'mysql:host=localhost;dbname=c1_atty';
+            $user = 'c1_atty';
             $pass = '951149Alona';
             try {
                 $dbh = new PDO($dsn, $user, $pass);

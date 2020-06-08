@@ -74,7 +74,7 @@ class LinkadmController implements Controller
             $linkExist = $link->getLink();
             if (!$linkExist) {
                 $this->getResponse(['success' => false, 'err' => 'Такая ссылка не существует, пожалуйста очистьте кеш, обновите страницу и 
-            повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
+            повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта']);
             }
             $text = filter_var(trim($_POST['text']), FILTER_SANITIZE_STRING);
             $url=$this->getErrUpdate($column,$text);
@@ -97,7 +97,7 @@ class LinkadmController implements Controller
             switch (true) {
                 case !$linkExist:
                     $this->getResponse(['success' => false, 'err' => 'Такое меню не существует, пожалуйста очистьте кеш, обновите страницу и 
-            повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
+            повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта']);
                     break;
                 case $linkExist[0]['enabled'] === 'ON':
                     $this->getResponse(['success' => false, 'err' => 'Не возможно удалить меню "' . $linkExist[0]['title'] . '", 
@@ -109,10 +109,10 @@ class LinkadmController implements Controller
             $removedLink->menu_name = $linkExist[0]['menu_name'];
             $removedLink = $removedLink->removed();
             $this->getResponse(['success' => $removedLink, 'err' => 'Не удалось удалить меню, пожалуйста очистьте кеш, обновите 
-            страничку и повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта.']);
+            страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
         }
         $this->getResponse(['success' => false, 'err' => 'Пришел пустой пост запрос, пожалуйста очистьте кеш, обновите страничку и повторите 
-        попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
+        попытку, если ошибка не исчезнет обратитесь к администратору сайта']);
 
     }
 

@@ -1,4 +1,4 @@
-<div class="modal fade" id="article-add" tabindex="-1" role="dialog" aria-labelledby="article-addModalLongTitle"
+<div class="modal" id="article-add" tabindex="-1" role="dialog" aria-labelledby="article-addModalLongTitle"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -14,7 +14,7 @@
                            placeholder="Заголовок, он же title длина составляет 30-70 символов.">
                     <textarea class="form-control mb-2" rows="2" name="intro" id="intro"
                               placeholder="Описание, оно же description. Размер мета-тега description 150-160 символов."></textarea>
-                    <textarea name="text" id="editor" placeholder="Текст статьи" style="min-height: 400px;"></textarea>
+                    <textarea name="text" id="editor" placeholder="Текст статьи"></textarea>
                     <input type="search" class="form-control mt-2 acInputTag" id="tags" name="tags"
                            placeholder="Теги. Вводить через запятую. Чем меньше, тем лучше.">
                     <input type="text" class="form-control mb-2 mt-2" id="url" name="url"
@@ -36,7 +36,7 @@
                     </div>
                     <label for="file" class="col-sm-2 col-form-label ml-1 ">Изображение: </label>
                     <div class="col-sm-4 mt-2">
-                        <input type="file" id="files" name="files" placeholder="Загрузить фаил">
+                        <input  type="file"  class="form-control-file" id="files" name="files" placeholder="Загрузить фаил">
                     </div>
                     </div>
                 </div>

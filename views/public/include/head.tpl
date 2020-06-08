@@ -3,14 +3,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="icon" href="/public/pic/res/{$sitedata['ico']}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/all.min.css">{*fontawesome иконки*}
-    <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/css/animate.min.css">
-    <link rel="stylesheet" href="/public/font/flaticon.css">{*иконки в контвктах*}
-    <link rel="stylesheet" href="/public/css/jquery-ui.css">
+
+    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="/public/owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <!--animate-->
+    <link rel="stylesheet" href="/public/css/animate.min.css" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.scss">
+
     <title>{block name=title}{$sitedata['sitename']}{/block}</title>
+    <!-- ReCaptcha  -->
+    <script src='https://www.google.com/recaptcha/api.js?render={$sitedata['sitekey']}'></script>
     <!-- Facebook Pixel Code -->
+    {if ($sitedata['fbpixel'] !== 'off')}
     {literal}
     <script>
         !function(f,b,e,v,n,t,s)
@@ -25,8 +34,10 @@
         fbq('track', 'PageView');
     </script>
     {/literal}
+
     <noscript><img height="1" width="1" style="display:none"
                    src="https://www.facebook.com/tr?id={$sitedata['fbpixel']}&ev=PageView&noscript=1"
         /></noscript>
+    {/if}
     <!-- End Facebook Pixel Code -->
 </head>

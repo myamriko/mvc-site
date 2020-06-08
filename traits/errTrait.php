@@ -116,34 +116,63 @@ trait errTrait
     {
         global $error;
         switch (true) {
-            case strlen($data['title']) < 6;
+            case strlen($data['title']) < 6:
                 $error = ' Заголовок не может быть мение 3х символов.';
                 break;
-            case strlen($data['intro']) < 30;
+            case strlen($data['intro']) < 30:
                 $error = ' Описание не может быть мение 15 символов.';
                 break;
-            case strlen($data['text']) < 30;
+            case strlen($data['text']) < 30:
                 $error = ' Статья не может быть короче 15 символов.';
                 break;
-            case strlen($data['url']) < 8;
+            case strlen($data['url']) < 8:
                 $error = ' Ссылка не может быть короче 4 символов.';
                 break;
-            case empty($data['category']);
+            case empty($data['category']):
                 $error = ' Вы не выбрали категорию';
                 break;
-            case empty($data['author']);
+            case empty($data['author']):
                 $error = ' Укажите автора.';
                 break;
-            case strlen($data['alt']) < 8;
+            case strlen($data['alt']) < 8:
                 $error = ' Alt не может быть короче 4 символов.';
                 break;
-            case empty($data['published']);
+            case empty($data['published']):
                 $error = ' Не определина публикация.';
                 break;
-            case empty($data['front']);
+            case empty($data['front']):
                 $error = ' Не определино размещение на главной.';
                 break;
         }
+        return $error;
+    }
+
+
+    //,
+
+    public function getErrMail($name, $mail, $phone=null, $subject, $message)
+    {
+        global $error;
+
+        switch (true){
+            case empty($name):
+                $error = ' Введите пожалуйста имя.';
+                break;
+            case !preg_match('/.+@.+\..+/i', $mail):
+                $error = ' Введите действительный адрес электронной почты.';
+                break;
+            case $phone && !preg_match('/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){9,14}(\s*)?$/', $phone):
+                $error = ' Введите действительный номер телефона.';
+                break;
+            case empty($subject):
+                $error = ' Укажите тему.';
+                break;
+            case empty($message):
+                $error = ' Нельзя отправить пустое письмо.';
+                break;
+
+        }
+
         return $error;
     }
 

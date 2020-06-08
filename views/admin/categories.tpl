@@ -37,7 +37,7 @@
                     {foreach $categories as $category}
                         <tr id="{$category['id']}">
                             <td>{$category['id']}</td>
-                            <td id="title-{$category['id']}">{$category['name']}</td>
+                            <td id="name-{$category['id']}">{$category['name']}</td>
                             <td id="description-{$category['id']}">{$category['description']}</td>
                             <td>{$category['url']}</td>
                             <td id="enabled-{$category['id']}">{$category['enabled']}</td>

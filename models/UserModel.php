@@ -9,7 +9,6 @@ class UserModel
     public $userName;
     public $mail;
 
-
     public function registrUser()
     {
         $salt = new Salt();//класс Salt
@@ -26,21 +25,21 @@ class UserModel
     public function loginUser()
     {
         $login = $this->login;
-        $user=$this->getUserByLogin($login);
-        $pass =  md5($this->pass.$user['salt']);
-        if ($pass == $user['pass']){
+        $user = $this->getUserByLogin($login);
+        $pass = md5($this->pass . $user['salt']);
+        if ($pass == $user['pass']) {
             Session::set('user', $user);
             return true;
         }
         return false;
     }
 
-    public function getUserByLogin($login=null, $id=null)
+    public function getUserByLogin($login = null, $id = null)
     {
         $dbh = DB::getInstance();
         $query = 'SELECT * FROM `users` WHERE `login` = :login OR `id` = :id';
         $res = $dbh->prepare($query);
-        $res->execute([':login' => $login, ':id'=>$id]);
+        $res->execute([':login' => $login, ':id' => $id]);
         return $res->fetch(PDO::FETCH_ASSOC);
     }
 

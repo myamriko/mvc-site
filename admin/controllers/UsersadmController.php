@@ -16,8 +16,9 @@ class UsersadmController implements Controller
     {
         global $smarty;
         $pageName = self::PAGE_NAME; //для пагинации
-        $siteData = InfoModel::info();//info сайта
-        $userLimit = $siteData['pageLimitUserPanel'];// колво статей на странице
+        $pageLimit = new PageadmModel();//лимит на страние
+        $userLimit=$pageLimit->pageLimit();
+        $userLimit = $userLimit['pageLimitUserPanel'];// колво статей на странице
         $tableName = self::TABLE_NAME;
         $data = $this->pagination($pageName, $userLimit, $tableName);
 

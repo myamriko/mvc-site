@@ -39,9 +39,11 @@ function makeRegister() {
 }
 
 function makeLogin() {
+    var g_recaptcha_response = $('#g-recaptcha-response').val();
     var login = $('#login1').val().trim().replace(/<[^>]+>/g, '');
     var pass = $('#pass').val().trim().replace(/<[^>]+>/g, '');
     var data = {
+        g_recaptcha_response:g_recaptcha_response,
         login: login,
         pass: pass
     };

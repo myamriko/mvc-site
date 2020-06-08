@@ -1,175 +1,357 @@
 {extends file="public/layout.tpl"}
 {block name=title}{$sitedata['sitename']}{/block}
 {block name=body}
-    <!-- ACCORDION ROW -->
-    <div class="site-inner">{*site-inner двигает контент в право при открытии меню*}
-        <section class="container-fluid">
+    <div class="gtco-banner-area">
+        <div class="container">
             <div class="row">
-                <ul class="accordion-group" id="accordion">
-                    <li style="background-image: url('https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');">
-                        <div class="accordion-overlay"></div>
-                        <h3>Rustic</h3>
-                        <section class="hidden-xs">
-                            <article>
-                                <a href="#"><p>Rual and rustic</p></a>
-                            </article>
-                        </section>
-                    </li>
-                    <li class="out"
-                        style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80');">
-                        <div class="accordion-overlay"></div>
-                        <h3>Clean</h3>
-                        <section class="hidden-xs">
-                            <article>
-                                <p>For the single or couple
-                                </p>
-                            </article>
-                        </section>
-                    </li>
-                    <li style="background-image: url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80');">
-                        <div class="accordion-overlay"></div>
-                        <h3>Stylish</h3>
-                        <section class="hidden-xs">
-                            <article>
-                                <p>When people want it cosy but stylish</p>
-                            </article>
-                        </section>
-                    </li>
-                    <li style="background-image: url('https://images.unsplash.com/photo-1495433324511-bf8e92934d90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');">
-                        <div class="accordion-overlay"></div>
-                        <h3>Family</h3>
-                        <section class="hidden-xs">
-                            <article>
-                                <p>For the family dinner</p>
-                            </article>
-                        </section>
-                    </li>
-                </ul>
+                <div class="col-md-6">
+                    <h1 class="wow fadeInLeft font-weight-bolder" data-wow-duration='1s'>Колесникова</h1>
+                    <h3 class="wow fadeInLeft font-weight-bolder" data-wow-duration='2s'>Ганна Вікторівна</h3>
+                    <p class="wow fadeInLeft" data-wow-duration='3s'> Адвокатські послуги, консультація з правових питань,
+                        захисник та представник в кримінальних процесах </p>
+                    <ul class="nav follow-us-nav">
+                        <li class="nav-item"><a class="nav-link pl-0" href="#"><i class="fa fa-facebook"
+                                                                                  aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <!---->
+                <div id="gtco-main" class="col-md-6 d-none d-md-block d-lg-block">
+                    <div class="card "><img class=" card-img-top img-fluid" src="/public/images/banner-img.png" alt=""
+                        ></div>
+                </div>
             </div>
-            <!-- BEGIN NEW ROW AFTER ACCORDION -->
-            <div class="row mg">
-                <!-- FIRST ROW -->
-                <div class="container">
-                    <h1 class="text-center head red">Quality</h1>
+        </div>
+    </div>
+    <section class="gtco-feature" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="cover">
+                        <div class="card">
+                            <svg
+                                    class="back-bg"
+                                    width="100%" viewBox="0 0 900 700" style="position:absolute; z-index: -1">
+                                <defs>
+                                    <linearGradient id="PSgrad_01" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
+                                        <stop offset="0%" stop-color="rgb(1,230,248)" stop-opacity="1"/>
+                                        <stop offset="100%" stop-color="rgb(29,62,222)" stop-opacity="1"/>
+                                    </linearGradient>
+                                </defs>
+                                <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_01)"
+                                      d="M616.656,2.494 L89.351,98.948 C19.867,111.658 -16.508,176.639 7.408,240.130 L122.755,546.348 C141.761,596.806 203.597,623.407 259.843,609.597 L697.535,502.126 C748.221,489.680 783.967,441.432 777.751,392.742 L739.837,95.775 C732.096,35.145 677.715,-8.675 616.656,2.494 Z"/>
+                            </svg>
+                            <!-- *************-->
+
+                            <svg width="100%" viewBox="0 0 700 500">
+                                <clipPath id="clip-path">
+                                    <path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
+                                </clipPath>
+                                <!-- xlink:href for modern browsers, src for IE8- -->
+                                <image clip-path="url(#clip-path)" xlink:href="/public/images/learn-img.jpg" width="100%"
+                                       height="465" class="svg__image"></image>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 wow fadeIn">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Я пропоную кваліфіковані юридичні послуги та поради широкому загалу людей, які
+                            знаходяться на
+                            вирішальному етапі свого життя і потребують допомоги фахівця з права.
+                            Адвокат це Ваш повірений в житті, при обрані якого ви повинні керуватися не тільки ціновими
+                            рамками
+                            але й його кваліфікацією та порядністю.
+                            Не забувайте про те, що адвокат – як лікар, його завдання не лікувати хворобу, а її
+                            профілактика.
+                            Не відкладайте невирішене питання в довгу шухляду.</p>
+                        <footer class="blockquote-footer">З повагою до Вас,
+                            <p class="text-right">
+                                <cite title="Source Title">Колесникова Ганна</cite>
+                            </p>
+                        </footer>
+                    </blockquote>
+                    <a href="#">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gtco-features" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="wow fadeIn">
+                        <h2> Explore The Services<br/>
+                            We Offer For You </h2>
+
+                        <p> Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla,
+                            cursus
+                            impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id
+                            neque. </p>
+                        <a href="#">All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <svg id="bg-services wow fadeIn"
+                         width="100%"
+                         viewBox="0 0 1000 800">
+                        <defs>
+                            <linearGradient id="PSgrad_02" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
+                                <stop offset="0%" stop-color="rgb(1,230,248)" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="rgb(29,62,222)" stop-opacity="1"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_02)"
+                              d="M801.878,3.146 L116.381,128.537 C26.052,145.060 -21.235,229.535 9.856,312.073 L159.806,710.157 C184.515,775.753 264.901,810.334 338.020,792.380 L907.021,652.668 C972.912,636.489 1019.383,573.766 1011.301,510.470 L962.013,124.412 C951.950,45.594 881.254,-11.373 801.878,3.146 Z"/>
+                    </svg>
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12 ">
-                            <div class="product-box">
-                                <h3 class="text-center">High quality</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has
-                                    been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a
-                                    galley of type and scrambled it to make a type specimen book. It has survived not
-                                    only five
-                                    centuries, but also the leap into electronic typesetting, remaining essentially
-                                    unchanged.
-                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-                                    Ipsum
-                                    passages, and more recently with desktop publishing software like Aldus PageMaker
-                                    including
-                                    versions of Lorem Ipsum.</p>
+                        <div class="col">
+                            <div class="card text-center wow fadeInLeftBig">
+                                <div class="oval"><img class="card-img-top" src="/public/images/web-design.png" alt=""></div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Web Design</h3>
+                                    <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
+                                        eget.</p>
+                                </div>
+                            </div>
+                            <div class="card text-center wow fadeInLeftBig">
+                                <div class="oval"><img class="card-img-top" src="/public/images/marketing.png" alt=""></div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Marketing</h3>
+                                    <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
+                                        eget.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="product-box">
-                                <h3 class="text-center">Smart design</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has
-                                    been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a
-                                    galley of type and scrambled it to make a type specimen book. It has survived not
-                                    only five
-                                    centuries, but also the leap into electronic typesetting, remaining essentially
-                                    unchanged.
-                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-                                    Ipsum
-                                    passages, and more recently with desktop publishing software like Aldus PageMaker
-                                    including
-                                    versions of Lorem Ipsum.</p>
+                        <div class="col">
+                            <div class="card text-center wow fadeInRightBig">
+                                <div class="oval"><img class="card-img-top" src="/public/images/seo.png" alt=""></div>
+                                <div class="card-body">
+                                    <h3 class="card-title">SEO</h3>
+                                    <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
+                                        eget.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="product-box">
-                                <h3 class="text-center">Modern or retro</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has
-                                    been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a
-                                    galley of type and scrambled it to make a type specimen book. It has survived not
-                                    only five
-                                    centuries, but also the leap into electronic typesetting, remaining essentially
-                                    unchanged.
-                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-                                    Ipsum
-                                    passages, and more recently with desktop publishing software like Aldus PageMaker
-                                    including
-                                    versions of Lorem Ipsum.</p>
+                            <div class="card text-center wow fadeInRightBig">
+                                <div class="oval"><img class="card-img-top" src="/public/images/graphics-design.png" alt=""></div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Graphics Design</h3>
+                                    <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
+                                        eget.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--project-->
-            <div class=" row">
-                <ul role="navigation" class="grid">
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/wvfrkayr0mg-christelle-bourgeois-776x1063.jpg"
-                                 alt="">
-                            <span class="description">Project Uno</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/fbanijhrol4-annie-spratt-776x951.jpg"
-                                 alt="">
-                        </a>
-                        <span class="description">Project Dos</span>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/2rm8p0rkxiw-marius-masalar-776x582.jpg"
-                                 alt="">
-                            <span class="description">Project Tres</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/71nlan-2ya-andrew-neel-2-776x620.jpg"
-                                 alt="">
-                            <span class="description">Project cuatro</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/hdyo6rr3kqk-scott-webb-1172x780.jpg"
-                                 alt="">
-                            <span class="description">Project cinco</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/fvazbu6zae-andrew-neel-776x517.jpg"
-                                 alt="">
-                            <span class="description">Project seis</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/typewriter-1-776x968.jpg"
-                                 alt="">
-                            <span class="description">Project Siete</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#myModal2" data-toggle="modal">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/xohlruw4k8-christelle-bourgeois-776x758.jpg"
-                                 alt="">
-                            <span class="description">Project Ocho</span>
-                        </a>
-                    </li>
-                </ul>
+        </div>
+    </section>
+    <section class="gtco-numbers-block" id="vieline">
+        <div class="container">
+            <svg width="100%" viewBox="0 0 1600 400">
+                <defs>
+                    <linearGradient id="PSgrad_03" x1="80.279%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="rgb(1,230,248)" stop-opacity="1"/>
+                        <stop offset="100%" stop-color="rgb(29,62,222)" stop-opacity="1"/>
+
+                    </linearGradient>
+
+                </defs>
+                <!-- <clipPath id="clip-path3">
+
+                                          </clipPath> -->
+
+                <path fill-rule="evenodd" fill="url(#PSgrad_03)"
+                      d="M98.891,386.002 L1527.942,380.805 C1581.806,380.610 1599.093,335.367 1570.005,284.353 L1480.254,126.948 C1458.704,89.153 1408.314,59.820 1366.025,57.550 L298.504,0.261 C238.784,-2.944 166.619,25.419 138.312,70.265 L16.944,262.546 C-24.214,327.750 12.103,386.317 98.891,386.002 Z"></path>
+
+                <clipPath id="ctm" fill="none">
+                    <path
+                            d="M98.891,386.002 L1527.942,380.805 C1581.806,380.610 1599.093,335.367 1570.005,284.353 L1480.254,126.948 C1458.704,89.153 1408.314,59.820 1366.025,57.550 L298.504,0.261 C238.784,-2.944 166.619,25.419 138.312,70.265 L16.944,262.546 C-24.214,327.750 12.103,386.317 98.891,386.002 Z"></path>
+                </clipPath>
+
+                <!-- xlink:href for modern browsers, src for IE8- -->
+                <image clip-path="url(#ctm)" xlink:href="/public/images/word-map.png" height="800px" width="100%"
+                       class="svg__image">
+                </image>
+            </svg>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title lines text-center" data-count="160"></h5>
+                            <p class="card-text text-center">Active Projects</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title lines text-center" data-count="200"></h5>
+                            <p class="card-text text-center">Business Growth</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title lines text-center" data-count="530"></h5>
+                            <p class="card-text text-center">Completed Projects</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title lines text-center" data-count="930"></h5>
+                            <p class="card-text text-center">Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+    <section class="gtco-testimonials wow fadeIn" data-wow-offset='200'>
+        <div class="container">
+            <h2>What our customers say about us.</h2>
+            <div class="owl-carousel owl-carousel1 owl-theme">
+                <div>
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/customer1.jpg" alt="">
+                        <div class="card-body">
+                            <h5>Lisa Gally <br/>
+                                <span> Project Manager </span></h5>
+                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                impedit quo minus id quod maxime placeat ” </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/customer2.jpg" alt="">
+                        <div class="card-body">
+                            <h5>Missy Limana<br/>
+                                <span> Project Manager </span></h5>
+                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                impedit quo minus id quod maxime placeat ” </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/customer3.jpg" alt="">
+                        <div class="card-body">
+                            <h5>Aana Brown<br/>
+                                <span> Project Manager </span></h5>
+                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                impedit quo minus id quod maxime placeat ” </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/customer3.jpg" alt="">
+                        <div class="card-body">
+                            <h5>Aana Brown<br/>
+                                <span> Project Manager </span></h5>
+                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                impedit quo minus id quod maxime placeat ” </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gtco-features-list">
+        <div class="container">
+            <div class="row">
+                <div class="media col-md-6 col-lg-4 wow fadeIn">
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/quality-results.png" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0">Quality Results</h5>
+                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
+                        fermentum ac eu eros. Aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn">
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/analytics.png" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0">Analytics</h5>
+                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
+                        fermentum ac eu eros. Aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn">
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/affordable-pricing.png" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0">Affordable Pricing</h5>
+                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
+                        fermentum ac eu eros. Aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn">
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/easy-to-use.png" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0">Easy To Use</h5>
+                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
+                        fermentum ac eu eros. Aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn">
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/free-support.png" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0">Free Support</h5>
+                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
+                        fermentum ac eu eros. Aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn">
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/effectively-increase.png" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0">Effectively Increase</h5>
+                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
+                        fermentum ac eu eros. Aliquam erat volutpat.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gtco-news" id="news">
+        <div class="container">
+            <h2>Latest News & Articles</h2>
+            <div class="owl-news row">
+
+                <div class="col-md-4">
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/news1.jpg" alt="">
+                        <div class="card-body text-left pr-0 pl-0">
+                            <h5>Aenean ultrices lorem quis blandit
+                                tempor urabitur accumsan. </h5>
+                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue,
+                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus
+                                . . . </p>
+                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/news2.jpg" alt="">
+                        <div class="card-body text-left pr-0 pl-0">
+                            <h5> Nam vel nisi eget odio pulvinar
+                                iaculis. Fusce aliquet. </h5>
+                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue,
+                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus
+                                . . . </p>
+                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center"><img class="card-img-top" src="/public/images/news3.jpg" alt="">
+                        <div class="card-body text-left pr-0 pl-0">
+                            <h5>Morbi faucibus odio sollicitudin
+                                risus scelerisque dignissim. </h5>
+                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue,
+                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus
+                                . . . </p>
+                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {/block}

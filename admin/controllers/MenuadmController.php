@@ -14,8 +14,9 @@ class MenuadmController implements Controller
     {
         global $smarty;
         $pageName = self::PAGE_NAME; //для пагинации
-        $siteData = InfoModel::info();//info сайта
-        $menuLimit = $siteData['pageLimitMenuPanel'];// колво статей на странице
+        $pageLimit = new PageadmModel();//лимит на страние
+        $menuLimit=$pageLimit->pageLimit();
+        $menuLimit = $menuLimit['pageLimitMenuPanel'];// колво статей на странице
         $tableName = self::TABLE_NAME;
         $data = $this->pagination($pageName,$menuLimit,$tableName);
         $menuName = new MenuadmModel();
@@ -81,7 +82,7 @@ class MenuadmController implements Controller
             $menuExist = $menu->getMenu();
             if (!$menuExist) {
                 $this->getResponse(['success' => false, 'err' => 'Такое меню не существует, пожалуйста очистьте кеш, обновите страницу и 
-            повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
+            повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта']);
             }
             $menu->column = $column;
             $menu->text = $text;
@@ -101,7 +102,7 @@ class MenuadmController implements Controller
             switch (true) {
                 case !$menuExist:
                     $this->getResponse(['success' => false, 'err' => 'Такое меню не существует, пожалуйста очистьте кеш, обновите страницу и 
-            повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
+            повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта']);
                     break;
                 case $menuExist[0]['enabled'] === 'ON':
                     $this->getResponse(['success' => false, 'err' => 'Не возможно удалить меню "' . $menuExist[0]['title'] . '", 
@@ -117,15 +118,15 @@ class MenuadmController implements Controller
                 $removedLinks = $removedLinks->removedAllLink($menuName);
                 if (!$removedLinks) {
                     $this->getResponse(['success' => $removedLinks, 'err' => 'Не удалось удалить ссылку меню, пожалуйста очистьте кеш,
-                 пожалуйста обновите страничку и повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта.']);
+                 пожалуйста обновите страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
                 }
             }
             $menu->id = $id;
             $removedMenu = $menu->removed();
             $this->getResponse(['success' => $removedMenu, 'err' => 'Не удалось удалить меню, пожалуйста очистьте кеш, пожалуйста обновите 
-            страничку и повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта.']);
+            страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
         }
         $this->getResponse(['success' => false, 'err' => 'Пришел пустой пост запрос, пожалуйста очистьте кеш, обновите страничку и повторите 
-        попытку, если ошебка не исчезнет обратитесь к администратору сайта']);
+        попытку, если ошибка не исчезнет обратитесь к администратору сайта']);
     }
 }

@@ -9,24 +9,15 @@ class TagsadmController implements Controller
 
     const TABLE_NAME = 'tags';
     const PAGE_NAME = 'tags-adm/index';
-
-
     const  CACHE_DATA = '../public/storage/cache_data/';
-
-    public static function forget()
-    {
-        $key = 'tags-site';
-
-
-
-    }
 
     public function index()
     {
         global $smarty;
         $pageName = self::PAGE_NAME; //для пагинации
-        $siteData = InfoModel::info();//info сайта
-        $tagsLimit = $siteData['pageLimitTagPanel'];// колво статей на странице
+        $pageLimit = new PageadmModel();//лимит на страние
+        $tagLimit=$pageLimit->pageLimit();
+        $tagsLimit = $tagLimit['pageLimitTagPanel'];// колво ссылок на странице
         $tableName = self::TABLE_NAME;
         $data = $this->pagination($pageName, $tagsLimit, $tableName);
 
@@ -81,7 +72,7 @@ class TagsadmController implements Controller
             }
             $removedTags = $tags->removed();
             $this->getResponse(['success' => $removedTags, 'err' => 'Не удалось удалить тег, пожалуйста очистьте кеш, пожалуйста обновите 
-            страничку и повторите попытку, если ошебка не исчезнет обратитесь к администратору сайта.']);
+            страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
         }
 
         $this->getResponse(['success' => false, 'err' => 'Пустой POST запрос']);

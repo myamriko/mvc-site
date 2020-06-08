@@ -37,4 +37,28 @@ trait ExtraTrait
         return $data;
     }
 
+    public function report($report){
+        $reports = [];
+        foreach ($report as $index => $value) {
+            $reports[$index]['id'] = $value['id'];
+            $reports[$index]['err'] = $value['err'];
+            $reports[$index]['date'] = $value['date'];
+            $reports[$index]['resend'] = $value['resend'];
+            $dataJson = json_decode($report[$index]['message'], true);
+            $reports[$index]['name'] = $dataJson['name'];
+            $reports[$index]['mailTo'] = $dataJson['mailTo'];
+            $reports[$index]['phone'] = $dataJson['phone'];
+            $reports[$index]['subject'] = $dataJson['subject'];
+            $reports[$index]['message'] = $dataJson['message'];
+        }
+        return $reports;
+    }
+
+    public function captcha(){
+        $siteData = InfoModel::info();
+        $Response = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$siteData['sekretkey']."&response={$_POST['g_recaptcha_response']}");
+        $Return = json_decode($Response);
+        return $Return;
+    }
+
 }

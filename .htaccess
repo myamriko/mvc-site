@@ -14,6 +14,7 @@ RewriteRule ^(.*)/$ /$1 [L,R=301]
 RewriteRule ^(\w+)$ $1.php [NC]
 RewriteRule ^(.*)$ public/index.php [PT,L]
 
-
+#SameSite=strict убираем ошику межсетивого экрана
+Header always edit Set-Cookie ^(.*)$ "$1; HttpOnly; Secure; SameSite=strict"
 
 </ifModule>

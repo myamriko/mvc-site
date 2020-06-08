@@ -5,6 +5,7 @@ class UsersController
 {
     use ResponseTrait;
     use errTrait;
+    use ExtraTrait;
 
     /**
      *
@@ -21,6 +22,10 @@ class UsersController
             $err = $this->getErrUser($login, $pass, $rePass, $userName, $mail);//проверка на ошибки
             if ($err) {
                 $this->getResponse(['success' => false, 'err' => $err]);
+            }
+            $Return = $this->captcha();//ExtraTrait
+            if ($Return->success != true || $Return->score < 0.5){
+                $this->getResponse(['success' => false, 'err' => ' Гугл решил, что Вы робот!']);
             }
             $user = new UserModel();//регистрация
             $userExist = $user->getUserByLogin($login);
@@ -48,6 +53,10 @@ class UsersController
             $err = $this->getErrUser($login, $pass);
             if ($err) {
                 $this->getResponse(['success' => false, 'err' => $err]);
+            }
+            $Return = $this->captcha();//ExtraTrait
+            if ($Return->success != true || $Return->score < 0.5){
+                $this->getResponse(['success' => false, 'err' => ' Гугл решил, что Вы робот!']);
             }
             $user = new UserModel();
             $user->login = $login;

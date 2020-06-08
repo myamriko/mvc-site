@@ -120,7 +120,7 @@ function edit(id) {
         $('#urlEdit').val(res[0].url);
         $('#categoryEdit').prepend('<option selected value="' + res[0].category + '">' + res[0].name + '</option>');
         $('#altEdit').val(res[0].alt);
-        var img = '<img class="mb-2" style="width: 735px;" src="/public/pic/img-art/' + res[0].file + '">' +
+        var img = '<img class="mb-2" style="width: 100%;" src="/public/pic/img-art/' + res[0].file + '">' +
             '<input id="oldFile" type="hidden" value="' + res[0].file + '">';
         $('#imgEdit').html(img);
         $('#publishedEdit').prepend('<option selected value="' + res[0].published + '">' + res[0].published + '</option>');
