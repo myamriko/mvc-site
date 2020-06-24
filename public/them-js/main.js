@@ -4,7 +4,7 @@ var wow = new WOW(
         boxClass:     'wow',      // класс, скрывающий элемент до момента отображения на экране (по умолчанию, wow)
         animateClass: 'animated', // класс для анимации элемента (по умолчанию, animated)
         offset:       100,          // расстояние в пикселях от нижнего края браузера до верхней границы элемента, необходимое для начала анимации (по умолчанию, 0)
-        mobile:       true,       // включение/отключение WOW.js на мобильных устройствах (по умолчанию, включено)
+        mobile:       false,       // включение/отключение WOW.js на мобильных устройствах (по умолчанию, включено)
         live:         true,       // поддержка асинхронно загруженных элементов (по умолчанию, включена)
         callback:     function(box) {
             // функция срабатывает каждый раз при старте анимации
@@ -77,8 +77,12 @@ wow.init();
     var checkPosition = function() {
         if ($(window).width() < 767) {
             $("#bg-services").attr("viewBox", "0 0 1050 800");
-
+            $("#bg-services-foto").attr("viewBox", "0 0 695 500");
+            $("#bg-services-foto").attr("width", "109%");
+        }else{
+            $("#bg-services-foto").attr("width", "100%");
         }
+
     };
 
     (function($) {
@@ -92,6 +96,7 @@ wow.init();
 // menu toggle button
 function myFunction(x) {
     x.classList.toggle("change");
+   // $('.navbar-collapse ').toggle("show");
 }
 
 // scroll
@@ -99,17 +104,19 @@ var scrollWindow = function() {
     $(window).scroll(function(){
         var $w = $(this),
             st = $w.scrollTop(),
-            navbar = $('.ftco_navbar'),
+            navbar = $('.ftco_navbar');
             sd = $('.js-scroll-wrap');
 
         if (st > 150) {
             if ( !navbar.hasClass('scrolled') ) {
                 navbar.addClass('scrolled');
+                $('.gtco-banner-area').addClass('pri-column-scrol');
             }
         }
         if (st < 150) {
             if ( navbar.hasClass('scrolled') ) {
                 navbar.removeClass('scrolled sleep');
+                $('.gtco-banner-area').removeClass('pri-column-scrol');
             }
         }
         if ( st > 350 ) {
@@ -139,5 +146,17 @@ $(window).on('load', function () {
     $preloader = $('.loaderArea'),
         $loader = $preloader.find('.loader');
     $loader.fadeOut();
-    $preloader.delay(350).fadeOut('slow');
+    $preloader.delay(50).fadeOut('slow');
 });
+
+//размытие и анимация модаля
+$('.modal-active').on('show.bs.modal', function () {
+    $("#site").addClass("active-modal");
+    $('.modal .modal-dialog').attr('class', 'modal-dialog  slideInDown animated');// модаль низ
+
+});
+$('.modal-active').on('hide.bs.modal', function () {
+    $('.modal .modal-dialog').attr('class', 'modal-dialog  slideOutUp animated');// модаль верх
+    $("#site").removeClass("active-modal");
+});
+

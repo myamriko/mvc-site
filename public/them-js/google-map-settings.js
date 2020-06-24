@@ -8,7 +8,7 @@ var infowindow;
 function initMap() {
     /*координаты берем в гуглапс в меню что здесь?*/
     popupContent = '<p class="google-map-content">' + html + '</p>',
-        image = 'public/images/map1.png';
+        image = 'public/images/marker.png';
     /*инициализация карты*/
     map = new google.maps.Map(document.getElementById('google-map'), {
         center: coordinates,

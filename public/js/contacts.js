@@ -1,57 +1,3 @@
-function send() {
-    var g_recaptcha_response = $('#g-recaptcha-response').val();
-    var name = $('#name').val().trim().replace(/<[^>]+>/g, '');
-    var mail = $('#mail').val().trim().replace(/<[^>]+>/g, '');
-    var phone = $('#phone').val().trim().replace(/<[^>]+>/g, '');
-    var date = $('#date').val().trim().replace(/<[^>]+>/g, '');
-    var subject = $('#subject').val().trim().replace(/<[^>]+>/g, '');
-    var text = $('#text').val().trim().replace(/<[^>]+>/g, '');
-    var htmlBtn = '<div class="btn sub-button  text-uppercase">\n' +
-        '       <button type="button" onclick="send()">Отправить</button>';
-    $('#btn').html('<div class="btn sub-button-disabled  text-uppercase" disabled>\n' +
-        '       <button type="button" onclick="send()" disabled>Отправить</button>');
-
-    var data = {
-        g_recaptcha_response:g_recaptcha_response,
-        name: name,
-        mail: mail,
-        phone: phone,
-        date: date,
-        subject: subject,
-        text: text
-    };
-
-    $.post('/contacts/send_mail', data, function (res) {
-
-        if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>Ошибка:</strong> ' + res[0].err + '</div>';
-            $('#systeminfo').html(html);
-            setTimeout(function () {
-                $('#system').fadeOut().modal('hide');
-            }, 7000);
-            $('#system').modal('show');
-            $('#btn').html(htmlBtn);
-            return;
-        }
-        var html = '<div class="alert alert-success" role="alert">' + res[0].err + '</div>';
-        $('#systeminfo').html(html);
-        setTimeout(function () {
-            $('#system').fadeOut().modal('hide');
-        }, 5000);
-        $('#system').modal('show');
-
-        $('#name').val('');
-        $('#mail').val('');
-        $('#phone').val('');
-        $('#subject').val('');
-        $('#text').val('');
-        $('#date').datepicker({dateFormat: "yy-mm-dd"}).datepicker("setDate", new Date());
-        $('#btn').html(htmlBtn);
-        return;
-    })
-}
-
-
 function reSend(id) {
     $.post('/contact-adm/send',{id: id},function (res) {
         if (!res[0].success){
@@ -80,7 +26,6 @@ function reSend(id) {
 function reply() {
 
     var id = $('#idMess').val().trim().replace(/<[^>]+>/g, '');
-    console.log(id);
     var name = $('#name').text().trim().replace(/<[^>]+>/g, '');
     var mail = $('#mailTo').val().trim().replace(/<[^>]+>/g, '');
     var phone = $('#phone').text().trim().replace(/<[^>]+>/g, '');

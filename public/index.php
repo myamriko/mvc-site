@@ -46,7 +46,7 @@ $param = ($arrUrl) ?: [];
 //проверка на админа
 
 if (strpos($controller, 'admController') && Session::get('user', ['role' => ''])['role'] !== 'admin') {
-    header('Location: /main');
+    header('Location: /');
     die('404 - не завезли таких страниц ');//если контроллер Admin а пользователь не admin ошибка доступа 404
 }
 $controllerObj = new $controller();

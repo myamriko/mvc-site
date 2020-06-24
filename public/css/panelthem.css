@@ -1,0 +1,116 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #292b2c;
+    background-color: #fff;
+    margin-bottom: 72px;
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+    background-color: transparent;
+
+}
+
+.list-group-item.active {
+    background-color: #f8f9fa;
+    border-color: #aeb0b3;
+}
+
+hr {
+    border-top: 2px solid rgba(0, 0, 0, .1);
+}
+.ck.ck-editor__editable_inline {
+    min-height: 150px !important;
+}
+#ckf-modal{
+    top: 15px !important;
+}
+.modal-content-img {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border-radius: .3rem;
+    outline: 0;
+}
+.close-img {
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #000000;
+    text-shadow: 0 1px 0 #fff;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+}
+.alt{
+    font-weight: 600;
+    color: #000000;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}
+.ui-autocomplete {
+    z-index: 1060 !important;
+}
+.search-panel{
+    background-image: url('/public/pic/res/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+@media screen and (min-width: 991px) {
+    .modal-lg {
+        max-width: 888px;
+    }
+}
+
+.footer {
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 72px;
+}
+
+.navbar-toggler .bar1, .navbar-toggler .bar2, .navbar-toggler .bar3 {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    margin: 5px 0;
+    transition: 0.4s;
+    display: block;
+    position: relative;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-42deg) translate(-4px, 6px);
+    transform: rotate(-42deg) translate(-4px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(46deg) translate(-4px, -6px);
+    transform: rotate(46deg) translate(-4px, -6px);
+}
+
+.kay-captcha{
+    display:inline-block;
+    max-width:200px;
+    overflow:hidden;
+}

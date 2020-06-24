@@ -1,4 +1,4 @@
-<footer class="footer navbar fixed-bottom bg-secondary  text-white py-4 text-sans-serif text-center overflow-hidden">
+<footer class="footer bg-secondary  text-white py-4">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4 order-lg-2">

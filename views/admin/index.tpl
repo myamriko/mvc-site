@@ -246,7 +246,7 @@
                         </div>
                         <div class="form-group row">
                             <h4>Ключ сайта:</h4>
-                            <div id="sitekey" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                            <div id="sitekey" class="col-lg-6 col-md-6 col-sm-6 col-11 edit kay-captcha">
                                 <span class="lead">{$sitedata['sitekey']}</span>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
                     <div class="col-12 mt-3">
                         <div class="form-group row">
                             <h4>Секретный ключ:</h4>
-                            <div id="sekretkey" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                            <div id="sekretkey" class="col-lg-6 col-md-6 col-sm-6 col-11 edit kay-captcha">
                                 <span class="lead">{$sitedata['sekretkey']}</span>
                             </div>
                         </div>

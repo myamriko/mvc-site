@@ -25,22 +25,22 @@ class UsersController
             }
             $Return = $this->captcha();//ExtraTrait
             if ($Return->success != true || $Return->score < 0.5){
-                $this->getResponse(['success' => false, 'err' => ' Гугл решил, что Вы робот!']);
+                $this->getResponse(['success' => false, 'err' => ' Гугл вирішив, що Ви робот!']);
             }
             $user = new UserModel();//регистрация
             $userExist = $user->getUserByLogin($login);
             if ($userExist) {
-                $this->getResponse(['success' => false, 'err' => ' Пользователь с логином "' . $login . '" существует.']);
+                $this->getResponse(['success' => false, 'err' => ' Користувач з логіном "' . $login . '" існує.']);
             }
             $user->login = $login;//передаем переменные
             $user->pass = $pass;
             $user->userName = $userName;
             $user->mail = $mail;
             $resReg = $user->registrUser();//регестрируем
-            $this->getResponse(['success' => $resReg, 'err' => ' Не удалось зарегистрировать пользователя.']);
+            $this->getResponse(['success' => $resReg, 'err' => ' Не вдалося зареєструвати користувача.']);
 
         }
-        $this->getResponse(['success' => false, 'err' => 'Все поля обязательны для заполнения!']);
+        $this->getResponse(['success' => false, 'err' => 'Всі поля обов\'язкові для заповнення!']);
 
     }
 
@@ -56,21 +56,25 @@ class UsersController
             }
             $Return = $this->captcha();//ExtraTrait
             if ($Return->success != true || $Return->score < 0.5){
-                $this->getResponse(['success' => false, 'err' => ' Гугл решил, что Вы робот!']);
+                $this->getResponse(['success' => false, 'err' => ' Гугл вирішив, що Ви робот!']);
             }
             $user = new UserModel();
             $user->login = $login;
             $user->pass = $pass;
+            $userExist = $user->getUserByLogin($login);
+            if (!$userExist){
+                    $this->getResponse(['success' => false, 'err' => ' Користувача з логіном "' . $login . '" не існує. Зареєструйтесь.']);
+            }
             $resLogin = $user->loginUser();
-            $this->getResponse(['success' => $resLogin, 'err' => ' Имя пользователя или пароль указаны не верно.']);
+            $this->getResponse(['success' => $resLogin, 'err' => ' Ім\'я користувача або пароль вказано невірно.']);
         }
-        $this->getResponse(['success' => false, 'err' => ' Поля лоин и пароль обязательны для заполнения!']);
+        $this->getResponse(['success' => false, 'err' => ' Поля лоін і пароль є обов\'язковими для заповнення!']);
     }
 
     public function logout()
     {
         Session::flash();
-        header('Location: /main');
+        header('Location: /');
     }
 
 }

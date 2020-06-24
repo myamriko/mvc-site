@@ -20,8 +20,9 @@
     <a class="navbar-brand  text-white" href="/info-adm"><img src="/public/pic/res/cogs.png"
                                                               style="height: 35px; width: auto">
         Админ панель</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="myFunction(this)">
+        <span class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mt-2 mt-lg-0">
@@ -66,20 +67,20 @@
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">
             {if !empty($smarty.session.user.id)}
-            <li class="nav dropdown dropleft">
-                <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    {$smarty.session.user.login}<!-- из сессии берем логин -->
-                </a>
-                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/">Перейти на сайт</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/users/logout">LogOut</a>
-                </div>
-            </li>
+                <li class="nav dropdown dropleft">
+                    <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        {$smarty.session.user.login}<!-- из сессии берем логин -->
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/">Перейти на сайт</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/logout">LogOut</a>
+                    </div>
+                </li>
+            {/if}
         </ul>
-        {/if}
     </div>
 </nav>
 <div class="container-fluid">
@@ -98,6 +99,9 @@
 <script src="/public/js/cache-control.js"></script>
 <script src="/public/them-js/all.min.js"></script>{*иконки*}
 <script type="text/javascript">
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
     var hint = [{block name=hint}{/block}];
     var tagSearch = [{block name=tagSearch}{/block}];
 </script>

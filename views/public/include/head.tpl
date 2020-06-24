@@ -3,8 +3,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="icon" href="/public/pic/res/{$sitedata['ico']}"/>
+    <link rel="preload" href="/public/css/flaticon.css" as="style"/>
+    <link rel="preload" href="/public/owl-carousel/assets/owl.carousel.min.css" as="style"/>
+    <link rel="preload" href="/public/css/animate.min.css" as="style"/>
+    <link rel="preload" href="/public/css/bootstrap.min.css" as="style"/>
+    <link rel="preload" href="/public/css/jquery-ui.css" as="style"/>
+    <link rel="preload" href="/public/css/style.css" as="style"/>
 
-    <link href="/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/css/flaticon.css"  type="text/css">
     <!-- owl carousel css-->
     <link rel="stylesheet" href="/public/owl-carousel/assets/owl.carousel.min.css" type="text/css">
     <!--animate-->
@@ -12,8 +18,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <!-- custom CSS -->
+    <link rel="stylesheet" href="/public/css/jquery-ui.css">
     <link rel="stylesheet" href="/public/css/style.css">
-    <link rel="stylesheet" href="/public/css/style.scss">
+    <script  src="/public/them-js/jquery-3.5.1.min.js" ></script>
 
     <title>{block name=title}{$sitedata['sitename']}{/block}</title>
     <!-- ReCaptcha  -->

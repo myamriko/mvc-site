@@ -14,15 +14,15 @@ trait errTrait
         global $error;
         switch (true) {
             case  $_FILES['file']['size'] > 2097152:
-                $error = ' Размер файла привышает 2Мб';
+                $error = ' Розмір файлу перевищує 2Мб';
                 break;
             case  $_FILES['file']['size'] === 0:
-                $error = ' Вы не выбрали картинку.';
+                $error = ' Ви не обрали картинку.';
                 break;
             case  !in_array(exif_imagetype($_FILES['file']['tmp_name']), $accepted):
                 //in_array — Проверяет, присутствует ли в массиве значение $accepted,
                 // exif_imagetype считывает начальные байты изображения и проверяет их сигнатуру.
-                $error = ' Недопустимый формат файла. Только jpeg, png, bmp, gif и ico';
+                $error = ' Неприпустимий формат файлу, лише: jpeg, png, bmp, gif и ico';
                 break;
         }
         return $error;
@@ -40,24 +40,40 @@ trait errTrait
      */
     public function getErrUser($login = null, $pass = null, $rePass = null, $userName = null, $mail = null)
     {
-        $accepted = [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_BMP, IMAGETYPE_ICO];
         global $error;
 
         switch (true) {//проверим передаваемые данные
             case $login && strlen($login) < 3:
-                $error = ' Логин не может быть короче 3х символов.';
+                $error = ' Логін не може бути коротше 3х символів.';
                 break;
-            case $pass && !preg_match('@^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z]{6,}$@', $pass):
-                $error = ' Пароль должен содержать не мение 6-ти симолов,
-                    хотябы одну строчную и одну заглавную ланитскую букву, одну цифру.';
+            case $pass && !preg_match('@^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,}@', $pass):// заменить на ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,} со спец символами
+                $error = ' Пароль повинен містіті не менш 6-ти сімолів, великі і малі
+                        латинські літери, а також цифри та спеціальні символи.';
                 break;
             case $rePass && ($rePass != $pass):
-                $error = ' Введенные пароли не совпадают.';
+                $error = ' Введені паролі не співпадають.';
                 break;
-            case $userName && strlen($userName) < 3:
-                $error = ' Имя не может быть короче 3-х символов.';
+            case $userName && strlen($userName) < 2:
+                $error = ' Ім\'я не може бути коротше 2-х символів.';
                 break;
             case $mail && !preg_match('/.+@.+\..+/i', $mail):
+                $error = ' Введите корректный адрес электронной почты';
+                break;
+
+        }
+        return $error;
+    }
+
+    public function getErrUpdateUser($userName, $mail)
+    {
+        global $error;
+
+        switch (true) {//проверим передаваемые данные
+
+            case strlen($userName) < 3:
+                $error = ' Ім\'я не може бути коротше 2-х символів.';
+                break;
+            case !preg_match('/.+@.+\..+/i', $mail):
                 $error = ' Введите корректный адрес электронной почты';
                 break;
 
@@ -70,16 +86,16 @@ trait errTrait
         global $error;
         switch (true) {
             case $menu_name && !preg_match("/^[a-zA-Z0-9_\-]{4,20}$/", $menu_name):
-                $error = ' Административное название должно содержать не мение 4х символов, допустимы латинские буквы, цифры и символ "_"';
+                $error = ' Адміністративна назва має містити не меньше 4х символів, припустимі латинські літери, цифри та символ "_"';
                 break;
             case $title && strlen($title) < 4:
-                $error = ' Название не моет быть короче 4х символов';
+                $error = ' Назва не може бути коротше 4х символів';
                 break;
             case $description && strlen($description) < 10:
-                $error = ' Описание не может быть короче 10ти символов';
+                $error = ' Опис не може бути коротше 10ти символів';
                 break;
             case $url && strlen($url) < 4:
-                $error = ' URL не может быть короче 4х символов';
+                $error = ' URL не може бути коротше 4х символів';
                 break;
         }
         return $error;
@@ -117,31 +133,31 @@ trait errTrait
         global $error;
         switch (true) {
             case strlen($data['title']) < 6:
-                $error = ' Заголовок не может быть мение 3х символов.';
+                $error = ' Заголовок не може бути меньше 3х символів.';
                 break;
             case strlen($data['intro']) < 30:
-                $error = ' Описание не может быть мение 15 символов.';
+                $error = 'Опис не може бути менше 15 символів.';
                 break;
             case strlen($data['text']) < 30:
-                $error = ' Статья не может быть короче 15 символов.';
+                $error = ' Стаття не може бути коротше за 15 символів.';
                 break;
             case strlen($data['url']) < 8:
-                $error = ' Ссылка не может быть короче 4 символов.';
+                $error = ' Посилання не може бути коротше 4 символів.';
                 break;
             case empty($data['category']):
-                $error = ' Вы не выбрали категорию';
+                $error = ' Ви не обрали категорію';
                 break;
             case empty($data['author']):
-                $error = ' Укажите автора.';
+                $error = ' Вкажіть автора.';
                 break;
             case strlen($data['alt']) < 8:
-                $error = ' Alt не может быть короче 4 символов.';
+                $error = ' Alt не може бути коротше 4 символів.';
                 break;
             case empty($data['published']):
-                $error = ' Не определина публикация.';
+                $error = ' Не визначена публікація.';
                 break;
             case empty($data['front']):
-                $error = ' Не определино размещение на главной.';
+                $error = ' Не визначено розміщення на головній.';
                 break;
         }
         return $error;
@@ -150,25 +166,25 @@ trait errTrait
 
     //,
 
-    public function getErrMail($name, $mail, $phone=null, $subject, $message)
+    public function getErrMail($name, $mail = null, $phone = null, $subject, $message)
     {
         global $error;
 
-        switch (true){
+        switch (true) {
             case empty($name):
-                $error = ' Введите пожалуйста имя.';
+                $error = ' Введіть будь ласка ім\'я.';
                 break;
-            case !preg_match('/.+@.+\..+/i', $mail):
-                $error = ' Введите действительный адрес электронной почты.';
+            case $mail && !preg_match('/.+@.+\..+/i', $mail):
+                $error = ' Введіть дійсну адресу електронної пошти.';
                 break;
             case $phone && !preg_match('/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){9,14}(\s*)?$/', $phone):
-                $error = ' Введите действительный номер телефона.';
+                $error = ' Введіть дійсний номер телефону.';
                 break;
             case empty($subject):
-                $error = ' Укажите тему.';
+                $error = ' Вкажіть тему.';
                 break;
             case empty($message):
-                $error = ' Нельзя отправить пустое письмо.';
+                $error = ' Не слід відправити порожній лист.';
                 break;
 
         }

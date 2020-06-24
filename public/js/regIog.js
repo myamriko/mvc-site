@@ -13,7 +13,7 @@ function makeRegister() {
         mail: mail
     };
     if (!login || !pass || !userName || !mail || !rePass) {
-        $('#message_reg').text(' Все поля обязательны для заполнения');
+        $('#message_reg').text(' Всі поля обов\'язкові для заповнення');
         $('#reg_err').fadeIn().show();
         /*  setTimeout(function () {
               $('.alert-danger').fadeOut();
@@ -48,7 +48,7 @@ function makeLogin() {
         pass: pass
     };
     if (!login || !pass) {
-        $('#message').text(' Все поля обязательны для заполнения');
+        $('#message').text(' Всі поля обов\'язкові для заповнення');
         $('#login_err').fadeIn().show();
         /*  setTimeout(function () {
               $('.alert-danger').fadeOut();
@@ -84,4 +84,43 @@ $(document).ready(function () {// отловим нажатие на энтер
                 break;
         }
     });
+});
+
+/**
+ * Проверка нового пароля на фронте в соответствии с патеррном регистрация  изменение
+ */
+$('.newpssReg').on('keyup', function () {
+    var str = $('.newpssReg').val();
+    var patt = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\\w\\s]).{6,}");
+    var res = patt.test(str);
+    if (str.length < 6){
+        $('.complexity').text('');
+        return;
+    }
+    if (res) {
+        $('.complexity').text('OK');
+        $('.complexity').attr('class', 'complexity aviso p-1');
+        return;
+    }
+    $('.complexity').attr('class', 'complexity aviso p-1 text-danger');
+    $('.complexity').text('Пароль не відповідає критеріям');
+});
+
+/**
+ * Совпадение нового и ReПароля на фронте регистрация  изменение
+ */
+$('.passwordReg').on('keyup', function () {
+    var newPss = $('.newpssReg').val();
+    var rePss = $('.repssReg').val();
+    if (newPss.length < 3 || rePss < 3){
+        $('.equality').text('');
+        return;
+    }
+    if (rePss === newPss) {
+        $('.equality').text('Паролі співпадають');
+        $('.equality').attr('class', 'equality aviso p-1');
+        return;
+    }
+    $('.equality').attr('class', 'equality aviso p-1 text-danger');
+    $('.equality').text('Паролі не співпадають');
 });

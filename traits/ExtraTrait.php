@@ -55,6 +55,8 @@ trait ExtraTrait
     }
 
     public function captcha(){
+        /*recaptcha3 @ отключаем вывод ошибки SSL сертификата*/
+        //в хедере и футере скрипт, в форме скрытая строка, через jquery передаем с остальными данными $_POST['g_recaptcha_response']
         $siteData = InfoModel::info();
         $Response = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$siteData['sekretkey']."&response={$_POST['g_recaptcha_response']}");
         $Return = json_decode($Response);

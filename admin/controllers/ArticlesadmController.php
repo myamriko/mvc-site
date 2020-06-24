@@ -57,7 +57,7 @@ class ArticlesadmController implements Controller
 
     public function edit()
     {
-        if ($id = filter_var(trim($_POST['id']), FILTER_SANITIZE_STRING)) {
+        if (!empty($id = filter_var(trim($_POST['id']), FILTER_SANITIZE_STRING))) {
             $articles = new ArticlesadmModel();
             $articles->id = $id;
             $article = $articles->getArticle();
@@ -89,6 +89,10 @@ class ArticlesadmController implements Controller
     {
         $data = $this->setData();
         if ($_FILES) {
+            $err = $this->getErrImg();
+            if ($err) {
+                $this->getResponse(['success' => false, 'err' => $err]);
+            }
             $oldFile = self::DIR_UPLOAD . '/' . $data['oldFile'];
             if (file_exists($oldFile)) {
                 unlink($oldFile);

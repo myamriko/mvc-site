@@ -7,6 +7,15 @@ use PHPMailer\PHPMailer\Exception;
 
 class ContactsController implements Controller
 {
+
+    private $name;
+    private $mailTo;
+    private $phone;
+    private $date;
+    private $subject;
+    private $message;
+
+
     use ViewsTrait;
     use ResponseTrait;
     use errTrait;
@@ -44,60 +53,30 @@ class ContactsController implements Controller
                     <hr><p>' . $message . '</p>';
         $siteData = InfoModel::info();
         $encrypts = new Encrypt();//декриптор пароля
-        $pass = $encrypts->dsCrypt($siteData['pss_admin'], $decrypt = true);
-        /*recaptcha3 @ отключаем вывод ошибки SSL сертификата*/
-        //в хедере и футере скрипт, в форме скрытая строка, через jquery передаем с остальными данными $_POST['g_recaptcha_response']
-        $Response = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$siteData['sekretkey']."&response={$_POST['g_recaptcha_response']}");
-        $Return = json_decode($Response);
+        $passEmail = $encrypts->dsCrypt($siteData['pss_admin'], $decrypt = true);
+
+        $Return = $this->captcha();//ExtraTrait
         if ($Return->success == true && $Return->score > 0.5) {//проверка капчи
+            $mailerData = [
+                'host' => $siteData['smtp_host'],
+                'username' => $siteData['adminmail'],
+                'port' => $siteData['mail_port'],
+                'fromEmail' => $siteData['adminmail'],
+                'fromName' => $siteData['sitename'],
+                'address' => $siteData['sitemail'],
+                'passEmail' => $passEmail,
+                'name' => $name,
+                'mailTo' => $mailTo,
+                'phone' => $phone,
+                'message' => $message,
+                'subject' => $subject,
+                'messageHtml' => $messageHtml
+            ];
 
-        $mail = new PHPMailer(true);
-        try {
-            //Server settings
-            $mail->isSMTP();
-            $mail->Host = $siteData['smtp_host'];
-            $mail->SMTPAuth = true;
-            $mail->Username = $siteData['adminmail'];
-            $mail->Password = $pass;
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = $siteData['mail_port'];
-            $mail->CharSet = "utf-8";
-
-            $mail->SMTPOptions = array(
-                'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                )
-            );
-            //Recipients
-            $mail->setFrom($siteData['adminmail'], $siteData['sitename']);
-            $mail->addAddress($siteData['sitemail']);
-            $mail->addReplyTo($mailTo, $name);
-            // Content
-            $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body = $messageHtml;
-            $mail->AltBody = $message;
-            $mail->send();
-            $this->getResponse(['success' => true, 'err' => 'Сообщение успешно отправленно']);
-        } catch (Exception $e) {
-            $result = [];
-            $result['name'] = $name;
-            $result['mailTo'] = $mailTo;
-            $result['phone'] = $phone;
-            $result['subject'] = $subject;
-            $result['message'] = $message;
-            $messageJson = json_encode($result);
-            $addErr = new ContactsModel();
-            $addErr = $addErr->addErr($mail->ErrorInfo, $messageJson);
-            if (!$addErr) {
-                $this->getResponse(['success' => false, 'err' => 'Не удалось внести изменения в БД.<br><strong>Mailer Error: </strong>' . $mail->ErrorInfo]);
-            }
-            $this->getResponse(['success' => false, 'err' => 'Не удалось отправить сообщение. Сообщение было сохранено, с вами свяжется наш представитель.<br><strong>Mailer Error: </strong>' . $mail->ErrorInfo]);
+            $mailer = new Mailer();
+            $mailer->mailerSend($mailerData);
         }
-        }
-            $this->getResponse(['success' => false, 'err' => 'Вы робот?<br> Если нет, обновите страничку и повторите попытку.']);
+        $this->getResponse(['success' => false, 'err' => 'Ви робот? <br> Якщо ні, поновіть сторінку і спробуйте ще раз.']);
 
     }
 }
