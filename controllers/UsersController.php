@@ -25,7 +25,7 @@ class UsersController
             }
             $Return = $this->captcha();//ExtraTrait
             if ($Return->success != true || $Return->score < 0.5){
-                $this->getResponse(['success' => false, 'err' => ' Гугл вирішив, що Ви робот!']);
+                $this->getResponse(['success' => false, 'err' => ' Гугл вирішив що Ви роботб, оновіть сторінку і спробуйте ще раз.']);
             }
             $user = new UserModel();//регистрация
             $userExist = $user->getUserByLogin($login);
@@ -55,18 +55,24 @@ class UsersController
                 $this->getResponse(['success' => false, 'err' => $err]);
             }
             $Return = $this->captcha();//ExtraTrait
-            if ($Return->success != true || $Return->score < 0.5){
-                $this->getResponse(['success' => false, 'err' => ' Гугл вирішив, що Ви робот!']);
-            }
             $user = new UserModel();
             $user->login = $login;
             $user->pass = $pass;
             $userExist = $user->getUserByLogin($login);
+            if ($Return->success != true || $Return->score < 0.5){
+                if ($userExist['role']==='admin'){
+                    Telegram::sender('Невдала спроба входу, користувач '.$userExist['login']. ' не пройшов перевірку каптча');
+                }
+                $this->getResponse(['success' => false, 'err' => ' Гугл вирішив що Ви робот, оновіть сторінку і спробуйте ще раз.']);
+            }
             if (!$userExist){
                     $this->getResponse(['success' => false, 'err' => ' Користувача з логіном "' . $login . '" не існує. Зареєструйтесь.']);
             }
             $resLogin = $user->loginUser();
-            $this->getResponse(['success' => $resLogin, 'err' => ' Ім\'я користувача або пароль вказано невірно.']);
+            if (!$resLogin && $userExist['role']==='admin'){
+                Telegram::sender('Невдала спроба входу, логін '.$userExist['login'].' або пароль вказано невірно.');
+            }
+            $this->getResponse(['success' => $resLogin, 'err' => ' Логін користувача або пароль вказано невірно.']);
         }
         $this->getResponse(['success' => false, 'err' => ' Поля лоін і пароль є обов\'язковими для заповнення!']);
     }

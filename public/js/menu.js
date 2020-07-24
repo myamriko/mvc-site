@@ -4,7 +4,7 @@ function call_menu(){
     $('#menu-add').modal('show');
 }
 /*при нажатии на элемент определяем id*/
-$("td").on("dblclick", function () {
+$("td").on("contextmenu", function () {
     var id = $(this).attr("id");
     if (id) {
         var text = $('#' + id).text().trim();
@@ -33,11 +33,11 @@ $("td").on("dblclick", function () {
                     };
                     $.post('/menu-adm/update', data, function (res) {
                         if (!res[0].success) {
-                            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+                            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
                             $('#systeminfo').html(html);
                             setTimeout(function () {
                                 $('#system').fadeOut().modal('hide');
-                            }, 5000);
+                            }, 7000);
                             $('#system').fadeIn().modal('show');
                         }
                         $('#new_' + id).remove();
@@ -47,7 +47,7 @@ $("td").on("dblclick", function () {
                 break;
             default :
                 var oldHtml = $('#' + id).html().trim();
-                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm' style='width: 200px' type='text' value='" + text + "' >" +
+                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm width-mob' type='text' value='" + text + "' >" +
                     "<button id='update_sitemail' type='button' class='btn badge-success btn-sm ml-2' onclick='updateMenu(\"" + id + "\")'><i class='far fa-save'></i></button></div>";
                 $('#' + id).html(html);
                 $('#new_' + id).select();//выделить текст в input
@@ -66,11 +66,11 @@ function updateMenu(id) {
     };
     $.post('/menu-adm/update', data, function (res) {
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
             return;
         }

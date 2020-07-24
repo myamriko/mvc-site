@@ -43,6 +43,9 @@
     font-size: 65px;
     margin-left: 33px;
 }
+.oval .ico{
+    width: 68px;
+}
 
 /*плавная загрузка страниц*/
 @-webkit-keyframes fade-in {
@@ -507,7 +510,7 @@ body {
 }
 
 .gtco-features .col-lg-4 p {
-    max-width: 320px;
+   /* max-width: 320px;*/
     margin-bottom: 30px;
 }
 
@@ -1696,7 +1699,7 @@ a:hover {
     width: 100%;
     height: 70px;
     padding-left: 40px;
-    margin-bottom: 18px; }
+    margin-bottom: 21px; }
 .contact-info {
     position: relative; }
 
@@ -1873,8 +1876,16 @@ a:hover {
     font-size: small;
     color: #17b978;
     font-weight: 600;
-    margin-top: -30px;
+    margin-top: -25px;
     margin-left: 25px;
+}
+#register .aviso{
+    position: absolute;
+    font-size: small;
+    color: #17b978;
+    font-weight: 600;
+    margin-top: -2px;
+    margin-left: 0px;
 }
 
 .recordatorio {
@@ -1911,4 +1922,54 @@ a:hover {
     text-align: center;
     padding-top: 4px;
     margin-left: 15px;
+
+}
+/*----datatime Picchers*/
+
+.xdsoft_datetimepicker{
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-radius: 50px;
+    padding-top: auto !important;
+    padding-left: auto !important;
+    margin-bottom: 30px;
+}
+
+.xdsoft_datetimepicker .xdsoft_label{
+    z-index: 999 !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today {
+    font-weight: 700;
+    background-color: #e5fbfe;
+}
+
+.xdsoft_datetimepicker.xdsoft_inline{
+    max-width: 450px;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08) !important;
+}
+.xdsoft_datetimepicker .xdsoft_datepicker {
+    margin-left: 5px !important;
+    width: 75% !important;
+}
+@media screen and (max-width: 360px) {
+    .xdsoft_datetimepicker.xdsoft_inline {
+        margin-left: -5px;
+        width: 310px;
+        height: 240px;
+        padding-top: 15px;
+        padding-bottom: 5px;
+    }
+}
+@media screen and (min-width: 361px) {
+    .xdsoft_datetimepicker.xdsoft_inline{
+
+        width: 100%;
+    }
+    .xdsoft_datetimepicker .xdsoft_datepicker {
+        margin-left: 21px !important;
+        width: 75% !important;
+    }
 }

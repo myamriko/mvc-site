@@ -1,5 +1,5 @@
 /*при нажатии на элемент определяем id*/
-$("td").on("dblclick", function () {
+$("td").on("contextmenu", function () {
     var id = $(this).attr("id");
     if (id) {
         var text = $('#' + id).text().trim();
@@ -7,7 +7,7 @@ $("td").on("dblclick", function () {
         switch (true) {
             case idr !== 'role' && idr !== 'avatar':
                 var oldHtml = $('#' + id).html().trim();
-                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm' style='width: 200px' type='text' value='" + text + "' >" +
+                var html = "<div class='row'><input id='new_" + id + "' class='form-control  form-control-sm width-mob' type='text' value='" + text + "' >" +
                     "<button id='update_sitemail' type='button' class='btn badge-success btn-sm ml-2' onclick='updateUser(\"" + id + "\")'><i class='far fa-save'></i></button></div>";
 
                 $('#' + id).html(html);
@@ -35,11 +35,11 @@ $("td").on("dblclick", function () {
                     $.post('/users-adm/update', {text: text, id: id}, function (res) {
 
                         if (!res[0].success) {
-                            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+                            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
                             $('#systeminfo').html(html);
                             setTimeout(function () {
                                 $('#system').fadeOut().modal('hide');
-                            }, 5000);
+                            }, 7000);
                             $('#system').fadeIn().modal('show');
                         }
                         $('#new_' + id).remove();
@@ -50,7 +50,7 @@ $("td").on("dblclick", function () {
             /*ДЛЯ аватарки*/
             case idr === 'avatar':
                 var oldHtml = $('#' + id).html().trim();
-                var html = '<input type="file" id="new_' + id + '" name="new_' + id + '" class="mt-2" style="width: 200px">' +
+                var html = '<input type="file" id="new_' + id + '" name="new_' + id + '" class="mt-2 width-mob">' +
                     '<button id="new_' + id + '" type="button" class="btn badge-success btn-sm mb-1" onclick="updateAvatar(\'' + id + '\')"><i class="fas fa-file-download"></i></button></div>';
                 $('#' + id).html(html);
                 esc(id, oldHtml);
@@ -76,11 +76,11 @@ function updateAvatar(id) {
         success: function (res) {
             $('#new_' + id).remove();
             if (!res[0].success) {
-                var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+                var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
                 $('#systeminfo').html(html);
                 setTimeout(function () {
                     $('#system').fadeOut().modal('hide');
-                }, 5000);
+                }, 7000);
                 $('#system').fadeIn().modal('show');
                 $('#' + id).html('<img src="/public/pic/avatar/' + res[0].name_pic_old + '" style="width: 40px; height: auto">');
                 return;
@@ -98,18 +98,18 @@ function updateUser(id) {
         $('#systeminfo').html(html);
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
-        }, 5000);
+        }, 7000);
         $('#system').fadeIn().modal('show');
         return;
     }
 
     $.post('/users-adm/update', {text: text, id: id}, function (res) {
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
             return;
         }

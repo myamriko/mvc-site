@@ -10,15 +10,15 @@
                     <hr>
                 </div>
                 <div class="form-inline mb-2">
-                    <input type="search" class="ml-2 form-control acInput search-panel" id="searchTitle"
+                    <input type="search" class="ml-2 mb-2 form-control acInput search-panel" id="searchTitle"
                            placeholder="Сортировка по имени" autocomplete="on">
-                    <input type="search" class="ml-2 form-control acInputTag search-panel" id="searchTag"
+                    <input type="search" class="ml-2 mb-2 form-control acInputTag search-panel" id="searchTag"
                            placeholder="Сортировка по Логину" autocomplete="on">
-                    <input type="text" class="pageLimit ml-2 form-control" id="pageLimitUserPanel"
+                    <input type="text" class="pageLimit ml-2 mb-2 form-control" id="pageLimitUserPanel"
                            placeholder="Отображать {$userLimit} строк" data-cache="users-panel">
                 </div>
 
-                <table class="table table-striped">
+                <table class="table table-striped table-mob"  oncontextmenu="return false;">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
@@ -38,16 +38,16 @@
                     {/if}
                     {foreach $users as $User}
                         <tr id="{$User['id']}">
-                            <td scope="row">{$User['id']}</td>
-                            <td id="username-{$User['id']}">{$User['username']}</td>
-                            <td id="email-{$User['id']}">{$User['email']}</td>
-                            <td id="avatar-{$User['id']}"><img
+                            <td data-label="Id" scope="row">{$User['id']}</td>
+                            <td data-label="Имя" id="username-{$User['id']}">{$User['username']}</td>
+                            <td data-label="@mail" id="email-{$User['id']}">{$User['email']}</td>
+                            <td data-label="Аватар" id="avatar-{$User['id']}"><img
                                         src="/public/pic/avatar/{$User['avatar']}" style="height: 35px; width: auto">
                             </td>
                             {if $smarty.session.user.id === $User['id']}
-                                <td class="align-middle  text-black-50">{$User['login']}</td>
-                                <td class="align-middle text-black-50">{$User['role']}</td>
-                                <td>
+                                <td data-label="Логин" class="align-middle  text-black-50">{$User['login']}</td>
+                                <td data-label="Роль" class="align-middle text-black-50">{$User['role']}</td>
+                                <td data-label=" ">
                                     <button class="btn btn-linc btn-sm text-secondary" onclick="#" disabled><i
                                                 class="far fa-trash-alt"></i> Удалить
                                     </button>

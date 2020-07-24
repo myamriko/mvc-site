@@ -6,12 +6,12 @@ function restorePass() {
         $('#systeminfo').html(html);
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
-        }, 5000);
+        }, 7000);
         $('#system').fadeIn().modal('show');
         return;
     }
 
-    $('#restoreBtn').prop('disabled', true);
+    $('#restoreBtn').attr('disabled', true);
 
     $.post('restore/restorePass', {
         restoreEmail: restoreEmail,
@@ -19,12 +19,13 @@ function restorePass() {
     }, function (res) {
         if (!res[0].success) {
            /* $('#restoreBtn').prop('disabled', false);*/
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
+            $('#restoreBtn').removeAttr('disabled');
             return;
         }
         var html = '<div class="alert alert-success" role="alert"><strong>На вашу електронну адресу надіслано повідомлення</strong></div>';
@@ -32,7 +33,7 @@ function restorePass() {
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
             location.replace('/');
-        }, 5000);
+        }, 7000);
         $('#system').fadeIn().modal('show');
         return;
     })

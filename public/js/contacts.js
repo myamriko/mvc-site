@@ -1,7 +1,7 @@
 function reSend(id) {
     $.post('/contact-adm/send',{id: id},function (res) {
         if (!res[0].success){
-            var html = '<div class="alert alert-danger" role="alert"><strong>Ошибка:</strong> ' + res[0].err + '</div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong  class="lead">Ошибка:</strong> ' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
@@ -62,7 +62,7 @@ function reply() {
              htmlBtn = '<button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>\n' +
                  '      <button id="btnSend" type="button" class="btn btn-primary" onclick="reply()">Отправить</button>';
             if (!res[0].success){
-                var html = '<div class="alert alert-danger" role="alert"><strong>Ошибка:</strong> ' + res[0].err + '</div>';
+                var html = '<div class="alert alert-danger" role="alert"><strong  class="lead">Ошибка:</strong> ' + res[0].err + '</div>';
                 $('#reply').modal('hide');
                 $('#systeminfo').html(html);
                 setTimeout(function () {
@@ -72,12 +72,12 @@ function reply() {
                 $('#btnSend').html(htmlBtn);
                 return;
             }
-            var html = '<div class="alert alert-success" role="alert">' + res[0].err + '</div>';
+            var html = '<div class="alert alert-success" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#reply').modal('hide');
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             myEditor.setData('');
             $('#resend-'+id).remove();
             $('#holder-'+id).append('<div class="col-1 text-success"><i class="fas fa-share-square"></i></div>');

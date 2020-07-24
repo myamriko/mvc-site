@@ -27,13 +27,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 contact-info">
                     <h3 class="mb-4 text-center">Змінити пароль</h3>
                     <input id="pssOld" type="password" class="form-control" placeholder="Існуючий пароль">
                     <input id="newPss" type="password" class="form-control newpss password" placeholder="Новий пароль">
                     <span class= "complexity aviso text-danger"></span>
                     <input id="rePss" type="password" class="form-control repss password" placeholder="Підтвердити пароль">
-                    <span class= "equality aviso p-1 text-danger"></span>
+                    <span class= "equality aviso text-danger"></span>
                     <div class="text-md-center mb-5"><button type="button" class="submit-button" onclick = "editPass()">Підтвердити <i class="fa ico-angle-right" aria-hidden="true"></i></button></div>
 
                 </div>

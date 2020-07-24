@@ -8,7 +8,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/panelthem.css">
     <link rel="stylesheet" href="/public/css/jquery-ui.css">
-    <link type="text/html" href="/public/font-awesome/css/all.min.css">
+   {* <link type="text/html" href="/public/font-awesome/css/all.min.css">*}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>{block name=title}{/block}</title>
 </head>
@@ -62,6 +62,10 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link  text-white" href="/articles-adm">Статьи
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  text-white" href="/timeres-adm">Встречи
                 </a>
             </li>
         </ul>

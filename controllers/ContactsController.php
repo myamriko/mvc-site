@@ -72,7 +72,7 @@ class ContactsController implements Controller
                 'subject' => $subject,
                 'messageHtml' => $messageHtml
             ];
-
+            Telegram::sender('на електронну скриньку сайту '.$siteData['sitename'].' надіслано нове повідомлення '.$date);
             $mailer = new Mailer();
             $mailer->mailerSend($mailerData);
         }

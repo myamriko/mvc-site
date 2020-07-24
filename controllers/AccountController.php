@@ -63,11 +63,13 @@ class AccountController implements Controller
                 }
             };
             array_push($data, $file, $userName, $mail);
-
             $user->file = $file;
             $user->userName = $userName;
             $user->mail = $mail;
             $editData = $user->editData($id);
+            if ($editData && $userExist['role']==='admin'){
+                Telegram::sender('Персональні дані адміністратора '.$userExist['login'].' були змінені');
+            }
             $this->getResponse(['success' => $editData, 'err' => ' Не вдалося внести зміни.', 'data' => $data]);
         }
 
@@ -120,6 +122,9 @@ class AccountController implements Controller
         $pass = md5($pass . $user['salt']);
         $userModel->pass = $pass;
         $editPass = $userModel->editPass();
+        if ($editPass && $user['role']==='admin'){
+            Telegram::sender('Пароль адміністратора '.$user['login'].' був змінен');
+        }
         return $editPass;
 
     }

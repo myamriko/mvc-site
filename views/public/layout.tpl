@@ -8,6 +8,8 @@
 {include file='public/include/modal/login.tpl'}
 {include file='public/include/modal/system.tpl'}
 {include file='public/include/modal/account.tpl'}
+
+
 {*preloader*}
 <div class="loaderArea">
     <div class="load">
@@ -21,6 +23,7 @@
     {*navBar*}
     {include file="public/include/navbar.tpl"}
     {*Content*}
+
     {block name=body}{/block}
 </div>
 {*footer*}
@@ -42,5 +45,11 @@
 <script  src="/public/owl-carousel/owl.carousel.min.js" defer></script>
 {*js темы*}
 <script  src="/public/them-js/main.js" defer></script>
+{*Time Resrvstion*}
+
+    <script  src="/public/them-js/jquery.datetimepicker.full.min.js" defer></script>
+    <script  src="/public/them-js/rainbow-custom.min.js" defer></script>
+    <script  src="/public/js/timeRes.js" defer></script>
+
 </body>
 </html>

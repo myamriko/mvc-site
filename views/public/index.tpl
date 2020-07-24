@@ -5,10 +5,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="wow fadeInLeft font-weight-bolder" >Колесникова</h1>
-                    <h3 class="wow fadeInLeft font-weight-bolder" data-wow-delay ='0.5s'>Ганна Вікторівна</h3>
-                    <p class="wow fadeInLeft" data-wow-delay ='1s'> Адвокатські послуги, консультація з правових питань,
+                    <h1 class="wow fadeInLeft font-weight-bolder">Колесникова</h1>
+                    <h3 class="wow fadeInLeft font-weight-bolder" data-wow-delay='0.5s'>Ганна Вікторівна</h3>
+                    <p class="wow fadeInLeft" data-wow-delay='1s'> Адвокатські послуги, консультація з правових питань,
                         захисник та представник в кримінальних процесах </p>
+                    <p class="wow fadeInLeft" data-wow-delay='1.5s'>
+                        <a href="tel:0956112060">(095) 611-20-60</a>
+                        <br>
+                        <a href="tel:0963165710">(096) 316-57-10</a>
+                        <br>
+                        <a href="/contacts">anik_100@mail.ru</a>
+                    </p>
 
                     <ul class="nav follow-us-nav">
                         <li class="nav-item"><a class="nav-link pl-0" href="#"><i class="ico ico-facebook"></i></a></li>
@@ -25,14 +32,13 @@
     <section class="gtco-feature" id="services">
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12 col-lg-7">
                     <div class="cover">
                         <div class="card">
-                            <svg
-                                    class="back-bg"
-                                    width="100%"
-                                    viewBox="0 0 900 700"
-                                    style="position:absolute; z-index: -1">
+                            <svg class="back-bg"
+                                 width="100%"
+                                 viewBox="0 0 900 700"
+                                 style="position:absolute; z-index: -1">
                                 <defs>
                                     <linearGradient id="PSgrad_01" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
                                         <stop offset="0%" stop-color="rgb(1,230,248)" stop-opacity="1"/>
@@ -50,13 +56,14 @@
                                     <path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
                                 </clipPath>
                                 <!-- xlink:href for modern browsers, src for IE8- -->
-                                <image clip-path="url(#clip-path)" xlink:href="/public/images/learn-img.jpg" width="100%"
+                                <image clip-path="url(#clip-path)" xlink:href="/public/images/learn-img.jpg"
+                                       width="100%"
                                        height="465" class="svg__image"></image>
                             </svg>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 wow fadeIn">
+                <div class="col-md-12 col-lg-5 wow fadeIn">
                     <blockquote class="blockquote mt-3">
                         <p class="mb-0">Я пропоную кваліфіковані юридичні послуги та поради широкому загалу людей, які
                             знаходяться на
@@ -82,15 +89,11 @@
     <section class="gtco-features" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="wow fadeIn" data-wow-delay ='0.5s'>
-                        <h2> Explore The Services<br/>
-                            We Offer For You </h2>
+                <div class="col-lg-4 col-md-12">
+                    <div class="wow fadeIn" data-wow-delay='0.5s'>
+                        <h2 class="text-center"> Explore The Services We Offer For You </h2>
 
-                        <p> Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla,
-                            cursus
-                            impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id
-                            neque. </p>
+                        <p> Аналітичний підхід до вирішення правової проблеми на основі теоретичних, наукових знань і практичних судових розглядів. </p>
                         <a href="#">All Services <i class="fa ico-angle-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -110,7 +113,9 @@
                     <div class="row">
                         <div class="col">
                             <div class="card text-center wow fadeInLeftBig">
-                                <div class="oval"><div class="circle"><i class="ico ico-courthouse"></i></div></div>
+                                <div class="oval">
+                                    <div class="circle"><i class="ico ico-courthouse"></i></div>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">Web Design</h3>
                                     <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
@@ -118,7 +123,9 @@
                                 </div>
                             </div>
                             <div class="card text-center wow fadeInLeftBig">
-                                <div class="oval"><div class="circle"><i class="ico ico-auction"></i></div></div>
+                                <div class="oval">
+                                    <div class="circle"><i class="ico ico-auction"></i></div>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">Marketing</h3>
                                     <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
@@ -128,7 +135,9 @@
                         </div>
                         <div class="col">
                             <div class="card text-center wow fadeInRightBig">
-                                <div class="oval"><div class="circle"><i class="ico ico-libra"></i></div></div>
+                                <div class="oval">
+                                    <div class="circle"><i class="ico ico-libra"></i></div>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">SEO</h3>
                                     <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
@@ -136,7 +145,9 @@
                                 </div>
                             </div>
                             <div class="card text-center wow fadeInRightBig">
-                                <div class="oval"><div class=""><i class="ico ico-handcuffs"></i></div></div>
+                                <div class="oval">
+                                    <div class=""><i class="ico ico-handcuffs"></i></div>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">Graphics Design</h3>
                                     <p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
@@ -149,7 +160,7 @@
             </div>
         </div>
     </section>
-    <section class="gtco-numbers-block d-none d-md-block d-lg-block"   id="viewNumbers">
+    <section class="gtco-numbers-block d-none d-md-block d-lg-block" id="viewNumbers">
         <div class="container">
             <svg width="100%" viewBox="0 0 1600 400">
                 <defs>
@@ -177,7 +188,7 @@
                        class="svg__image">
                 </image>
             </svg>
-            <div class="row" >
+            <div class="row">
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
@@ -260,28 +271,30 @@
             </div>
         </div>
     </section>
-
     <section class="gtco-features-list">
         <div class="container">
             <div class="row">
                 <div class="media col-md-6 col-lg-4 wow fadeIn">
-                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/quality-results.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/quality-results.png"
+                                                alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Quality Results</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
                         fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
-                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay ='0.2s'>
-                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/analytics.png" alt=""></div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay='0.2s'>
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/analytics.png" alt="">
+                    </div>
                     <div class="media-body">
                         <h5 class="mb-0">Analytics</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
                         fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
-                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay ='0.4s'>
-                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/affordable-pricing.png" alt=""></div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay='0.4s'>
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/affordable-pricing.png"
+                                                alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Affordable Pricing</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
@@ -289,23 +302,26 @@
                     </div>
                 </div>
                 <div class="media col-md-6 col-lg-4 wow fadeIn">
-                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/easy-to-use.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/easy-to-use.png" alt="">
+                    </div>
                     <div class="media-body">
                         <h5 class="mb-0">Easy To Use</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
                         fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
-                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay ='0.2s'>
-                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/free-support.png" alt=""></div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay='0.2s'>
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/free-support.png" alt="">
+                    </div>
                     <div class="media-body">
                         <h5 class="mb-0">Free Support</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
                         fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
-                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay ='0.4s'>
-                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/effectively-increase.png" alt=""></div>
+                <div class="media col-md-6 col-lg-4 wow fadeIn" data-wow-delay='0.4s'>
+                    <div class="oval mr-4"><img class="align-self-start" src="/public/images/effectively-increase.png"
+                                                alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Effectively Increase</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum
@@ -315,41 +331,46 @@
             </div>
         </div>
     </section>
-
-    <section class="gtco-news wow fadeIn" id="news" data-wow-delay ='0.3s'>
+    <section class="gtco-news wow fadeIn" id="news" data-wow-delay='0.3s'>
         <div class="container">
             <h2>Latest News & Articles</h2>
             <div class="owl-news row">
 
-                <div class="col-md-4">
+                <div class="col-md-12 col-lg-4">
                     <div class="card text-center"><img class="card-img-top" src="/public/images/news1.jpg" alt="">
                         <div class="card-body text-left pr-0 pl-0">
                             <h5>Aenean ultrices lorem quis blandit
                                 tempor urabitur accumsan. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue,
-                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus
+                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat
+                                augue,
+                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus
+                                risus
                                 . . . </p>
                             <a href="#">READ MORE <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12 col-lg-4">
                     <div class="card text-center"><img class="card-img-top" src="/public/images/news2.jpg" alt="">
                         <div class="card-body text-left pr-0 pl-0">
                             <h5> Nam vel nisi eget odio pulvinar
                                 iaculis. Fusce aliquet. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue,
-                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus
+                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat
+                                augue,
+                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus
+                                risus
                                 . . . </p>
                             <a href="#">READ MORE <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12 col-lg-4">
                     <div class="card text-center"><img class="card-img-top" src="/public/images/news3.jpg" alt="">
                         <div class="card-body text-left pr-0 pl-0">
                             <h5>Morbi faucibus odio sollicitudin
                                 risus scelerisque dignissim. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue,
-                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus
+                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat
+                                augue,
+                                et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus
+                                risus
                                 . . . </p>
                             <a href="#">READ MORE <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
                     </div>
@@ -358,5 +379,5 @@
         </div>
     </section>
     {*Contact*}
-    {include file="public/include/front-contact.tpl"}
+    {include file="public/include/front-reservationTime.tpl"}
 {/block}

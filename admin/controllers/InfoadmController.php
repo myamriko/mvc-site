@@ -19,6 +19,9 @@ class InfoadmController implements Controller
         $smarty->display('admin/index.tpl');
     }
 
+    /**
+     *
+     */
     public function update()
 
     {

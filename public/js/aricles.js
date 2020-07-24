@@ -104,9 +104,7 @@ function edit(id) {
     $('img').val('');
     $.post('/articles-adm/edit', {id: id}, function (res) {
         if (!res[0].success) {
-            $('#systeminfo').html('<div class="alert alert-danger" role="alert">' +
-                '    <strong>Error:' + res[0].err + '</strong>' +
-                '</div>');
+            $('#systeminfo').html('<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>');
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
             }, 7000);

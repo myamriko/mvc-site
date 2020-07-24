@@ -21,8 +21,8 @@ function editData() {
         data: data,
 
         success: function (res) {
+
             if (!res[0].success) {
-                console.log(res[0].err);
                 $('#message-acc').text(res[0].err);
                 $('#acc_err').fadeIn().show();
                 return;
@@ -55,18 +55,18 @@ function editPass() {
         $('#systeminfo').html(html);
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
-        }, 5000);
+        }, 7000);
         $('#system').fadeIn().modal('show');
         return;
     }
 
     $.post('account/editPass', data, function (res) {
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
             return;
         }
@@ -79,7 +79,7 @@ function editPass() {
         $('#systeminfo').html(html);
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
-        }, 5000);
+        }, 7000);
         $('#system').fadeIn().modal('show');
         return;
     });

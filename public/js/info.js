@@ -1,4 +1,4 @@
-$(".edit").on("dblclick", function () {
+$(".edit").on("contextmenu", function () {
     var id = $(this).attr("id");
 
     switch (true) {
@@ -49,19 +49,19 @@ function endUpdate(id) {
         $('#systeminfo').html(html);
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
-        }, 5000);
+        }, 7000);
         $('#system').fadeIn().modal('show');
         return;
     }
 
     $.post('/info-adm/update', {text: text, column: id}, function (res) {
-        console.log(res[0].success);
+
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
             return;
         }
@@ -80,11 +80,11 @@ $('#cechetime').change(function () {// изменяет значение select 
     var text = $('#cechetime').val();
     $.post('/info-adm/update', {text: text, column: 'cechetime'}, function (res) {
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
         }
     });
@@ -93,13 +93,12 @@ $('#cechetime').change(function () {// изменяет значение select 
 $("#social").change(function () {// изменяет значение select при клике
     var text = $('#social').val();
     $.post('/info-adm/update', {text: text, column: 'social'}, function (res) {
-        console.log(res[0].success)
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
-            }, 5000);
+            }, 7000);
             $('#system').fadeIn().modal('show');
         }
     });
@@ -122,11 +121,11 @@ function endPicUpdate(id) {
 
             $('#new_' + id).remove();
             if (!res[0].success) {
-                var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+                var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
                 $('#systeminfo').html(html);
                 setTimeout(function () {
                     $('#system').fadeOut().modal('hide');
-                }, 5000);
+                }, 7000);
                 $('#system').fadeIn().modal('show');
                 $('#' + id).html('<img src="/public/pic/res/' + res[0].name_pic_old + '" style="width: 40px; height: auto">');
                 return;

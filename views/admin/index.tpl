@@ -1,7 +1,7 @@
 {extends file="admin/layout.tpl"}
 {block name=title}Админ панель{/block}
 {block name=body}
-    <section>
+    <section oncontextmenu="return false;">
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-5 mt-5"><h1>Основные настройки</h1>
@@ -134,8 +134,35 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="form-group row">
+                            <h3>Ботяра на телеге</h3>
+                            <div class="col-12 mt-3">
+                                <div class="form-group row">
+                                    <h4>Токен:</h4>
+                                    <div id="token" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">
+                                    {$sitedata['token']}
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="form-group row">
+                                    <h4>ID чата:</h4>
+                                    <div id="id_chat" class="col-lg-6 col-md-6 col-sm-6 col-11 edit">
+                                <span class="lead">
+                                    {$sitedata['id_chat']}
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
 
                 <div class="col-lg-6">
                     <div class="col-12">

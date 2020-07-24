@@ -12,11 +12,11 @@ $(document).ready(function () {//изменим кол-во ссылок на с
         if (key === 13) {
             $.post('/page-adm/update', data, function (res) {
                     if (!res[0].success) {
-                        var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+                        var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
                         $('#systeminfo').html(html);
                         setTimeout(function () {
                             $('#system').fadeOut().modal('hide');
-                        }, 5000);
+                        }, 7000);
                         $('#system').fadeIn().modal('show');
                         return;
                     }

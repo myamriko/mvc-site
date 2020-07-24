@@ -3,7 +3,8 @@
 
 trait ExtraTrait
 {
-    public function hint($tags,$column){
+    public function hint($tags, $column)
+    {
         $hint = '';
         foreach ($tags as $tag) {
             $hint = $hint . ',' . '"' . $tag[$column] . '"';
@@ -11,7 +12,8 @@ trait ExtraTrait
         return $hint = trim($hint, ',');//передаем страку в js для автозаполнения
     }
 
-    public function pagination($pageName,$articleLimit,$tableName){
+    public function pagination($pageName, $articleLimit, $tableName)
+    {
         global $param;
         !empty($param) ? $page = filter_var(trim($param[0]), FILTER_SANITIZE_NUMBER_INT) : $page = 1;
         $pageMode = new PageModel();//всего статей в базе
@@ -26,18 +28,21 @@ trait ExtraTrait
                 $page = $countPageTotal;
                 break;
         }
-        $pageMode->pageName = $pageName;
-        $pageMode->page = $page;
-        $pageMode->countPageTotal = $countPageTotal;
-        $pagination = $pageMode->pagination();
-        $data=[
-            'pagination'=>$pagination,
-            'page'=>$page
+
+        $pageController = new PageController();
+        $pageController->pageName = $pageName;
+        $pageController->page = $page;
+        $pageController->countPageTotal = $countPageTotal;
+        $pagination = $pageController->pagination();
+        $data = [
+            'pagination' => $pagination,
+            'page' => $page
         ];
         return $data;
     }
 
-    public function report($report){
+    public function report($report)
+    {
         $reports = [];
         foreach ($report as $index => $value) {
             $reports[$index]['id'] = $value['id'];
@@ -54,13 +59,36 @@ trait ExtraTrait
         return $reports;
     }
 
-    public function captcha(){
+    public function captcha()
+    {
         /*recaptcha3 @ отключаем вывод ошибки SSL сертификата*/
         //в хедере и футере скрипт, в форме скрытая строка, через jquery передаем с остальными данными $_POST['g_recaptcha_response']
         $siteData = InfoModel::info();
-        $Response = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$siteData['sekretkey']."&response={$_POST['g_recaptcha_response']}");
+        $Response = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $siteData['sekretkey'] . "&response={$_POST['g_recaptcha_response']}");
         $Return = json_decode($Response);
         return $Return;
     }
+
+    public function allowTimes($maxTime,$step, $minTimeUnt, $minTime)
+    {
+        $stopedAt = new DateTime($maxTime);
+        $timeStop = $stopedAt->sub(new DateInterval('PT' . $step . 'M'));
+        $timeStop = $timeStop->format('H:i');
+        $timeStop = strtotime($timeStop);
+
+        $timeUnt = $minTimeUnt;
+
+        $startedAt = new DateTime($minTime);
+        while ($timeUnt < $timeStop) {
+
+            $finishedAt = $startedAt->add(new DateInterval('PT' . $step . 'M'));
+            $time = $finishedAt->format('H:i');
+            $times[] = $time;
+            $timeUnt = strtotime($time);
+
+        }
+        return $times;
+    }
+
 
 }

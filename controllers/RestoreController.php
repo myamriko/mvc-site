@@ -10,6 +10,10 @@ class RestoreController implements Controller
 
     public function index()
     {
+        $login = Session::get('user', ['login' => ''])['login'];
+        if (!empty($login)) {
+            header('Location: /');
+        }
         global $smarty;
         $this->menuPrincipal();
         $smarty->display('public/restore.tpl');
@@ -24,20 +28,24 @@ class RestoreController implements Controller
         if (!empty($restoreEmail)) {
             $restore = new UserModel();
             $user = $restore->getUserByLogin($login = null, $id = null, $restoreEmail);
-            $editPass = new AccountController();
-
-            $editPass = $editPass->makePass($user['login'], 'Resto_te-PaSS88', $pass, $pass);
-            if (!$editPass) {
-                $this->getResponse(['success' => false, 'err' => ' Не вдалося внести зміни dв БД.']);
-            }
             unset($user['pass']);
             unset($user['salt']);
             if (!$user) {
                 $this->getResponse(['success' => false, 'err' => 'Така адреса електронної пошти не зареєстрована.']);
             }
+            $editPass = new AccountController();
+            $editPass = $editPass->makePass($user['login'], 'Resto_te-PaSS88', $pass, $pass);
+            if (!$editPass) {
+                $this->getResponse(['success' => false, 'err' => ' Не вдалося внести зміни dв БД.']);
+            }
+
             $Return = $this->captcha();//ExtraTrait
             if ($Return->success != true || $Return->score < 0.5) {
-                $this->getResponse(['success' => false, 'err' => ' Ви робот? <br> Якщо ні, поновіть сторінку і спробуйте ще раз']);
+                $this->getResponse(['success' => false, 'err' => ' Ви робот? Якщо ні, поновіть сторінку і спробуйте ще раз']);
+            }
+
+            if ($user['role']==='admin'){
+                Telegram::sender('Користувач '.$user['login']." відновив пароль.  Тимчасовий пароль:  " . $pass . "  E-mail: ".$restoreEmail);
             }
             /*Отправка на почту*/
             $siteData = InfoModel::info();

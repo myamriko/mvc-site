@@ -9,15 +9,15 @@
                     <hr>
                 </div>
                 <div class="form-inline mb-2">
-                    <button class="btn btn-outline-secondary" data-toggle="modal" onclick="call_menu()"><i
+                    <button class="mb-2 ml-2 btn btn-outline-secondary" data-toggle="modal" onclick="call_menu()"><i
                                 class="fas fa-folder-plus"></i> Добавить меню
                     </button>
-                    <input type="search" class="ml-2 form-control acInput search-panel" id="searchTitle"
+                    <input type="search" class="mb-2 ml-2  form-control acInput search-panel" id="searchTitle"
                            placeholder="Сортировка:" autocomplete="on">
-                    <input type="text" class="ml-2 form-control pageLimit" id="pageLimitMenuPanel"
+                    <input type="text" class="mb-2 ml-2  form-control pageLimit" id="pageLimitMenuPanel"
                            placeholder="Отображать {$menuLimit} строк" data-cache="menu-panel">
                 </div>
-                <table class="table table-striped">
+                <table class="table table-striped table-mob"  oncontextmenu="return false;">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
@@ -36,12 +36,12 @@
                     {/if}
                     {foreach $menuNames as $menuName}
                         <tr id="{$menuName['id']}">
-                            <td>{$menuName['id']}</td>
-                            <td id="title-{$menuName['id']}">{$menuName['title']}</td>
-                            <td id="description-{$menuName['id']}">{$menuName['description']}</td>
-                            <td id="enabled-{$menuName['id']}">{$menuName['enabled']}</td>
-                            <td>{$menuName['menu_name']}</td>
-                            <td>
+                            <td data-label="Id">{$menuName['id']}</td>
+                            <td data-label="Назавание" id="title-{$menuName['id']}">{$menuName['title']}</td>
+                            <td data-label="Описание" id="description-{$menuName['id']}">{$menuName['description']}</td>
+                            <td data-label="Отображение" id="enabled-{$menuName['id']}">{$menuName['enabled']}</td>
+                            <td data-label="Админ название">{$menuName['menu_name']}</td>
+                            <td data-label=" ">
                                 <div class="btn-group dropleft">
                                     <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

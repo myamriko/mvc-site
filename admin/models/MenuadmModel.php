@@ -1,7 +1,7 @@
 <?php
 
 
-class MenuadmModel
+class  MenuadmModel
 {
     use ResponseTrait;
     const CACHE_KEY = 'menu';

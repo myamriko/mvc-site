@@ -2,22 +2,22 @@
 {block name=hint}{$hint}{/block}
 {block name=title}Категории - Админ панель{/block}
 {block name=body}
-    <section>
+    <section>{*oncontextmenu="return false;" отключает контекстное меню принажатии правой кнопки*}
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-5 mt-5"><h3>Категории</h3>
                     <hr>
                 </div>
                 <div class="form-inline mb-2">
-                    <button class="btn btn-outline-secondary" data-toggle="modal" data-target="#menu-add"><i
+                    <button class="btn btn-outline-secondary ml-2 mb-2" data-toggle="modal" data-target="#menu-add"><i
                                 class="fas fa-folder-plus"></i> Добавить категорию
                     </button>
-                    <input type="search" class="ml-2 form-control acInput search-panel" id="searchTitle"
+                    <input type="search" class=" ml-2 mb-2 form-control acInput search-panel" id="searchTitle"
                            placeholder="Сортировка:" autocomplete="on">
-                    <input type="text" class="ml-2 form-control pageLimit" id="pageLimitCategoryPanel"
+                    <input type="text" class=" ml-2 mb-2 form-control pageLimit" id="pageLimitCategoryPanel"
                            placeholder="Отображать {$categoryLimit} строк" data-cache="categories-site">
                 </div>
-                <table class="table table-striped">
+                <table class="table table-striped table-mob" oncontextmenu="return false;">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
@@ -36,12 +36,12 @@
                     {/if}
                     {foreach $categories as $category}
                         <tr id="{$category['id']}">
-                            <td>{$category['id']}</td>
-                            <td id="name-{$category['id']}">{$category['name']}</td>
-                            <td id="description-{$category['id']}">{$category['description']}</td>
-                            <td>{$category['url']}</td>
-                            <td id="enabled-{$category['id']}">{$category['enabled']}</td>
-                            <td>
+                            <td data-label="Id">{$category['id']}</td>
+                            <td data-label="Название" id="name-{$category['id']}">{$category['name']}</td>
+                            <td data-label="Описание" id="description-{$category['id']}">{$category['description']}</td>
+                            <td data-label="Url">{$category['url']}</td>
+                            <td data-label="Отображение" id="enabled-{$category['id']}">{$category['enabled']}</td>
+                            <td data-label=" ">
                                 <button class="btn btn-linc btn-sm text-danger"
                                         onclick="removedStart('{$category['id']}','{$category['name']}','categories')">
                                     <i

@@ -10,16 +10,16 @@
                     <hr>
                 </div>
                 <div class="form-inline mb-2">
-                    <button class="btn btn-outline-secondary" data-toggle="modal"
+                    <button class="btn btn-outline-secondary mb-2 ml-2" data-toggle="modal"
                             data-target="#article-add"><i
                                 class="fas fa-folder-plus"></i> Добавить статью
                     </button>
-                    <input type="search" class="ml-2 form-control acInput search-panel" id="searchArticle"
+                    <input type="search" class="ml-md-2 form-control acInput search-panel mb-2 ml-2" id="searchArticle"
                            placeholder="Поиск:">
-                    <input type="text" class="ml-2 form-control pageLimit" id="pageLimitArticlePanel"
+                    <input type="text" class="ml-md-2 form-control pageLimit mb-2 ml-2" id="pageLimitArticlePanel"
                            placeholder="Отображать {$articleLimit} строк" data-cache="article-site">
                 </div>
-                <table class="table table-striped" id="articles">
+                <table class="table table-striped table-article" id="articles">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
@@ -43,21 +43,21 @@
                     {/if}
                     {foreach $articles as $articl}
                         <tr id="{$articl['id']}">
-                            <td id="id">{$articl['id']}</td>
-                            <td><a class="text-dark text-uppercase" href="/article/{$articl['url']}">{$articl['title']}</a></td>
-                            <td>{$articl['intro']}</td>
-                            <td><a class="text-dark" href="/category/{$articl['category']}">{$articl['name']}</a></td>
-                            <td>{$articl['tags']}</td>
-                            <td><a data-toggle="modal"
+                            <td data-label="Id" id="id">{$articl['id']}</td>
+                            <td data-label="Название"><a class="text-dark text-uppercase" href="/article/{$articl['url']}">{$articl['title']}</a></td>
+                            <td data-label="Описание">{$articl['intro']}</td>
+                            <td data-label="Категория"><a class="text-dark" href="/category/{$articl['category']}">{$articl['name']}</a></td>
+                            <td data-label="Теги">{$articl['tags']}</td>
+                            <td data-label="Картинка"><a data-toggle="modal"
                                    onclick="imgView('{$articl['file']}','{$articl['alt']}')"
                                    href="#"><img class="img-thumbnail" style="height: 70px;"
                                                  src="/public/pic/img-art/{$articl['file']}"></a>
                             </td>
-                            <td>{$articl['date']|date_format:"%d.%m.%Y,  %H:%M:%S"}</td>
-                            <td>{$articl['author']}</td>
-                            <td>{$articl['published']}</td>
-                            <td>{$articl['front']}</td>
-                            <td>
+                            <td data-label="Дата">{$articl['date']|date_format:"%d.%m.%Y,  %H:%M:%S"}</td>
+                            <td data-label="Аффтар">{$articl['author']}</td>
+                            <td data-label="Публикация">{$articl['published']}</td>
+                            <td data-label="Главная">{$articl['front']}</td>
+                            <td data-label=" ">
                                 <div class="btn-group dropleft">
                                     <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +94,6 @@
                /* if (text.length < 3) {
                     return;//если мение 3х букв в запросе выходим
                 }*/
-                console.log(text);
                /* $.post('/search/make', {
                     text: text
                 }, function (res) {

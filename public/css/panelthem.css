@@ -1,12 +1,24 @@
+
+@font-face {
+    font-family: 'Fira Sans', sans-serif;
+    /*font-weight: 600;*/
+    font-style: normal;
+    src: local('Fira Sans'), local('Fira Sans'), url(/public/font/FiraSans-Regular.ttf) format('ttf');
+    unicode-range: U+0400-045F;
+    font-display: swap;
+}
+
 html {
     position: relative;
     min-height: 100%;
 }
 body {
-    font-size: 1rem;
+    font-family: 'Fira Sans', sans-serif;
+
+    font-size: 1rem !important;
+    color: #343a40 !important;
     font-weight: 400;
     line-height: 1.5;
-    color: #292b2c;
     background-color: #fff;
     margin-bottom: 72px;
 }
@@ -113,4 +125,237 @@ hr {
     display:inline-block;
     max-width:200px;
     overflow:hidden;
+}
+
+
+/*таблица*/
+td{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem !important;
+    color: #343a40 !important;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+table.table-mob, table.table-article {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+
+table.table-mob th, table.table-article th,
+table.table-mob td, table.table-article td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+@media screen and (max-width: 991px) {
+
+    table.table-mob tr {
+        background-color: #f2f2f2;
+    }
+
+    table.table-mob {
+        border: 0;
+    }
+
+    table.table-mob thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table.table-mob tr {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    table.table-mob td {
+        display: block;
+        text-align: right;
+    }
+
+    table.table-mob td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table.table-mob td:last-child {
+        border-bottom: 0;
+    }
+}
+@media screen and (max-width: 1150px) {
+    table.table-article tr {
+        background-color: #f2f2f2;
+    }
+    table.table-article {
+        border: 0;
+    }
+
+    table.table-article thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table.table-article tr {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    table.table-article td {
+        display: block;
+        text-align: right;
+    }
+
+    table.table-article td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table.table-article td:last-child {
+        border-bottom: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .width-mob {
+        width: 150px;
+    }
+}
+@media screen and (min-width: 601px) {
+    .width-mob {
+        width: 200px;
+        margin-left: 15px;
+    }
+}
+
+/* calendar */
+
+tr.calendar-row  {  }
+td.calendar-day  {
+    position:relative;
+
+}
+* html div.calendar-day {
+    height:80px;
+}
+td.calendar-day:hover  { background:#eceff5; }
+@media screen and (max-width: 991px) {
+    td.calendar-day-np {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 992px) {
+    td.calendar-day  {
+        height:80px;
+        width: 14.285714%;
+    }
+    td.calendar-day-np {
+        background: #f2f2f2;
+        height: 80px;
+    }
+
+    * html div.calendar-day-np {
+       height: 80px;
+    }
+}
+td.calendar-day-head {
+    background:#ccc;
+    font-weight:bold;
+    text-align:center;
+    width:120px;
+    padding:5px;
+    border-bottom:1px solid #999;
+    border-top:1px solid #999;
+    border-right:1px solid #999;
+}
+div.day-number    {
+    background:#999;
+    padding:1px;
+    color:#fff;
+    font-weight:bold;
+    display: block;
+    display: inline-block;
+
+    margin:-5px -5px 0 0;
+    width:25px;
+    text-align:center; }
+
+
+/* shared */
+td.calendar-day, td.calendar-day-np {
+
+    padding:5px;
+    border-bottom:1px solid #999;
+    border-right:1px solid #999;
+}
+/*icons*/
+
+.ico{
+    font-size: 30px;
+    color: #007bff;
+}
+
+.hoy{
+    background:#007bff !important;
+}
+
+.ayer{
+    background:#e4e4e4 !important;
+    color: #a6a6a6 !important;
+}
+
+.bg-ocupado {
+    background-color: #ffcc347a !important;
+    border-radius: 20px 5px;
+    padding: 8px;
+}
+
+.bg-des {
+    color: #919090 !important;
+    background-color: #f7f7f7 !important;
+    border-radius: 20px 5px;
+    padding: 8px;
+}
+tr.calendar-row p{
+margin-bottom: 5px;
+}
+@media screen and (max-width: 500px) {
+    textarea.form-control {
+        height: 160px;
+    }
+}
+@media screen and (min-width: 501px) {
+    textarea.form-control {
+        height: 90px;
+    }
+}
+
+.del{
+    position: absolute;
+    right: 0;
+}
+.accordion > .card .card-header {
+    margin-bottom: 0 !important;
+}
+
+.card-body{
+    border-bottom: 1px solid rgba(0,0,0,.125) !important;
 }

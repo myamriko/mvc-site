@@ -20,7 +20,7 @@ class InfoadmModel
             $res->execute([':text' => $this->text]);
             Cache::forget(self::CACHE_KEY);
             Cache::forget($this->cacheName);
-            return (bool)$res->rowCount();
+            return (bool)$res->rowCount();//если будет гнать поставить true
         }
         $this->getResponse(['success' => false, 'err' => 'Не указан столбец BD']);
     }

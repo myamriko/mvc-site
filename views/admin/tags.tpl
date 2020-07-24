@@ -9,16 +9,16 @@
                     <hr>
                 </div>
                 <div class="form-inline mb-2">
-                    <input type="text" class="add form-control mr-1" id="tag" placeholder="Новый тег">
-                    <button class="btn btn-outline-secondary" data-toggle="modal" onclick="add_tag()"><i
+                    <input type="text" class="add form-control ml-2 mb-2" id="tag" placeholder="Новый тег">
+                    <button class="btn btn-outline-secondary ml-2 mb-2" data-toggle="modal" onclick="add_tag()"><i
                                 class="fas fa-tags"></i> Добавить
                     </button>
-                    <input type="search" class="ml-2 form-control acInput search-panel" id="searchTitle"
+                    <input type="search" class="ml-2 mb-2 form-control acInput search-panel" id="searchTitle"
                            placeholder="Сортировка по тегам:" autocomplete="on">
-                    <input type="text" class="pageLimit ml-2 form-control" id="pageLimitTagPanel"
+                    <input type="text" class="pageLimit ml-2 mb-2 form-control" id="pageLimitTagPanel"
                            placeholder="Отображать {$tagsLimit} строк" data-cache="tags-site">
                 </div>
-                <table class="table table-striped">
+                <table class="table table-striped table-mob">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
@@ -35,10 +35,10 @@
                     {/if}
                     {foreach $tags as $tag}
                         <tr id="{$tag['id']}">
-                            <td>{$tag['id']}</td>
-                            <td id="title-{$tag['id']}">{$tag['tag']}</td>
-                            <td>{$tag['url']}</td>
-                            <td>
+                            <td data-label="Id">{$tag['id']}</td>
+                            <td data-label="Тег" id="title-{$tag['id']}">{$tag['tag']}</td>
+                            <td data-label="URL">{$tag['url']}</td>
+                            <td data-label=" ">
                                 <button class="btn btn-linc btn-sm text-danger"
                                         onclick="removedStart('{$tag['id']}','{$tag['tag']}','tags' )"><i
                                             class="far fa-trash-alt"></i> Удалить

@@ -11,7 +11,9 @@
                 <h5 class="modal-title" id="loginLongTitle">Вхід</h5>
 
             </div>
+
             <div class="modal-body">
+                <form autocomplete="on">
                 <div class="form-group row">
                     <label for="login1" class="col-sm-2 col-form-label">Логін:</label>
                     <div class="col-sm-10">
@@ -24,6 +26,7 @@
                         <input type="password" class="form-control" id="pass" name="pass" placeholder="Введіть пароль">
                     </div>
                 </div>
+                </form>
             </div>
             <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
             <div id="login_err" class="alert alert-danger ml-3 mr-3" style="display: none"><strong>Error:</strong><span id="message"></span></div>

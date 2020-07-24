@@ -7,6 +7,7 @@ trait errTrait
 
     /**
      * @return string
+     * Проверка загружаемых картинок
      */
     public function getErrImg()
     {
@@ -37,6 +38,7 @@ trait errTrait
      * @param null $rePass
      * @return string
      * На наличее переменной проверяем в джава и контроллере
+     * проверяем юзверя при регистрации
      */
     public function getErrUser($login = null, $pass = null, $rePass = null, $userName = null, $mail = null)
     {
@@ -64,6 +66,12 @@ trait errTrait
         return $error;
     }
 
+    /**
+     * @param $userName
+     * @param $mail
+     * @return string
+     * при изменении данных юзера
+     */
     public function getErrUpdateUser($userName, $mail)
     {
         global $error;
@@ -81,6 +89,14 @@ trait errTrait
         return $error;
     }
 
+    /**
+     * @param $menu_name
+     * @param $title
+     * @param null $description
+     * @param null $url
+     * @return string
+     * Проверка создаваемого меню
+     */
     public function getErrMenu($menu_name, $title, $description = null, $url = null)
     {
         global $error;
@@ -101,6 +117,12 @@ trait errTrait
         return $error;
     }
 
+    /**
+     * @param $column
+     * @param $text
+     * @return string|string[]|null
+     * обрновление данных везде кроме статей и времени
+     */
     public function getErrUpdate($column, $text)
     {
         switch (true) {
@@ -128,6 +150,11 @@ trait errTrait
         }
     }
 
+    /**
+     * @param $data
+     * @return string
+     * проверка статей
+     */
     public function getErrArticle($data)
     {
         global $error;
@@ -164,7 +191,15 @@ trait errTrait
     }
 
 
-    //,
+    /**
+     * @param $name
+     * @param null $mail
+     * @param null $phone
+     * @param $subject
+     * @param $message
+     * @return string
+     * проверка почты
+     */
 
     public function getErrMail($name, $mail = null, $phone = null, $subject, $message)
     {
@@ -189,6 +224,79 @@ trait errTrait
 
         }
 
+        return $error;
+    }
+
+    /**
+     * @param $dateSets
+     * @param $settingDat
+     * @return string|null
+     * проверка дат в бронировании времени
+     */
+    public function getErrData($dateSets, $settingDat)
+    {
+
+        global $error;
+        if ($dateSets == ['']) {
+            return null;
+        }
+        foreach ($dateSets as $dateSet) {
+            if (!preg_match('/(0[1-9]|[12][0-9]|3[01])[- \..](0[1-9]|1[012])[- \..](19|20)\d\d/', $dateSet)) {
+                $error = $settingDat . ' - ' . $dateSet . ' неверный формат даты! Укажите дату в формате "ДД.ММ.ГГГГ".';
+            }
+        }
+        return $error;
+
+    }
+
+
+    /**
+     * @param $start
+     * @param $finish
+     * @param $setting
+     * @return string
+     * проверка времени в перерыви и в расписании
+     */
+    public function getErrTime($start, $finish, $setting)
+    {
+        global $error;
+
+        switch (true) {
+
+            case $start && $finish :
+                if ((int)$start > (int)$finish) {
+                    $error = $setting . ' не может начинаться позже чем заканчиваться.';
+                    break;
+                }
+                $arrTimes = [$start, $finish];
+                foreach ($arrTimes as $arrTime) {
+                    if (!preg_match('/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $arrTime)) {
+                        $error = $setting . ' - ' . $arrTime . ' неверный формат времени. Укажите время в формате "ЧЧ:MM".';
+                    }
+                }
+                break;
+            case !$start && $finish:
+                $error = 'укажите со скольки начинается ' . $setting . '?';
+                break;
+            case $start && !$finish:
+                $error = 'укажите до скольки длиться ' . $setting . '?';
+                break;
+        }
+
+        return $error;
+    }
+
+    public function getErrTimeDay($days,$settingDay)
+    {
+        global $error;
+        if ($days == ['']) {
+            return null;
+        }
+        foreach ($days as $day) {
+            if (!preg_match('/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $day)) {
+                $error = $settingDay . ' - ' . $day . ' неверный формат времени. Укажите время в формате "ЧЧ:MM".';
+            }
+        }
         return $error;
     }
 

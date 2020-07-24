@@ -22,7 +22,7 @@ function send() {
     $.post('/contacts/send_mail', data, function (res) {
 
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>Помилка:</strong> ' + res[0].err + '</div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Помилка:</strong> ' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');
@@ -32,11 +32,11 @@ function send() {
             $('#sendFrontContactBtn').attr('class', 'submit-button mt-5');
             return;
         }
-        var html = '<div class="alert alert-success" role="alert">' + res[0].err + '</div>';
+        var html = '<div class="alert alert-success" role="alert"> <strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
         $('#systeminfo').html(html);
         setTimeout(function () {
             $('#system').fadeOut().modal('hide');
-        }, 5000);
+        }, 7000);
         $('#system').modal('show');
 
         $('#name').val('');

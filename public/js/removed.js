@@ -10,9 +10,8 @@ function removedStart(id, param, controller) {
 
 function removedFinish(id,controller) {
     $.post('/'+controller+'-adm/removed', {id: id}, function (res) {
-        console.log(res);
         if (!res[0].success) {
-            var html = '<div class="alert alert-danger" role="alert"><strong>' + res[0].err + '</strong></div>';
+            var html = '<div class="alert alert-danger" role="alert"><strong class="lead">Ошибка: </strong>' + res[0].err + '</div>';
             $('#systeminfo').html(html);
             setTimeout(function () {
                 $('#system').fadeOut().modal('hide');

@@ -9,6 +9,7 @@
     <link rel="preload" href="/public/css/bootstrap.min.css" as="style"/>
     <link rel="preload" href="/public/css/jquery-ui.css" as="style"/>
     <link rel="preload" href="/public/css/style.css" as="style"/>
+    <link rel="preload" href="/public/css/jquery.datetimepicker.min.css" as="style"/>
 
     <link rel="stylesheet" href="/public/css/flaticon.css"  type="text/css">
     <!-- owl carousel css-->
@@ -20,6 +21,9 @@
     <!-- custom CSS -->
     <link rel="stylesheet" href="/public/css/jquery-ui.css">
     <link rel="stylesheet" href="/public/css/style.css">
+    <!--Time reservation-->
+    <link rel="stylesheet" href="/public/css/jquery.datetimepicker.min.css">
+
     <script  src="/public/them-js/jquery-3.5.1.min.js" ></script>
 
     <title>{block name=title}{$sitedata['sitename']}{/block}</title>
