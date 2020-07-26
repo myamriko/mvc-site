@@ -16,6 +16,7 @@
 {include file="admin/modal/system.tpl"}
 {include file="admin/modal/remove.tpl"}
 {include file="admin/modal/menu-add.tpl"}
+
 <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-secondary ">
     <a class="navbar-brand  text-white" href="/info-adm"><img src="/public/pic/res/cogs.png"
                                                               style="height: 35px; width: auto">

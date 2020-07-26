@@ -96,7 +96,10 @@ class TimeresController
 
             $addBookingTime = $timeresModel->bookingTime($allDateArr, $name, $phone);
             if ($addBookingTime){
-                Telegram::sender($name.' забронював(ла) зустріч '.$allDateArr[0].'.'.$allDateArr[1].' о '.$allDateArr[2].' телефон '.$phone);
+                if ($phone){
+                    $phone = ' телефон '.$phone;
+                }
+                Telegram::sender($name.' забронював(ла) зустріч '.$allDateArr[0].'.'.$allDateArr[1].' о '.$allDateArr[2].$phone);
             }
 
             $this->getResponse(['success' => $addBookingTime, 'err' => 'Не вдалося призначити зустріч, поновіть сторінку і спробуйте ще раз, або зв\'яжіться з нами за допомогою контактної форми.']);

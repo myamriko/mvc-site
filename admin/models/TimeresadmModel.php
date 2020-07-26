@@ -75,4 +75,32 @@ class TimeresadmModel
         return (bool)$res->rowCount();
 
     }
+
+    public function bookingAction($id, $action)
+    {
+        $query = "UPDATE `time-res` SET `action`= :actionBooking WHERE `id` = :id LIMIT 1";
+        $dbh = DB::getInstance();
+        $res = $dbh->prepare($query);
+        $res->execute([':id' => $id, ':actionBooking' => $action]);
+        return (bool)$res->rowCount();
+    }
+
+    public function readNote($id)
+    {
+        $query = 'SELECT `note` FROM `time-res` WHERE `id` = :id';
+        $dbh = DB::getInstance();
+        $res = $dbh->prepare($query);
+        $res->execute([':id' => $id]);
+        $note = $res->fetch(PDO::FETCH_ASSOC);
+        return $note;
+    }
+
+    public function updateNote($id, $note)
+    {
+        $query = 'UPDATE `time-res` SET `note`= :note WHERE `id` = :id LIMIT 1';
+        $dbh = DB::getInstance();
+        $res = $dbh->prepare($query);
+        $res->execute([':id'=>$id, 'note'=>$note]);
+        return (bool)$res->rowCount();
+    }
 }

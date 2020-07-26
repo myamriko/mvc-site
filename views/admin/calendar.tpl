@@ -1,15 +1,14 @@
 {extends file="admin/layout.tpl"}
-{block name=hint}{$hint}{/block}
 {block name=title}Бронирование времени - Админ панель{/block}
 {block name=body}
-    <section
-            oncontextmenu="return false;">{*oncontextmenu="return false;" отключает контекстное меню принажатии правой кнопки*}
+
+    <section>
         <div class="container-fluid  mb-lg-4">
             <div class="row">
-                <div class="col-12 mb-3 mt-5"><h3>Встречи</h3>
+                <div class="col-12 mb-3 mt-5"><h3>Встречи!</h3>
                     <hr>
                 </div>
-                <div class="col-12 mt-3">
+                <div class="col-12 mt-3" oncontextmenu="return false;">{*oncontextmenu="return false;" отключает контекстное меню принажатии правой кнопки*}
                     <div class="row">
                         <div class="col-3 mb-2"><a href="/timeres-adm/index/{$prevMount}/{$prevYear}"><i
                                         class="ico far fa-arrow-alt-circle-left"></i></a></div>
@@ -188,6 +187,9 @@
                 </div>
             </div>
         </div>
+
     </section>
+    <!--modal note-->
+    {include file="admin/modal/noteTimeRes.tpl"}
     <script src="/public/js/timeResSettings.js"></script>
 {/block}

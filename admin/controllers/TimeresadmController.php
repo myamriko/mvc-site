@@ -119,15 +119,36 @@ class TimeresadmController implements Controller
             /*выводим бронь в ячейку*/
             foreach ($timeData as $value) {
                 if ($list_day == $value['day']) {
-                    if ($list_day < date('j') && $month == date('n')) {
-                        $calendar .= '<p id="visit-' . $value['id'] . '" class="bg-des removetime">' . $value['time'] . '<br>' . $value['name'] . '<br>' . $value['tel'] . '</p>';
-                        break;
+                    if ($value['note']) {
+                        $calendar .= '<p><a class="link-note" onclick="noteRead(\'' . $value['id'] . '\')"><i class="fas fa-check-square"></i></a></p>';
                     }
-                    if ($month < date('n')) {
-                        $calendar .= '<p id="visit-' . $value['id'] . '" class="bg-des removetime">' . $value['time'] . '<br>' . $value['name'] . '<br>' . $value['tel'] . '</p>';
-                        break;
+
+                    switch (true) {
+                        case $list_day < date('j') && $month == date('n') || $month < date('n'):
+                            if ($value['action'] === 'yes') {
+                                $calendar .= '<p id="visit-' . $value['id'] . '" class="old bg-yes-des removetime">' . $value['time'] . ' <b> ' . $value['name'] . '</b> ' . $value['tel'] . '</p>';
+                            }
+                            if ($value['action'] === 'no') {
+                                $calendar .= '<p id="visit-' . $value['id'] . '" class="old bg-no-des removetime">' . $value['time'] . ' <b> ' . $value['name'] . '</b> ' . $value['tel'] . '</p>';
+                            }
+                            if ($value['action'] === 'undefined') {
+                                $calendar .= '<p id="visit-' . $value['id'] . '" class="old bg-des removetime">' . $value['time'] . ' <b> ' . $value['name'] . '</b> ' . $value['tel'] . '</p>';
+                            }
+
+                            break;
+
+                        default :
+                            if ($value['action'] === 'yes') {
+                                $calendar .= '<p id="visit-' . $value['id'] . '" class="bg-yes removetime">' . $value['time'] . ' <b> ' . $value['name'] . '</b> ' . $value['tel'] . '</p>';
+                            }
+                            if ($value['action'] === 'no') {
+                                $calendar .= '<p id="visit-' . $value['id'] . '" class="bg-no removetime">' . $value['time'] . ' <b> ' . $value['name'] . '</b> ' . $value['tel'] . '</p>';
+                            }
+                            if ($value['action'] === 'undefined') {
+                                $calendar .= '<p id="visit-' . $value['id'] . '" class="bg-ocupado removetime">' . $value['time'] . ' <b> ' . $value['name'] . '</b> ' . $value['tel'] . '</p>';
+                            }
+
                     }
-                    $calendar .= '<p id="visit-' . $value['id'] . '" class="bg-ocupado removetime">' . $value['time'] . '<br>' . $value['name'] . '<br>' . $value['tel'] . '</p>';
                 }
             }
             $calendar .= '</td>';
@@ -227,7 +248,7 @@ class TimeresadmController implements Controller
 
         /** Интервал*/
 
-        if ($step == 0 ){
+        if ($step == 0) {
             $this->getResponse(['success' => false, 'err' => ' укажите интервал в диапзоне 1 - 480.']);
         }
         if ($step && !preg_match('/^[0-9]{1,3}$/', $step)) {
@@ -315,6 +336,62 @@ class TimeresadmController implements Controller
         $updateTimeSettig = new TimeresadmModel();
         $updateTimeSettig = $updateTimeSettig->updateTimeSetting($timeData);
         $this->getResponse(['success' => $updateTimeSettig, 'err' => 'Изменения не были внесены.']);
+
+    }
+
+    /**
+     * Таблица брони, выделение
+     */
+    public function bookingAction()
+    {
+
+        $id = str_replace('visit-', '', filter_var(trim($_POST['id']), FILTER_SANITIZE_STRING));
+        $action = filter_var(trim($_POST['action']), FILTER_SANITIZE_STRING);
+        if (!empty($id)) {
+            $timeResAdmModel = new TimeresadmModel();
+            $bookingAction = $timeResAdmModel->bookingAction($id, $action);
+            $this->getResponse(['success' => $bookingAction, 'err' => 'Не удалось внести изменения в БД']);
+        }
+        $this->getResponse(['success' => false, 'err' => 'Пришел пустой запрос, пожалуйста очистьте кеш и 
+        обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
+    }
+
+    /**
+     * Примечания к брони, получить из БД
+     */
+    public function readNote()
+    {
+        $id = filter_var(trim($_POST['id']), FILTER_SANITIZE_STRING);
+        if (!empty($id)) {
+            $timeResAdmModel = new TimeresadmModel();
+            $note = $timeResAdmModel->readNote($id);
+            $this->getResponse(['success' => (bool)$note, 'note' => $note['note'], 'err' => 'Не удалось внести изменения в БД']);
+        }
+        $this->getResponse(['success' => false, 'err' => 'Пришел пустой запрос, пожалуйста очистьте кеш и 
+        обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
+    }
+
+    /**
+     * Обновить примечание
+     */
+    public function updateNote()
+    {
+        $id = filter_var(trim($_POST['id']), FILTER_SANITIZE_STRING);
+        $note = filter_var(trim($_POST['note']), FILTER_SANITIZE_STRING);
+        if (!empty($id)){
+            $timeResAdmModel = new TimeresadmModel();
+            $noteUpdate = $timeResAdmModel->updateNote($id, $note);
+            $this->getResponse(['success' =>$noteUpdate , 'note' => $note, 'err' => 'Не удалось внести изменения в БД']);
+        }
+        $this->getResponse(['success' => false, 'err' => 'Пришел пустой запрос, пожалуйста очистьте кеш и 
+        обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
+    }
+
+    /**
+     * Удалить Примечание
+     */
+    public function removeNote()
+    {
 
     }
 
