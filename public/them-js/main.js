@@ -1,3 +1,36 @@
+//поиск откр/закр
+var expand;
+expand = function () {
+    var $input, $search;
+    $search = $('.search');
+    $input = $('.input');
+    if ($search.hasClass('close')) {
+        $search.removeClass('close');
+        $input.removeClass('square');
+    } else {
+        $search.addClass('close');
+        $input.addClass('square');
+    }
+    if ($search.hasClass('close')) {
+        $input.focus();
+    } else {
+        $input.blur();
+    }
+};
+
+$(function () {
+    var $button, clickOrTouch;
+    clickOrTouch = 'click touchstart';
+    $button = $('#search-button');
+    $button.on(clickOrTouch, expand);
+});
+$(function () {
+    var $button, clickOrTouch;
+    clickOrTouch = 'click touchstart';
+    $button = $('#search-button-right');
+    $button.on(clickOrTouch, expand);
+});
+
 //wow эффекты
 var wow = new WOW(
     {
@@ -158,5 +191,22 @@ $('.modal-active').on('show.bs.modal', function () {
 $('.modal-active').on('hide.bs.modal', function () {
     $('.modal .modal-dialog').attr('class', 'modal-dialog  slideOutUp animated');// модаль верх
     $("#site").removeClass("active-modal");
+});
+
+//Back to Top Button
+
+var btn = $('#button');
+
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+    } else {
+        btn.removeClass('show');
+    }
+});
+
+btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
 });
 

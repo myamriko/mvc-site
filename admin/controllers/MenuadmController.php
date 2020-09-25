@@ -7,6 +7,7 @@ class MenuadmController implements Controller
     use ResponseTrait;
     use errTrait;
     use ExtraTrait;
+
     const TABLE_NAME = 'menu-name';
     const PAGE_NAME = 'menu-adm/index';
 
@@ -15,19 +16,19 @@ class MenuadmController implements Controller
         global $smarty;
         $pageName = self::PAGE_NAME; //для пагинации
         $pageLimit = new PageadmModel();//лимит на страние
-        $menuLimit=$pageLimit->pageLimit();
+        $menuLimit = $pageLimit->pageLimit();
         $menuLimit = $menuLimit['pageLimitMenuPanel'];// колво статей на странице
         $tableName = self::TABLE_NAME;
-        $data = $this->pagination($pageName,$menuLimit,$tableName);
+        $data = $this->pagination($pageName, $menuLimit, $tableName);
         $menuName = new MenuadmModel();
-        $menuName->page=$data['page'];
+        $menuName->page = $data['page'];
         $menuName->start = $menuLimit * ($data['page'] - 1);//LIMIT start
         $menuName->limit = $menuLimit;//LIMIT finish
         $menuNames = $menuName->menu();
-        $hint = $this->hint($menuNames,'title');
+        $hint = $this->hint($menuNames, 'title');
         $smarty->assign('hint', $hint);
         $smarty->assign('menuNames', $menuNames);
-        $smarty->assign('menuLimit',$menuLimit);
+        $smarty->assign('menuLimit', $menuLimit);
         $smarty->assign('pagination', $data['pagination']);//пагинация
         $smarty->display('admin/menu.tpl');
     }
@@ -39,7 +40,7 @@ class MenuadmController implements Controller
             $title = filter_var(trim($_POST['title']), FILTER_SANITIZE_STRING);
             $description = filter_var(trim($_POST['description']), FILTER_SANITIZE_STRING);
             $enabled = filter_var(trim($_POST['enabled']), FILTER_SANITIZE_STRING);
-            $menuName= new Translite();
+            $menuName = new Translite();
             $menu_name = $menuName->cyrillic($menu_name);
             $err = $this->getErrMenu($menu_name, $title, $description);
             if ($err) {
@@ -51,7 +52,7 @@ class MenuadmController implements Controller
             $menuAdd->description = $description;
             $menuAdd->enabled = $enabled;
             $menuAdd = $menuAdd->add();
-            $this->getResponse(['success' => $menuAdd, 'err' => 'Не удалось внести новое меню в БД.', 'menu_name'=>$menu_name]);
+            $this->getResponse(['success' => $menuAdd, 'err' => 'Не удалось внести новое меню в БД.', 'menu_name' => $menu_name]);
         }
         $this->getResponse(['success' => false, 'err' => 'Пустой пост запрос']);
     }
@@ -110,20 +111,20 @@ class MenuadmController implements Controller
                     break;
             }
             $menuName = $menuExist[0]['menu_name'];
-            $linkExit = new MenuModel();
-            $linkExit->menuName = $menuName;
-            $linkExit = $linkExit->menu();// проверим есть ли ссылки в меню
-            if ($linkExit) {
+            $linkExist = new MenuModel();
+            $linkExist->menuName = $menuName;
+            $linkExist = $linkExist->link();// проверим есть ли ссылки в меню
+            if ($linkExist) {
                 $removedLinks = new LinkadmModel();//удалим ссылки меню
                 $removedLinks = $removedLinks->removedAllLink($menuName);
                 if (!$removedLinks) {
                     $this->getResponse(['success' => $removedLinks, 'err' => 'Не удалось удалить ссылку меню, пожалуйста очистьте кеш,
-                 пожалуйста обновите страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
+                обновите страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
                 }
             }
             $menu->id = $id;
             $removedMenu = $menu->removed();
-            $this->getResponse(['success' => $removedMenu, 'err' => 'Не удалось удалить меню, пожалуйста очистьте кеш, пожалуйста обновите 
+            $this->getResponse(['success' => $removedMenu, 'err' => 'Не удалось удалить меню, пожалуйста очистьте кеш, обновите 
             страничку и повторите попытку, если ошибка не исчезнет обратитесь к администратору сайта.']);
         }
         $this->getResponse(['success' => false, 'err' => 'Пришел пустой пост запрос, пожалуйста очистьте кеш, обновите страничку и повторите 

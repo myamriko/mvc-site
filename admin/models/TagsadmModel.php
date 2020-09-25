@@ -4,6 +4,10 @@
 class TagsadmModel
 {
     const CACHE_KEY = 'tags-site';
+    const CACHE_KEY_ARTICLE = 'article-site';
+    const CACHE_KEY_CATEGORY = 'categories-site';
+
+
     public $tag;
     public $id;
     public $url;
@@ -35,6 +39,8 @@ class TagsadmModel
         $res = $dbh->prepare($query);
         $res->execute([':tag' => $this->tag, ':url' => $this->url]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_ARTICLE);
+        Cache::forget(self::CACHE_KEY_CATEGORY);
         return $dbh->lastInsertId();
 
     }
@@ -46,6 +52,8 @@ class TagsadmModel
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_ARTICLE);
+        Cache::forget(self::CACHE_KEY_CATEGORY);
         return (bool)$res->rowCount();
     }
 

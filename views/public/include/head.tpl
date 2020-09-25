@@ -1,8 +1,10 @@
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#fff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="icon" href="/public/pic/res/{$sitedata['ico']}"/>
+    <link rel="icon" href="/public/pic/res/{$sitedata['ico']}" type="image/x-icon"/>
+    <meta name="description" content="{$description}">
     <link rel="preload" href="/public/css/flaticon.css" as="style"/>
     <link rel="preload" href="/public/owl-carousel/assets/owl.carousel.min.css" as="style"/>
     <link rel="preload" href="/public/css/animate.min.css" as="style"/>
@@ -10,6 +12,7 @@
     <link rel="preload" href="/public/css/jquery-ui.css" as="style"/>
     <link rel="preload" href="/public/css/style.css" as="style"/>
     <link rel="preload" href="/public/css/jquery.datetimepicker.min.css" as="style"/>
+    <link rel="preload" href="/public/css/progressive-image.css" as="style"/>
 
     <link rel="stylesheet" href="/public/css/flaticon.css"  type="text/css">
     <!-- owl carousel css-->
@@ -23,6 +26,9 @@
     <link rel="stylesheet" href="/public/css/style.css">
     <!--Time reservation-->
     <link rel="stylesheet" href="/public/css/jquery.datetimepicker.min.css">
+    <!-- progressive-image -->
+    <link rel="stylesheet" href="/public/css/progressive-image.css">
+
 
     <script  src="/public/them-js/jquery-3.5.1.min.js" ></script>
 

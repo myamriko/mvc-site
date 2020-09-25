@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="uk">
 {*head*}
 {include file="public/include/head.tpl"}
@@ -49,7 +50,9 @@
 
     <script  src="/public/them-js/jquery.datetimepicker.full.min.js" defer></script>
     <script  src="/public/them-js/rainbow-custom.min.js" defer></script>
+{if $smarty.server.REQUEST_URI == "/"}
     <script  src="/public/js/timeRes.js" defer></script>
-
+{/if}
+<script src="/public/them-js/progressive-image.js" defer></script>
 </body>
 </html>

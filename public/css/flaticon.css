@@ -48,3 +48,7 @@ margin-left: 20px;
 .ico-calendar:before { content: "\f15d"; }
 .ico-arrow:before { content: "\f15e"; }
 .ico-edit:before { content: "\f15f"; }
+.ico-up:before { content: "\f160"; }
+.ico-more:before { content: "\f161"; }
+.ico-tags:before { content: "\f162"; }
+.ico-comments:before { content: "\f163"; }

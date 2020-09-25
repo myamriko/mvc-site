@@ -24,7 +24,9 @@ class ContactsController implements Controller
     public function index()
     {
         global $smarty;
-        $this->menuPrincipal();//главное меню во вьевс трейте
+        $siteData = $this->menuPrincipal();
+        $description = $siteData['sender']. ' - послуги адвоката ' . ' тел:' . $siteData['tel1'] . ', ' . $siteData['tel2'] . ' адреса '  . $siteData['adress'];
+        $smarty->assign('description', $description);
         $smarty->display('public/contact.tpl');
     }
 
@@ -72,7 +74,7 @@ class ContactsController implements Controller
                 'subject' => $subject,
                 'messageHtml' => $messageHtml
             ];
-            Telegram::sender('на електронну скриньку сайту '.$siteData['sitename'].' надіслано нове повідомлення '.$date);
+            Telegram::sender('на електронну скриньку сайту ' . $siteData['sitename'] . ' надіслано нове повідомлення ' . $date);
             $mailer = new Mailer();
             $mailer->mailerSend($mailerData);
         }

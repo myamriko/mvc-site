@@ -4,6 +4,9 @@
 class CategoriesadmModel
 {
     const CACHE_KEY = 'categories-site';
+    const CACHE_KEY_TAGS = 'tags-site';
+    const CACHE_KEY_ARTICLE = 'article-site';
+
     public $id;
     public $title;
     public $description;
@@ -39,6 +42,8 @@ class CategoriesadmModel
         $res = $dbh->prepare($query);
         $res->execute([':title' => $this->title, ':description' => $this->description, ':url' => $this->url, ':enabled' => $this->enabled]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_TAGS);
+        Cache::forget(self::CACHE_KEY_ARTICLE);
         return $dbh->lastInsertId();
     }
 
@@ -49,6 +54,8 @@ class CategoriesadmModel
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id, ':text' => $this->text]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_TAGS);
+        Cache::forget(self::CACHE_KEY_ARTICLE);
         return (bool)$res->rowCount();
     }
 
@@ -59,6 +66,8 @@ class CategoriesadmModel
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_TAGS);
+        Cache::forget(self::CACHE_KEY_ARTICLE);
         return (bool)$res->rowCount();
     }
 

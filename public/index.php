@@ -37,10 +37,12 @@ $smarty->setTemplateDir('../views');//указываем где будут на�
 Session::start();
 /*Роутер*/
 $urlData = ltrim($_SERVER['REQUEST_URI'], '/');
-$urlData = array_shift(explode('?', $urlData));
+$urlData = explode('?', $urlData);
+$urlData = array_shift($urlData);
 $arrUrl = explode('/', $urlData);
 $controller = ($arrUrl == [""] || !$arrUrl) ? 'MainController' : str_replace('-', '', ucfirst(array_shift($arrUrl))) . 'Controller';
 $action = ($arrUrl == [""] || !$arrUrl) ? 'index' : array_shift($arrUrl);
+
 $param = ($arrUrl) ?: [];
 
 //проверка на админа

@@ -113,7 +113,7 @@ function add_link(menu_name) {
             '<td >' + res[0].url + '</td>\n' +
             '<td >' + enabled + '</td>\n' +
             '<td>\n' +
-            '  <button class="btn btn-linc btn-sm text-danger" onclick=" "><i class="far fa-trash-alt"></i> Удалить</button>\n' +
+            '  <button class="btn btn-linc btn-sm text-danger" onclick="removedStart(\'' + res[0].success + '\',\'' + title + '\',\'link\' )"><i class="far fa-trash-alt"></i> Удалить</button>\n' +
             '</td>\n' +
             '</tr>';
         $('#holder').prepend(html);

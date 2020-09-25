@@ -24,7 +24,7 @@ class LinkadmController implements Controller
             $menuEdits = $menuEdit->link();
             $hint = $this->hint($menuEdits,'title');
             $smarty->assign('hint', $hint);
-            $smarty->assign('param', $param[0]);
+           // $smarty->assign('param', $param[0]);
             $smarty->assign('menuEdits', $menuEdits);
             $smarty->display('admin/menu-link.tpl');
 

@@ -52,6 +52,7 @@
                     {/foreach}
                     </tbody>
                 </table>
+                <p class="text-danger small">** Длина ОПИСАНИЯ должна составлять 140-160 символов.</p>
                 <div class="col-12 justify-content-end">
                     {$pagination}
                 </div>

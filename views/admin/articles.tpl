@@ -47,7 +47,7 @@
                             <td data-label="Название"><a class="text-dark text-uppercase" href="/article/{$articl['url']}">{$articl['title']}</a></td>
                             <td data-label="Описание">{$articl['intro']}</td>
                             <td data-label="Категория"><a class="text-dark" href="/category/{$articl['category']}">{$articl['name']}</a></td>
-                            <td data-label="Теги">{$articl['tags']}</td>
+                            <td {if $articl['tags']} data-label="Теги"{/if}>{$articl['tags']}</td>
                             <td data-label="Картинка"><a data-toggle="modal"
                                    onclick="imgView('{$articl['file']}','{$articl['alt']}')"
                                    href="#"><img class="img-thumbnail" style="height: 70px;"

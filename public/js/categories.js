@@ -105,14 +105,14 @@ function add_category() {
         }
 
         $('#empty').html('');
-        var html = '<tr id="' + res[0].success + '" style="color: #a80000; font-weight: bold;">\n' + //id передаем как res[0].success
-            '<td >' + res[0].success + '</td>\n' +
-            '<td >' + title + '</td>\n' +
-            '<td >' + description + '</td>\n' +
-            '<td >' + res[0].url + '</td>\n' +
-            '<td >' + enabled + '</td>\n' +
-            '<td>\n' +
-            '  <button class="btn btn-linc btn-sm text-danger" onclick=" "><i class="far fa-trash-alt"></i> Удалить</button>\n' +
+        var html = '<tr  id="' + res[0].success + '" style="color: #a80000; font-weight: bold;">\n' + //id передаем как res[0].success
+            '<td data-label="Id">' + res[0].success + '</td>\n' +
+            '<td id="name-'+ res[0].success +'" data-label="Название">' + title + '</td>\n' +
+            '<td id="description-'+ res[0].success +'" data-label="Описание">' + description + '</td>\n' +
+            '<td data-label="Url">' + res[0].url + '</td>\n' +
+            '<td id="enabled-'+ res[0].success +'" data-label="Отображение">' + enabled + '</td>\n' +
+            '<td data-label=" ">\n' +
+            '  <button class="btn btn-linc btn-sm text-danger" onclick="removedStart(\''+ res[0].success +'\',\''+ title +'\',\'categories\')"><i class="far fa-trash-alt"></i> Удалить</button>\n' +
             '</td>\n' +
             '</tr>';
         $('#holder').prepend(html);

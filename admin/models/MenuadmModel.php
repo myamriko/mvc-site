@@ -55,6 +55,7 @@ class  MenuadmModel
 
     public function removed()
     {
+
         $query = "DELETE FROM `menu-name` WHERE `id`= :id LIMIT 1";
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);

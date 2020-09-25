@@ -10,36 +10,43 @@
             </div>
             <div class="modal-body">
                 <div class="form-group row ml-1 mr-1">
+                    <input type="hidden" id="id-article">
+                    <label for="titleEdit">Заголовок:</label>
                     <input type="text" class="form-control mb-2" id="titleEdit"
                            placeholder="Заголовок, он же title длина составляет 30-70 символов.">
+                    <label for="introEdit">Описание:</label>
                     <textarea class="form-control mb-2" rows="2" name="introEdit" id="introEdit"
                               placeholder="Описание, оно же description. Размер мета-тега description 150-160 символов."></textarea>
+                    <label for="editorEdit">Статья:</label>
                     <textarea name="text" id="editorEdit" placeholder="Текст статьи"></textarea>
-                    <input type="search" class="form-control mt-2 acInputTag" id="tagsEdit" name="tagsEdit"
+                    <label class="mt-2" for="tagsEdit">Теги:</label>
+                    <input type="search" class="form-control acInputTag" id="tagsEdit" name="tagsEdit"
                            placeholder="Теги. Вводить через запятую. Чем меньше, тем лучше.">
-                    <input type="text" class="form-control mb-2 mt-2" id="urlEdit" name="urlEdit"
+                    <label class="mt-2" for="urlEdit">Постоянная ссылка:<br><span class="text-danger" style="font-size: small">Индексируется, менять только в крайнем случае!</span></label>
+                    <input type="text" class="form-control mb-2" id="urlEdit" name="urlEdit"
                            placeholder="Постоянная ссылка, ее длина - чем меньше, тем лучше. Не больше 3х слов.">
+                    <label for="categoryEdit">Категории:</label>
                     <select class="form-control mb-2" id="categoryEdit" name="categoryEdit">
-
                         <optgroup label="Доступные категории">
                             {foreach $categories as $category}
                                 <option value="{$category['url']}">{$category['name']}</option>
                             {/foreach}
                         </optgroup>
                     </select>
+                    <label for="authorEdit">Аффтар:</label>
                     <input type="text" class="form-control mb-2" id="authorEdit" name="authorEdit" placeholder="Аффтар"
                            value="{$smarty.session.user.username}">
                     <div class="col-12" id="imgEdit"></div>
+                    <div class="col-12">Изменить изображение: </div>
                     <div class="row">
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="altEdit" name="altEdit"
                                    placeholder="Alt - 3-5 слов, не более 75 сим.">
                         </div>
-                        <label for="file" class="row col-sm-4 col-form-label ml-1">Изменить изображение: </label>
-                        <div  class="col-sm-2 mt-2">
-                            <input type="file" class="form-control-file row" id="filesEdit" name="filesEdit" placeholder="Загрузить фаил">
-                        </div>
 
+                        <div  class="col-sm-4 mt-2">
+                            <input type="file" id="filesEdit" class="ml-2 form-control-file" name="filesEdit" placeholder="Загрузить фаил">
+                        </div>
                     </div>
                 </div>
                 <div class="row">

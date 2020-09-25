@@ -120,7 +120,7 @@ class TimeresadmController implements Controller
             foreach ($timeData as $value) {
                 if ($list_day == $value['day']) {
                     if ($value['note']) {
-                        $calendar .= '<p><a class="link-note" onclick="noteRead(\'' . $value['id'] . '\')"><i class="fas fa-check-square"></i></a></p>';
+                        $calendar .= '<p><a id="noteLink-'.$value['id'].'" class="link-note" onclick="noteRead(\'' . $value['id'] . '\')"><i class="fas fa-check-square"></i></a></p>';
                     }
 
                     switch (true) {
@@ -392,6 +392,14 @@ class TimeresadmController implements Controller
      */
     public function removeNote()
     {
+        $id = filter_var(trim($_POST['id']),FILTER_SANITIZE_STRING);
+        if (!empty($id)){
+            $timeResAdmModel = new TimeresadmModel();
+            $noteRemove = $timeResAdmModel->updateNote($id, $note='');
+            $this->getResponse(['success' => $noteRemove, 'err'=>'Не удалось внести изменения в БД']);
+        }
+        $this->getResponse(['success' => false, 'err' => 'Пришел пустой запрос, пожалуйста очистьте кеш и 
+        обновите страницу. Если ошибка повторится свяжитесть с администратором сайта.']);
 
     }
 

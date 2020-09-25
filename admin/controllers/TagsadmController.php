@@ -9,7 +9,7 @@ class TagsadmController implements Controller
 
     const TABLE_NAME = 'tags';
     const PAGE_NAME = 'tags-adm/index';
-    const  CACHE_DATA = '../public/storage/cache_data/';
+    //const  CACHE_DATA = '../public/storage/cache_data/';
 
     public function index()
     {

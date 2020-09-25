@@ -24,10 +24,11 @@ class MainController implements Controller
             $day = date("d.m.Y", $d);// выводим завтрашний день
             $minDate = "'" . $day . "'";
         }
-
+        $siteData = InfoModel::info();
+        $description = $siteData['propaganda'];
         $step = $timeSettings['step'];
-
         $this->menuPrincipal();
+        $smarty->assign('description', $description);
         $smarty->assign('disabledDates', $disabledDates);
         $smarty->assign('disabledWeekDays', $disabledWeekDays);
         $smarty->assign('minDate', $minDate);

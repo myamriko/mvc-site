@@ -23,11 +23,11 @@ function add_tag() {
         $('#tag').val('');
         $('#empty').html('');
         var html = '<tr id="' + res[0].success + '" style="color: #a80000; font-weight: bold;">\n' + //id передаем как res[0].success
-            '<td >' + res[0].success + '</td>\n' +
-            '<td >' + tag + '</td>\n' +
-            '<td >' + res[0].url + '</td>\n' +
-            '<td>\n' +
-            '  <button class="btn btn-linc btn-sm text-danger" onclick=" "><i class="far fa-trash-alt"></i> Удалить</button>\n' +
+            '<td data-label="Id">' + res[0].success + '</td>\n' +
+            '<td data-label="Тег">' + tag + '</td>\n' +
+            '<td data-label="URL">' + res[0].url + '</td>\n' +
+            '<td data-label=" ">\n' +
+            '  <button class="btn btn-linc btn-sm text-danger" onclick="removedStart(\''+ res[0].success +'\',\' '+ tag +'\',\'tags\' )"><i class="far fa-trash-alt"></i> Удалить</button>\n' +
             '</td>\n' +
             '</tr>';
         $('#holder').prepend(html);

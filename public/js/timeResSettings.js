@@ -30,7 +30,20 @@ $(".removetime").on("contextmenu", function () {
 
 
 function noteRemove() {
+    var id = $('#noteId').val();
 
+    $.post('/timeres-adm/removeNote', {id}, function (res) {
+
+        if (!res[0].success){
+            var html = '<div id="alertNote" class="alert alert-danger ml-3 mr-3" role="alert"><strong class="lead">Ошибка: </strong>'+res[0].err+'</div>';
+            $('#infoNote').html(html);
+            return;
+        }
+
+        $('#noteLink-'+id).remove();
+        $('#noteTimeRes').fadeOut().modal('hide');
+
+    });
 }
 
 /**
@@ -56,7 +69,7 @@ function noteUpdate() {
         }
 
         if ($('button').is('#newNote')) {
-            html = '<p><a class="link-note-add" onclick="noteRead(\'' + id + '\')"><i class="fas fa-check-square"></i></a></p>';
+            html = '<p><a id="noteLink-'+id+'" class="link-note-add" onclick="noteRead(\'' + id + '\')"><i class="fas fa-check-square"></i></a></p>';
             $('#visit-' + id).prepend(html);
         }
         $('#noteTimeRes').fadeOut().modal('hide');
@@ -82,6 +95,7 @@ function noteRead(id) {
 
         if (!res[0].note) {
             var buton1 = '<button id="newNote" class="btn btn-outline-success" onclick="noteUpdate()">Создать</button>';
+            $('#noteText').val('');
             $('#buttonNote').html(buton1);
             $('#noteId').val(id);
             $('#noteTimeRes').fadeIn().modal('show');

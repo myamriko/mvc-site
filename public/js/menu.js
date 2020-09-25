@@ -1,8 +1,9 @@
-function call_menu(){
+function call_menu() {
     $('.menuName').show();
     $('.link').hide();
     $('#menu-add').modal('show');
 }
+
 /*при нажатии на элемент определяем id*/
 $("td").on("contextmenu", function () {
     var id = $(this).attr("id");
@@ -103,11 +104,11 @@ function add_menu() {
         }
         $('#empty').html('');
         var html = '<tr id="' + res[0].success + '" style="color: #a80000; font-weight: bold;">\n' + //id передаем как res[0].success
-            '                            <td >' + res[0].success + '</td>\n' +
-            '                            <td >' + res[0].menu_name + '</td>\n' +
-            '                            <td >' + title + '</td>\n' +
-            '                            <td >' + description + '</td>\n' +
-            '                            <td >' + enabled + '</td>\n' +
+            '                            <td data-label="Id">' + res[0].success + '</td>\n' +
+            '                            <td data-label="Назавание">' + title + '</td>\n' +
+            '                            <td data-label="Описание">' + description + '</td>\n' +
+            '                            <td id="enabled-' + res[0].success + '" data-label="Отображение">' + enabled + '</td>\n' +
+            '                            <td data-label="Админ название">' + res[0].menu_name + '</td>\n' +
             '                            <td>\n' +
             '                                <div class="btn-group dropleft">\n' +
             '                                    <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
@@ -132,8 +133,9 @@ $(document).ready(function () {// отловим нажатие на энтер
         var id = $(this).attr('id');// определяем id активного элемента
         var idr = id.replace(/[0-9-]/g, '');
         var key = event.which;// определяем нажатую клавишу
-        if (key === 13 && idr !== 'enabled'){
+        if (key === 13 && idr !== 'enabled') {
             updateMenu(id);
-        };
+        }
+        ;
     });
 });

@@ -4,6 +4,9 @@
 class ArticlesadmModel
 {
     const CACHE_KEY = 'article-site';
+    const CACHE_KEY_TAG = 'tags-site';
+    const CACHE_KEY_CATEGORY = 'categories-site';
+
     public $id;
     public $start;
     public $limit;
@@ -34,17 +37,22 @@ class ArticlesadmModel
         $res = $dbh->prepare($query);
         $res->execute([':title' => $data['title'], ':intro' => $data['intro'], ':text' => $data['text'], ':tags' => $data['tags'], ':category' => $data['category'], ':file' => $data['file'], ':alt' => $data['alt'], ':url' => $data['url'], ':author' => $data['author'], ':published' => $data['published'], ':front' => $data['front']]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
-       // Cache::forget(self::CACHE_KEY . '-panel');//очистить кеш
+        Cache::forget(self::CACHE_KEY_TAG);
+        Cache::forget(self::CACHE_KEY_CATEGORY);
+       // Cache::forget(self::CACHE_KEY . '-panel');
         return $dbh->lastInsertId();
     }
 
     public function edit($data)
     {
+
         $query = 'UPDATE `articles` SET `title`=:title, `intro`=:intro, `text`=:text, `tags`=:tags, `category`=:category, `file`=:file, `alt`=:alt, `url`=:url, `author`=:author, `published`=:published, `front`=:front WHERE `id` = :id LIMIT 1';
         $dbh = DB::getInstance();
         $res = $dbh->prepare($query);
         $res->execute([':title' => $data['title'], ':intro' => $data['intro'], ':text' => $data['text'], ':tags' => $data['tags'], ':category' => $data['category'], ':file' => $data['file'], ':alt' => $data['alt'], ':url' => $data['url'], ':author' => $data['author'], ':published' => $data['published'], ':front' => $data['front'], ':id' => $data['id']]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_TAG);
+        Cache::forget(self::CACHE_KEY_CATEGORY);
      //   Cache::forget(self::CACHE_KEY . '-panel');//очистить кеш
         return (bool)$res->rowCount();
 
@@ -57,6 +65,8 @@ class ArticlesadmModel
         $res = $dbh->prepare($query);
         $res->execute([':id' => $this->id]);
         Cache::forget(self::CACHE_KEY);//очистить кеш
+        Cache::forget(self::CACHE_KEY_TAG);
+        Cache::forget(self::CACHE_KEY_CATEGORY);
       //  Cache::forget(self::CACHE_KEY . '-panel');//очистить кеш
         return (bool)$res->rowCount();
     }

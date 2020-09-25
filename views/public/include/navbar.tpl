@@ -1,4 +1,4 @@
-<nav class="nav-container navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target"
+<nav role="navigation" class="nav-container navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target"
      id="gtco-main-nav">
     <div class="container">
         <a class="navbar-brand">atty<span>.</span>kiev<span>.</span>ua</a>
@@ -17,7 +17,7 @@
                             {if ({$value['menu_name'] === $menu[0]['menu_name']})}
                                 {if ($value['enabled'] === 'ON')}
                                     <li class="nav-item"><a class="nav-link" href="/{$value['url']}">
-                                            <span  {if ({$value['url']}===$controller)||({$value['url']}===''&&$controller==='main')}class="activity"{/if}>{$value['title']}</span></a>
+                                            <span {if ({$value['url']}===$controller)||({$value['url']}===''&&$controller==='main')}class="activity"{/if}>{$value['title']}</span></a>
                                     </li>
                                 {/if}
                             {/if}
@@ -32,7 +32,7 @@
                         <li class="nav dropdown">
                             <a class="nav-link dropdown-toggle  text-dark" id="navbarDropdown" role="button"
                                data-toggle="dropdown" {*onclick="showMenu()*}">
-                                {$smarty.session.user.login}<!-- из сессии берем логин -->
+                            {$smarty.session.user.login}<!-- из сессии берем логин -->
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 {foreach $links as $link}
@@ -65,3 +65,6 @@
         </div>
     </div>
 </nav>
+
+{*кнопика вверх*}
+<a id="button"></a>

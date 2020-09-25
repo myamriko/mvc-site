@@ -144,7 +144,8 @@ td {
     font-weight: 400;
     line-height: 1.5;
 }
-td p{
+
+td p {
     margin-top: 5px;
 }
 
@@ -152,6 +153,7 @@ table.table-mob, table.table-article {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
+
 }
 
 
@@ -471,6 +473,7 @@ tr.calendar-row p {
         left: 8px;
         color: #797979 !important;
     }
+
     .del {
         cursor: pointer;
         position: absolute;
@@ -503,7 +506,6 @@ tr.calendar-row p {
 }
 
 
-
 .accordion > .card .card-header {
     margin-bottom: 0 !important;
 }
@@ -512,6 +514,6 @@ tr.calendar-row p {
     border-bottom: 1px solid rgba(0, 0, 0, .125) !important;
 }
 
-#noteTimeRes .form-control{
+#noteTimeRes .form-control {
     border: 0px;
 }

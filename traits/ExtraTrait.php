@@ -41,6 +41,49 @@ trait ExtraTrait
         return $data;
     }
 
+    public function paginationBlog($pageName, $articleLimit, $tableName, $category, $tag = null)
+    {
+        global $param;
+
+        switch (true) {
+            case $category == 'blog' && !empty($param):
+                $page = filter_var(trim($param[0]), FILTER_SANITIZE_NUMBER_INT);
+                break;
+            case $category == 'blog' && empty($param):
+                $page = 1;
+                break;
+            case $category != 'blog' && empty($param[1]):
+                $page = 1;
+                break;
+            case $category != 'blog' && !empty($param[1]):
+                $page = filter_var(trim($param[1]), FILTER_SANITIZE_NUMBER_INT);
+                break;
+        }
+        $pageMode = new PageModel();//всего статей в базе
+        $pageMode->tableName = $tableName;
+
+        $tag ? $countArticlesTotal = $pageMode->allArticleTeg($category) : $countArticlesTotal = $pageMode->allArticleBlog($category);
+        $countPageTotal = ceil($countArticlesTotal / $articleLimit);
+        switch (true) {
+            case $page < 0:
+                $page = 1;
+                break;
+            case $page > $countPageTotal;
+                $page = $countPageTotal;
+                break;
+        }
+        $pageController = new PageController();
+        $pageController->pageName = $pageName;
+        $pageController->page = $page;
+        $pageController->countPageTotal = $countPageTotal;
+        $pagination = $pageController->pagination();
+        $data = [
+            'pagination' => $pagination,
+            'page' => $page
+        ];
+        return $data;
+    }
+
     public function report($report)
     {
         $reports = [];
@@ -69,7 +112,7 @@ trait ExtraTrait
         return $Return;
     }
 
-    public function allowTimes($maxTime,$step, $minTimeUnt, $minTime)
+    public function allowTimes($maxTime, $step, $minTimeUnt, $minTime)
     {
         $stopedAt = new DateTime($maxTime);
         $timeStop = $stopedAt->sub(new DateInterval('PT' . $step . 'M'));

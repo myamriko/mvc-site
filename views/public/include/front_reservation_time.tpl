@@ -7,7 +7,7 @@
                 <input id="phoneTimeReservation" type="tel" class="form-control" placeholder="Телефон, за бажанням">
                 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                 <input id="datedye" type="text" placeholder="Оберіть день">
-                <button id="sendTimeReservation" class="submit-button" onclick="timeReserv()">призначити<i class="fa ico-angle-right" aria-hidden="true"></i></button>
+                <a id="sendTimeReservation" class="submit-button" onclick="timeReserv()">призначити<i class="fa ico-angle-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-lg-6">
                 <div class="row">
@@ -18,7 +18,6 @@
             <p class="mt-lg-5 pt-lg-5 mb-4">Або зв'яжіться з нами за допомогою <a href="/contacts"><span class="text-success">контактної форми</span></a></p>
         </div>
     </div>
-
     <script>
         var html = '{$sitedata['organization']}';{*адрес*}
         var x =  {$sitedata['x']};{*координаты*}
@@ -36,6 +35,5 @@
         var minTime = {$minTime};
         var maxTime = {$maxTime};
         var step = {$step};
-
     </script>
 </section>

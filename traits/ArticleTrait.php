@@ -36,7 +36,9 @@ trait ArticleTrait
             'published' => $published,
             'front' => $front
         ];
+
         $err = $this->getErrArticle($data);//проверка всего
+
         if ($err) {
             $this->getResponse(['success' => false, 'err' => $err]);
         }

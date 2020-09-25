@@ -47,6 +47,7 @@ class ArticlesadmController implements Controller
 
     public function add()
     {
+
         $data = $this->setData();
         $file = $this->uploadPic(self::DIR_UPLOAD);//загрузка картинки
         $data = $data + ['file' => $file];
@@ -99,6 +100,7 @@ class ArticlesadmController implements Controller
             }
             $file = $this->uploadPic(self::DIR_UPLOAD);//загрузка картинки
             $data = $data + ['file' => $file];
+
         } else {
             $data = $data + ['file' => $data['oldFile']];
         }
@@ -110,8 +112,9 @@ class ArticlesadmController implements Controller
             $this->getResponse(['success' => false, 'err' => ' Такой статьи не существует, 
                 пожалуйста очистьте кеш, обновите страницу и повторите попытку. Если ошибка повторится свяжитесть с администратором сайта.']);
         }
+
         $articleEdit = $article->edit($data);
-        $this->getResponse(['success' => $articleEdit, 'err' => 'Не удалось внести новую статью в БД.', 'url' => $data['url'], 'file' => $data['file'], 'tags' => $data['tags'], 'category' => $data['category']]);
+        $this->getResponse(['success' => $articleEdit, 'err' => 'Не удалось внести зменения в БД.', 'url' => $data['url'], 'file' => $data['file'], 'tags' => $data['tags'], 'category' => $data['category']]);
     }
 
     public function removed()
