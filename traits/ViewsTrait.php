@@ -34,18 +34,30 @@ trait ViewsTrait
         return $categories;
     }
 
-    public function commentsView($commentsDat)
+    /**
+     * комментарии
+     * @param $commentsDat
+     * @param $userAvatar
+     * @return string
+     */
+    public function commentsView($commentsDat, $userAvatar, $articleId, $articleTitle)
     {
+
         $comments = '
-<li>
-    <div class="comment-list">
+<li id="' . $commentsDat['id'] . '">
+    <div id="add-' . $commentsDat['id'] . '"  class="comment-list">
         <div class="single-comment justify-content-between d-flex">
             <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                    <img src="/public/pic/avatar/anonimus.png">
-                </div>
+                <div class="thumb">';
+        if ($userAvatar) {
+            $comments .= ' <img src="/public/pic/avatar/' . $userAvatar . '">';
+        } else {
+            $comments .= ' <img src="/public/pic/avatar/anonimus.png">';
+        }
+
+        $comments .= ' </div>
                 <div class="desc">
-                    <p class="comment">
+                    <p id="text-' . $commentsDat['id'] . '" class="comment">
                        ' . $commentsDat['mess'] . '
                     </p>
                 </div>
@@ -56,10 +68,19 @@ trait ViewsTrait
                 <h5>
                     <em style="color: #607e89; font-weight: 600;">' . $commentsDat['username'] . '</em>
                 </h5>
-                <p class="date">' . date("Y-m-d H:i", strtotime($commentsDat['date'])) . ' </p>
+                <p id="date-' . $commentsDat['id'] . '" class="date">' . date("Y-m-d H:i", strtotime($commentsDat['date'])) . ' </p>
             </div>
-            <div class="reply-btn">
-                <a href="#" class="btn-reply text-uppercase">відповісти</a>
+            <div class="reply-btn">  
+            <div class="row">';
+        if ($_SESSION['user']['role'] === 'admin') {
+            $comments .= ' <a class="btn btn-del text-uppercase" onclick="remComment(\'' . $commentsDat['id'] . '\', \''.$articleTitle. '\')">вилучити</a>
+                           <a class="btn btn-edit text-uppercase" onclick="editComment(\'' . $commentsDat['id'] . '\',\'' . $commentsDat['username'] . '\',\'' . $_SESSION['user']['username'] . '\',\'' . $articleTitle . '\')">редагувати</a>';
+        } else if ($_SESSION['user']['username'] === $commentsDat['username'] && $_SESSION['user']['username']) {
+            $comments .= ' <a class="btn btn-del text-uppercase" onclick="remComment(\'' . $commentsDat['id'] . '\', \''.$articleTitle. '\')">вилучити</a>
+                           <a class="btn btn-edit text-uppercase" onclick="editComment(\'' . $commentsDat['id'] . '\',\'' . $commentsDat['username'] . '\',\'' . $_SESSION['user']['username'] . '\',\'' . $articleTitle . '\')">редагувати</a>';
+        }
+        $comments .= '<a id="btn-reply-' . $commentsDat['id'] . '" class="btn btn-reply text-uppercase" onclick="reply(\'' . $commentsDat['id'] . '\',\'' . $commentsDat['username'] . '\',\'' . $_SESSION['user']['username'] . '\',\'' . $articleId . '\',\'' . $articleTitle . '\',\'' . $_SESSION['user']['id'] . '\')">відповісти</a>
+                </div>
             </div>
         </div>
     </div>';

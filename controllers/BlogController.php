@@ -146,7 +146,7 @@ class BlogController implements Controller
         $commentsModel = new CommentsModel();
         $commentsCount = $commentsModel->commentsCount($article['id']);
         $commentsDats = $commentsModel->commentsRead($article['id'], $parentID = 0);
-        $comments = $this->getComments($commentsDats);
+        $comments = $this->getComments($commentsDats, $article['title']);
 
         $smarty->assign('action', $action);
         $smarty->assign('tagsAll', $tagsAll);
@@ -158,15 +158,17 @@ class BlogController implements Controller
         $smarty->display('public/article.tpl');
     }
 
-    public function getComments($commentsDats)
+    public function getComments($commentsDats, $articleTitle)
     {
         $commentsModel = new CommentsModel();
+        $users = new UserModel();
         foreach ($commentsDats as $commentsDat) {
-            $comments [] = $this->commentsView($commentsDat);
+            $user = $users->getUserByLogin(null, $commentsDat['user_id']);
+            $comments [] = $this->commentsView($commentsDat, $user['avatar'], $commentsDat['article_id'], $articleTitle);
             $commentsDats1 = $commentsModel->commentsRead($commentsDat['article_id'], $commentsDat['id']);
             if (!empty($commentsDats1)) {
                 $comments [] = '<ul>';
-                $comment = $this->getComments($commentsDats1);
+                $comment = $this->getComments($commentsDats1, $articleTitle);
                 foreach ($comment as $commentParent) {
                     $comments [] = $commentParent;
                 }

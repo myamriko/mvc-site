@@ -55,7 +55,7 @@
             <form class="form-inline my-2 my-lg-0">
                 {if !empty($smarty.session.user.id)}
                     <a class="btn btn-outline-dark my-2 my-sm-0 mr-3 text-uppercase"
-                       onclick="window.location.href='users/logout'">Вихід</a>
+                       onclick="window.location.href='/users/logout'">Вихід</a>
                 {else}
                     <a class="btn btn-outline-dark my-2 my-sm-0 mr-3 text-uppercase" data-toggle="modal"
                        data-target="#login">Вхід</a>

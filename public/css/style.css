@@ -21,6 +21,12 @@
     font-display: swap;
 }
 
+/* убираем выделение с элементов при наведении */
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
 .fa, .fas {
     font-weight: 900;
 }
@@ -348,6 +354,7 @@ body {
     padding-top: 4px;
     margin-left: 15px;
 }
+
 
 .gtco-banner-area a .ico {
 
@@ -1112,7 +1119,7 @@ body {
 scrolled {
     position: fixed;
     right: 0;
-    left: 0;
+    left: 20px;
     top: 0;
     margin-top: 130px;
     background: white !important;
@@ -1180,7 +1187,7 @@ scrolled {
     width: 1110px;
     margin: 0 auto;
 
-    padding-right: 15px;
+   /* padding-right: 15px;*/
 }
 
 .ftco-navbar-light .navbar-brand {
@@ -1776,6 +1783,7 @@ a:hover {
 
 
 .estimate_form .contact-info input,
+
 .estimate_form .contact-info textarea {
     padding-left: 40px;
 }
@@ -2436,6 +2444,13 @@ a:hover {
     text-decoration: none;
 
 }
+
+.blanco a {
+    color: #ffffff !important;
+    text-decoration: none;
+
+}
+
 
 .blog_area .cat-list a {
     font-family: 'Fira Sans', sans-serif;
@@ -3278,12 +3293,18 @@ a:hover {
     clear: both;
     display: table;
 }
+
+.blog-info-link .comment{
+
+    color: #999999;
+
+}
 /*comments*/
 
 .comments-area {
     background: transparent;
     border-top: 1px solid #eee;
-    padding: 45px 0;
+    padding: 45px 0 0 0;
     margin-top: 50px;
 }
 @media (max-width: 414px) {
@@ -3337,13 +3358,22 @@ a:hover {
     color: #777777;
     font-size: 15px;
 }
-.comments-area .btn-reply {
+.comments-area .btn{
     background-color: transparent;
-    color: #888888;
     padding: 5px 18px;
     font-size: 14px;
     display: block;
     font-weight: 600;
+}
+
+.comments-area .btn-reply {
+    color: #888888;
+}
+.comments-area .btn-del {
+    color: darkred !important;
+}
+.comments-area .btn-edit {
+    color: #e0a800 !important;
 }
 
 .comments-area li{

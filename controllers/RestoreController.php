@@ -45,7 +45,7 @@ class RestoreController implements Controller
             }
 
             if ($user['role']==='admin'){
-                Telegram::sender('Користувач '.$user['login']." відновив пароль.  Тимчасовий пароль:  " . $pass . "  E-mail: ".$restoreEmail);
+                Telegram::sender('Користувач '.$user['login']." відновив пароль.%0AТимчасовий пароль: " . $pass . "%0AE-mail: ".$restoreEmail);
             }
             /*Отправка на почту*/
             $siteData = InfoModel::info();

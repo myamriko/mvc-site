@@ -40,7 +40,7 @@ function add() {
         data: data,
 
         success: function (res) {
-            console.log(res[0].success);
+
             if (!res[0].success || res[0].success == 0) {
                 $('#messageArticle').text(res[0].err);
                 $('#errArticle').fadeIn().show();

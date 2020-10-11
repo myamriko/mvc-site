@@ -52,8 +52,8 @@
                                                     {/foreach}
                                                 {/foreach}
                                             </li>
-                                            <li><a href="#"><i class="ico ico-comments"></i>
-                                                    Коментарів: {$commentsCount}</a></li>
+                                            <li class="comment"><i class="ico ico-comments"></i>
+                                                Коментарів: {$commentsCount}</li>
                                         </ul>
                                         <p>
                                             {$article['text']}
@@ -62,10 +62,19 @@
                                 </div>
                             </div>
                             <div class="comments-area">
-                            {foreach $comments as $comment}
-                                {$comment}
-                            {/foreach}
+                                <div id="add-comment" class="text-left btn btn-reply text-uppercase mb-5"><a id="add-comment-linc" onclick="addComment()">Додати
+                                        коментар</a></div>
+                                    {include file="public/include/comment_form.tpl"}
+                                <div id="comment_container">
+                                    {if !$comments}
+                                        <p class="comment">Поки що немає жодного коментаря. Додайте коментар першим!</p>
+                                    {/if}
+                                    {foreach $comments as $comment}
+                                        {$comment}
+                                    {/foreach}
+                                </div>
                             </div>
+
                         </article>
                     </main>
                 </div>
@@ -73,7 +82,7 @@
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         <div class="d-none d-md-block d-lg-block d-xl-block">
-                            {include file="public/include/menu_search.tpl"}
+                            {include file="public/include/menu_search_right.tpl"}
                         </div>
                         {include file="public/include/menu_category.tpl"}
                         {include file="public/include/tag_clouds.tpl"}
@@ -82,5 +91,6 @@
                 {$pagination}
             </div>
         </div>
+        <script src="/public/js/comments.js"></script>
     </section>
 {/block}
