@@ -6,6 +6,7 @@ class ArticlesadmModel
     const CACHE_KEY = 'article-site';
     const CACHE_KEY_TAG = 'tags-site';
     const CACHE_KEY_CATEGORY = 'categories-site';
+    const CACHE_KEY_SEARCH = 'search';
 
     public $id;
     public $start;
@@ -39,6 +40,7 @@ class ArticlesadmModel
         Cache::forget(self::CACHE_KEY);//очистить кеш
         Cache::forget(self::CACHE_KEY_TAG);
         Cache::forget(self::CACHE_KEY_CATEGORY);
+        Cache::forget(self::CACHE_KEY_SEARCH);
        // Cache::forget(self::CACHE_KEY . '-panel');
         return $dbh->lastInsertId();
     }
@@ -53,6 +55,7 @@ class ArticlesadmModel
         Cache::forget(self::CACHE_KEY);//очистить кеш
         Cache::forget(self::CACHE_KEY_TAG);
         Cache::forget(self::CACHE_KEY_CATEGORY);
+        Cache::forget(self::CACHE_KEY_SEARCH);
      //   Cache::forget(self::CACHE_KEY . '-panel');//очистить кеш
         return (bool)$res->rowCount();
 
@@ -67,6 +70,7 @@ class ArticlesadmModel
         Cache::forget(self::CACHE_KEY);//очистить кеш
         Cache::forget(self::CACHE_KEY_TAG);
         Cache::forget(self::CACHE_KEY_CATEGORY);
+        Cache::forget(self::CACHE_KEY_SEARCH);
       //  Cache::forget(self::CACHE_KEY . '-panel');//очистить кеш
         return (bool)$res->rowCount();
     }

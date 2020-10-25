@@ -138,7 +138,7 @@
             </div>
         </div>
     </section>
-    <script src="/public/js/contactPaginaContact.js"></script>
+    <script src="/public/js/contactPaginaContact.js" defer></script>
     <script>
         var html = '{$sitedata['organization']}';{*адрес*}
         var x =  {$sitedata['x']};{*координаты*}

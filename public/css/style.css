@@ -1802,11 +1802,30 @@ a:hover {
 .pera-content p {
     margin-bottom: 0; }
 */
-.btn-log {
-    /*  color: #fff;
-      background-color: #185fe3;*/
+.contact_section .btn-search input {
+    background-color: transparent;
+    font-size: 18px;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    text-decoration: none !important;
 }
 
+.btn-search {
+    background-image: -moz-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    background-image: -ms-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    border-radius: 50px;
+    padding: 5px 30px;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.contact_section .btn-search input:hover{
+    color: #17b978;
+}
 
 /*breadcrumb*/
 .breadcrumb-item a {
@@ -2442,8 +2461,8 @@ a:hover {
 .blog_area a {
     color: #1d3ede !important;
     text-decoration: none;
-
 }
+
 
 .blanco a {
     color: #ffffff !important;
@@ -2579,7 +2598,7 @@ a:hover {
 .news_more a {
     font-family: 'Fira Sans', sans-serif;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 600 !important;
     color: #1d3ede;
     position: relative;
 }

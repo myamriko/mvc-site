@@ -8,13 +8,14 @@
         <div class="background_overlay_blog"></div>
         <div class="breadcrumb_watermark">{$namepage}</div>
         <div class="container">
-            <h1 class="breadcrumb_title">{$categoryPage}</h1>
-            <div class="breadcrumb_item ul-li 	d-none d-md-block d-lg-block d-xl-block">
+            <input id="breadcrumb_hidden" type="hidden" value="{$categoryPage}">
+            <h1 id="breadcrumb_title" class="breadcrumb_title">{$categoryPage}</h1>
+            <div id="breadcrumb-xl" class="breadcrumb_item ul-li 	d-none d-md-block d-lg-block d-xl-block">
                 <ul class="breadcrumb">
                     {include file="public/include/breadcrumb.tpl"}
                 </ul>
             </div>
-            <div class="breadcrumb_item ul-li d-block d-md-none">
+            <div id="breadcrumb-xs" class="breadcrumb_item ul-li d-block d-md-none">
                 <ul class="breadcrumb breadcrumb-sm">
                     {include file="public/include/breadcrumb.tpl"}
                 </ul>
@@ -31,7 +32,8 @@
                     </div>
                 </div>
                 <div class="col-lg-8 posts-list">
-                    <main role="main">
+                    <div id="main-search" style="display: none;"></div>
+                    <main  id="main" role="main">
                         <article role="article">
                             <div class="single-post">
                                 <div class="blog_item_img">
@@ -91,6 +93,6 @@
                 {$pagination}
             </div>
         </div>
-        <script src="/public/js/comments.js"></script>
+        <script src="/public/js/comments.js" defer></script>
     </section>
 {/block}

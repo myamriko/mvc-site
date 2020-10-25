@@ -41,5 +41,5 @@
             <div id="reLogin"></div>
         </div>
     </section>
-    <script src="/public/js/account.js"></script>
+    <script src="/public/js/account.js" defer></script>
 {/block}

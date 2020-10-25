@@ -1,3 +1,4 @@
+{if $article}
 <article role="article">
     <div class="blog_left_sidebar">
         <div class="blog_item">
@@ -21,17 +22,18 @@
                         <a href="/blog/article/{$article['url']}">Детальніше</a>
                     </span>
                     <div class="row">
-                    {foreach $tagsArt as $tag}
-                        {foreach $tagsAll as $tage}
-                            {if $tage['tag']|strip:'' == $tag|strip:''}
-                                <span class="post_cat d-none d-md-block d-lg-block d-xl-block mr-1"><a
-                                            href="/blog/tag/{$tage['url']}" rel="ugc nofollow">{$tag}</a></span>
-                            {/if}
+                        {foreach $tagsArt as $tag}
+                            {foreach $tagsAll as $tage}
+                                {if $tage['tag']|strip:'' == $tag|strip:''}
+                                    <span class="post_cat d-none d-md-block d-lg-block d-xl-block mr-1"><a
+                                                href="/blog/tag/{$tage['url']}" rel="ugc nofollow">{$tag}</a></span>
+                                {/if}
+                            {/foreach}
                         {/foreach}
-                    {/foreach}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </article>
+{/if}

@@ -18,12 +18,14 @@ class BlogController implements Controller
 
 
     /**
-     * @param null $url
+     * @param string $url
      * @throws SmartyException
      */
     public function index($url = 'blog')
     {
         global $smarty;
+        global $controller;
+
         $siteData = $this->menuPrincipal();
         $categories = $this->menuCategory();
 
@@ -41,6 +43,7 @@ class BlogController implements Controller
         $articlesModel->limit = $pageLimitBlog;//LIMIT finish
         $articlesAll = $articlesModel->category($url);
         $smarty->assign('url', $url);
+        $smarty->assign('controller', $controller);
         $smarty->assign('description', $description);
         $smarty->assign('tagsAll', $tagsAll);
         $smarty->assign('articlesAll', $articlesAll);
@@ -57,6 +60,8 @@ class BlogController implements Controller
         global $smarty;
         global $param;
         global $action;
+        global $controller;
+
         $url = trim(filter_var($param[0], FILTER_SANITIZE_STRING));
         $siteData = $this->menuPrincipal();
         $pageName = self::PAGE_NAME_CAT . '/' . $url; //для пагинации
@@ -78,6 +83,7 @@ class BlogController implements Controller
         $articlesModel->limit = $pageLimitBlog;//LIMIT finish
         $articlesAll = $articlesModel->category($url);
         $smarty->assign('action', $action);
+        $smarty->assign('controller', $controller);
         $smarty->assign('url', $url);
         $smarty->assign('description', $description);
         $smarty->assign('tagsAll', $tagsAll);
@@ -93,6 +99,7 @@ class BlogController implements Controller
         global $param;
         global $action;
 
+        $nogoogl = '<meta name="robots" content="noindex">';//не индексировать
         $url = trim(filter_var($param[0], FILTER_SANITIZE_STRING));
         $siteData = $this->menuPrincipal();
         $pageName = self::PAGE_NAME_TAG . '/' . $url; //для пагинации
@@ -115,6 +122,7 @@ class BlogController implements Controller
         $articlesAll = $articlesModel->tag($categoryPage);
         $smarty->assign('action', $action);
         $smarty->assign('url', $url);
+        $smarty->assign('nogoogl', $nogoogl);
         $smarty->assign('description', $description);
         $smarty->assign('tagsAll', $tagsAll);
         $smarty->assign('articlesAll', $articlesAll);

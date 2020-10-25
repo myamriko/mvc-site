@@ -11,13 +11,14 @@
             <div class="breadcrumb_watermark">{$namepage}</div>
         {/if}
         <div class="container">
-            <h1 class="breadcrumb_title">{$categoryPage}</h1>
-            <div class="breadcrumb_item ul-li 	d-none d-md-block d-lg-block d-xl-block">
+            <input id="breadcrumb_hidden" type="hidden" value="{$categoryPage}">
+            <h1 id="breadcrumb_title" class="breadcrumb_title">{$categoryPage}</h1>
+            <div id="breadcrumb-xl" class="breadcrumb_item ul-li 	d-none d-md-block d-lg-block d-xl-block" >
                 <ul class="breadcrumb">
                     {include file="public/include/breadcrumb.tpl"}
                 </ul>
             </div>
-            <div class="breadcrumb_item ul-li d-block d-md-none">
+            <div id="breadcrumb-xs" class="breadcrumb_item ul-li d-block d-md-none">
                 <ul class="breadcrumb breadcrumb-sm">
                     {include file="public/include/breadcrumb.tpl"}
                 </ul>
@@ -34,7 +35,8 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mb-5 mb-lg-0">
-                    <main role="main">
+                    <div id="main-search" style="display: none;"></div>
+                    <main id="main" role="main">
                         {foreach $articlesAll as $article}
                             {assign var="tagsArt" value=","|explode:$article['tags']}
                             {include file="public/include/blog_post.tpl"}
@@ -51,7 +53,9 @@
                         {include file="public/include/tag_clouds.tpl"}
                     </div>
                 </div>
-                {$pagination}
+                <div id="pagination">
+                    {$pagination}
+                </div>
             </div>
         </div>
     </section>

@@ -13,5 +13,5 @@
             </div>
         </div>
     </div>
-    <script src="/public/js/restore.js"></script>
+    <script src="/public/js/restore.js" defer></script>
 {/block}
