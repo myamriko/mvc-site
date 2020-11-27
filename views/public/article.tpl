@@ -69,7 +69,7 @@
                                     {include file="public/include/comment_form.tpl"}
                                 <div id="comment_container">
                                     {if !$comments}
-                                        <p class="comment">Поки що немає жодного коментаря. Додайте коментар першим!</p>
+                                        <p id="noComments" class="comment">Поки що немає жодного коментаря. Додайте коментар першим!</p>
                                     {/if}
                                     {foreach $comments as $comment}
                                         {$comment}
@@ -88,6 +88,7 @@
                         </div>
                         {include file="public/include/menu_category.tpl"}
                         {include file="public/include/tag_clouds.tpl"}
+                        {include file="public/include/menu_last_article.tpl"}
                     </div>
                 </div>
                 {$pagination}

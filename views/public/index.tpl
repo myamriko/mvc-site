@@ -6,28 +6,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="wow fadeInLeft font-weight-bolder">Колесникова</h1>
-                        <h3 class="wow fadeInLeft font-weight-bolder" data-wow-delay='0.5s'>Ганна Вікторівна</h3>
-                        <p class="wow fadeInLeft" data-wow-delay='1s'> Адвокатські послуги, консультація з правових
-                            питань,
-                            захисник та представник в кримінальних процесах </p>
+                        {assign var = 'name' value=' '|explode:$siteData['sender']}
+                        <h1 class="wow fadeInLeft font-weight-bolder">{$name[0]}</h1>
+                        <h3 class="wow fadeInLeft font-weight-bolder" data-wow-delay='0.5s'>{$name[1]} {$name[2]}</h3>
+                        <p class="wow fadeInLeft" data-wow-delay='1s'>{$siteData['propaganda']}</p>
                         <p class="wow fadeInLeft" data-wow-delay='1.5s'>
-                            <a href="tel:0956112060">(095) 611-20-60</a>
+                            <a href="tel:0956112060">{$siteData['tel1']}</a>
                             <br>
-                            <a href="tel:0963165710">(096) 316-57-10</a>
+                            <a href="tel:0963165710">{$siteData['tel2']}</a>
                             <br>
-                            <a href="/contacts">anik_100@mail.ru</a>
+                            <a href="/contacts">{$siteData['sitemail']}</a>
                         </p>
-
                         <ul class="nav follow-us-nav">
-                            <li class="nav-item"><a class="nav-link pl-0" href="#"><i class="ico ico-facebook"></i></a>
+                            <li class="nav-item"><a rel="nofollow" class="nav-link pl-0" href="https://www.facebook.com/{$siteData['facebook']}" target="_blank"><i class="ico ico-facebook"></i></a>
                             </li>
                         </ul>
                     </div>
                     <!---->
                     <div id="gtco-main" class="col-md-6 d-none d-md-block d-lg-block">
                         <div class="card "><img class=" card-img-top img-fluid" src="/public/images/banner-img.png"
-                                                alt=""
+                                                alt="Послуги адвоката Київ"
                             ></div>
                     </div>
                 </div>
@@ -60,7 +58,7 @@
                                         <path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
                                     </clipPath>
                                     <!-- xlink:href for modern browsers, src for IE8- -->
-                                    <image clip-path="url(#clip-path)" xlink:href="/public/images/learn-img.jpg"
+                                    <image clip-path="url(#clip-path)" xlink:href="/public/images/{$front['img']}"
                                            width="100%"
                                            height="465" class="svg__image"></image>
                                 </svg>
@@ -69,24 +67,14 @@
                     </div>
                     <div class="col-md-12 col-lg-5 wow fadeIn">
                         <blockquote class="blockquote mt-3">
-                            <p class="mb-0">Я пропоную кваліфіковані юридичні послуги та поради широкому загалу людей,
-                                які
-                                знаходяться на
-                                вирішальному етапі свого життя і потребують допомоги фахівця з права.
-                                Адвокат це Ваш повірений в житті, при обрані якого ви повинні керуватися не тільки
-                                ціновими
-                                рамками
-                                але й його кваліфікацією та порядністю.
-                                Не забувайте про те, що адвокат – як лікар, його завдання не лікувати хворобу, а її
-                                профілактика.
-                                Не відкладайте невирішене питання в довгу шухляду.</p>
+                            <p class="mb-0">{$front['intro']}</p>
                             <footer class="blockquote-footer">З повагою до Вас,
                                 <p class="text-right">
                                     <cite title="Source Title">Колесникова Ганна</cite>
                                 </p>
                             </footer>
                         </blockquote>
-                        <a href="#">Learn More <i class="fa ico-angle-right" aria-hidden="true"></i></a>
+                        <a href="#">ЧИТАТИ ДАЛІ <i class="fa ico-angle-right" aria-hidden="true"></i></a>
 
                     </div>
                 </div>
@@ -102,7 +90,7 @@
                             <p class="text-justify"> Аналітичний підхід до вирішення правової проблеми на основі
                                 теоретичних, наукових знань і
                                 практичних судових розглядів. </p>
-                            <a href="#">All Services <i class="fa ico-angle-right" aria-hidden="true"></i></a href="#">
+                            <a href="#">всі послуги <i class="fa ico-angle-right" aria-hidden="true"></i></a href="#">
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -399,54 +387,20 @@
         </section>
         <section class="gtco-news wow fadeIn" id="news" data-wow-delay='0.3s'>
             <div class="container">
-                <h2>Latest News & Articles</h2>
+                <h2>Останні Новини та Статті</h2>
                 <div class="owl-news row">
 
-                    <div class="col-md-12 col-lg-4">
-                        <div class="card text-center"><img class="card-img-top" src="/public/images/news1.jpg" alt="">
-                            <div class="card-body text-left pr-0 pl-0">
-                                <h5>Aenean ultrices lorem quis blandit
-                                    tempor urabitur accumsan. </h5>
-                                <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                                    feugiat
-                                    augue,
-                                    et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare
-                                    purus
-                                    risus
-                                    . . . </p>
-                                <a href="#">READ MORE <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
+                    {foreach $lastArticles as $lastArticle}
+                        <div class="col-md-12 col-lg-4">
+                            <div class="card text-center"><img class="card-img-top" src="/public/pic/img-art/{$lastArticle['file']}" alt="{$lastArticle['title']}">
+                                <div class="card-body text-left pr-0 pl-0">
+                                    <h5>{$lastArticle['title']|truncate:60:"...":true}</h5>
+                                    <p class="card-text">{$lastArticle['intro']|truncate:160:"...":true}</p>
+                                    <a href="/blog/article/{$lastArticle['url']}">ЧИТАТИ ДАЛІ <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="card text-center"><img class="card-img-top" src="/public/images/news2.jpg" alt="">
-                            <div class="card-body text-left pr-0 pl-0">
-                                <h5> Nam vel nisi eget odio pulvinar
-                                    iaculis. Fusce aliquet. </h5>
-                                <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                                    feugiat
-                                    augue,
-                                    et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare
-                                    purus
-                                    risus
-                                    . . . </p>
-                                <a href="#">READ MORE <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="card text-center"><img class="card-img-top" src="/public/images/news3.jpg" alt="">
-                            <div class="card-body text-left pr-0 pl-0">
-                                <h5>Morbi faucibus odio sollicitudin
-                                    risus scelerisque dignissim. </h5>
-                                <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                                    feugiat
-                                    augue,
-                                    et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare
-                                    purus
-                                    risus
-                                    . . . </p>
-                                <a href="#">READ MORE <i class="fa ico-angle-right" aria-hidden="true"></i></a></div>
-                        </div>
-                    </div>
+                    {/foreach}
+
                 </div>
             </div>
         </section>

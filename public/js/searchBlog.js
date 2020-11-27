@@ -1,5 +1,5 @@
-breadcrumbTextXl = $('#breadcrumb-xl').html();
-breadcrumbTextXs = $('#breadcrumb-xs').html();
+var breadcrumbTextXl = $('#breadcrumb-xl').html();
+var breadcrumbTextXs = $('#breadcrumb-xs').html();
 
 $('#searchText-right').on('keyup', function () {
     var text = $('#searchText-right').val().trim().replace(/<[^>]+>/g, '');

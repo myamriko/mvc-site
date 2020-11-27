@@ -33,7 +33,6 @@
                             <input id="searchMain" type="search" name="searchMain" class="form-control"
                                    placeholder="Введіть критерії пошуку" autocomplete="off"/>
                         </div>
-                        {$searchAlert}
                         <div class="form-check">
                             <input class="form-check-input position-static" type="checkbox" id="searchText"
                                    name="searchText" value="text" aria-label="Шукати в тексті" checked="checked">
@@ -47,15 +46,15 @@
                             </div>
                         </div>
                     </form>
-                    <main role="main">
+                    <main role="main" class="mt-5">
+                        {$searchAlert}
                         {include file="public/include/search_post.tpl"}
                     </main>
                 </div>
                 {*Боковая панель*}
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
-                        Добавить блок с последними статьями (только заголовки)
-                        {include file="public/include/menu_category.tpl"}
+                        {include file="public/include/menu_last_article.tpl"}
                     </div>
                 </div>
                 {$pagination}
@@ -65,7 +64,7 @@
     <script>
         $('#searchMain').on('keyup', function () {
             var text = $('#searchMain').val().trim().replace(/<[^>]+>/g, '');
-            if (text.length > 3){
+            if (text.length >= 3){
                 $('#btnSearch').html('<div class="btn submit-button btn-search text-uppercase">\n' +
                     '                                <input type="submit" id="sendSearchMain" class="" value="Пошук"><i\n' +
                     '                                        class="fa ico-angle-right" aria-hidden="true"></i>\n' +

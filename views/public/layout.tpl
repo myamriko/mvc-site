@@ -4,13 +4,10 @@
 {include file="public/include/head.tpl"}
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 {* Modal *}
-
 {include file='public/include/modal/rerister.tpl'}
 {include file='public/include/modal/login.tpl'}
 {include file='public/include/modal/system.tpl'}
 {include file='public/include/modal/account.tpl'}
-
-
 {*preloader*}
 <div class="loaderArea">
     <div class="load">
@@ -19,7 +16,6 @@
         </div>
     </div>
 </div>
-
 <div id="site" class="">
     {*navBar*}
     {include file="public/include/navbar.tpl"}
@@ -29,7 +25,6 @@
 </div>
 {*footer*}
 {include file="public/include/footer.tpl"}
-
 <script  src="/public/them-js/jquery-ui.min.js"  defer></script>
 <script  src="/public/them-js/popper.min.js"  defer></script>
 <script  src="/public/them-js/bootstrap.min.js"  defer></script>
@@ -47,7 +42,6 @@
 {*js темы*}
 <script  src="/public/them-js/main.js" defer></script>
 {*Time Resrvstion*}
-
     <script  src="/public/them-js/jquery.datetimepicker.full.min.js" defer></script>
     <script  src="/public/them-js/rainbow-custom.min.js" defer></script>
 {if $smarty.server.REQUEST_URI == "/"}

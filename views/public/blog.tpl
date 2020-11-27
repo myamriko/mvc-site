@@ -1,6 +1,6 @@
 {assign var="namepage" value=$links[0][1]['title']}
 {extends file="public/layout.tpl"}
-{block name=title}{$namepage}-{$categoryPage}-{$sitedata['sitename']}{/block}
+{block name=title}{$categoryPage}-{$sitedata['sitename']}{/block}
 {block name=body}
     <!-- BLOG -->
     <section role="complementary" class="breadcrumb_section relative-position">
@@ -51,6 +51,7 @@
                         </div>
                         {include file="public/include/menu_category.tpl"}
                         {include file="public/include/tag_clouds.tpl"}
+                        {include file="public/include/menu_last_comments.tpl"}
                     </div>
                 </div>
                 <div id="pagination">

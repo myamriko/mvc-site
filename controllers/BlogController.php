@@ -33,7 +33,7 @@ class BlogController implements Controller
         $pageLimitBlog = $siteData['pagelimit'];// колво статей на странице
         $tableName = self::TABLE_NAME;
         $data = $this->paginationBlog($pageName, $pageLimitBlog, $tableName, $url);
-        $description = $categories[0]["description"];
+        $description = $categories[0]["description"].' '.$siteData['sitename'];
         $categoryPage = $categories[0]["name"];
         $tagsModel = new TagsModel();
         $tagsAll = $tagsModel->all();
@@ -42,12 +42,15 @@ class BlogController implements Controller
         $articlesModel->start = $pageLimitBlog * ($data['page'] - 1);//LIMIT start
         $articlesModel->limit = $pageLimitBlog;//LIMIT finish
         $articlesAll = $articlesModel->category($url);
+        $lastComments = WidgetModel::lastComments($url);
+
         $smarty->assign('url', $url);
         $smarty->assign('controller', $controller);
         $smarty->assign('description', $description);
         $smarty->assign('tagsAll', $tagsAll);
         $smarty->assign('articlesAll', $articlesAll);
         $smarty->assign('categoryPage', $categoryPage);
+        $smarty->assign('lastComments', $lastComments);
         $smarty->assign('pagination', $data['pagination']);//пагинация
         $smarty->display('public/blog.tpl');
     }
@@ -72,7 +75,7 @@ class BlogController implements Controller
         foreach ($categories as $category) {
             if ($category['url'] == $url) {
                 $categoryPage = $category["name"];
-                $description = $category["description"];
+                $description = $category["description"].' '.$siteData['sitename'];
             }
         }
         $tagsModel = new TagsModel();
@@ -82,6 +85,8 @@ class BlogController implements Controller
         $articlesModel->start = $pageLimitBlog * ($data['page'] - 1);//LIMIT start
         $articlesModel->limit = $pageLimitBlog;//LIMIT finish
         $articlesAll = $articlesModel->category($url);
+        $lastComments = WidgetModel::lastComments($url);
+
         $smarty->assign('action', $action);
         $smarty->assign('controller', $controller);
         $smarty->assign('url', $url);
@@ -89,6 +94,7 @@ class BlogController implements Controller
         $smarty->assign('tagsAll', $tagsAll);
         $smarty->assign('articlesAll', $articlesAll);
         $smarty->assign('categoryPage', $categoryPage);
+        $smarty->assign('lastComments', $lastComments);
         $smarty->assign('pagination', $data['pagination']);//пагинация
         $smarty->display('public/blog.tpl');
     }
@@ -151,15 +157,20 @@ class BlogController implements Controller
                 $categoryArticle = $category['name'];
             }
         }
+        $lastArticles = WidgetModel::lastArticle();
+
+
         $commentsModel = new CommentsModel();
         $commentsCount = $commentsModel->commentsCount($article['id']);
         $commentsDats = $commentsModel->commentsRead($article['id'], $parentID = 0);
         $comments = $this->getComments($commentsDats, $article['title']);
 
+
         $smarty->assign('action', $action);
         $smarty->assign('tagsAll', $tagsAll);
         $smarty->assign('categoryPage', $categoryPage);
         $smarty->assign('categoryArticle', $categoryArticle);
+        $smarty->assign('lastArticles', $lastArticles);
         $smarty->assign('article', $article);
         $smarty->assign('commentsCount', $commentsCount[0]);
         $smarty->assign('comments', $comments);

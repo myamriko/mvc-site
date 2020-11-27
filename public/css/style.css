@@ -1811,6 +1811,22 @@ a:hover {
     text-transform: uppercase;
     border: none;
     text-decoration: none !important;
+    position: absolute;
+    right: 25px;
+    padding-top: 2px;
+    width: 160px;
+}
+
+.contact_section .btn-search .fa{
+    background: #fff;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    color: #37eaf9;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 4px;
+    margin-left: 90px;
 }
 
 .btn-search {
@@ -1821,6 +1837,7 @@ a:hover {
     padding: 5px 30px;
     display: inline-block;
     padding-right: 5px;
+    width: 160px;
 }
 
 .contact_section .btn-search input:hover{

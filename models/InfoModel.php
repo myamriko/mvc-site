@@ -29,4 +29,22 @@ final class InfoModel
         return $res;
     }
 
+    public static function front()
+    {
+        $cacheKey = self::CACHE_KEY.'-about';
+        $cachedAbout = Cache::get($cacheKey);
+        if ($cachedAbout) {
+            return $cachedAbout;
+        }
+        $dbh = DB::getInstance();
+        $query = 'SELECT * FROM `front` ';
+        $res = $dbh->query($query);
+        $about = $res->fetch(PDO::FETCH_ASSOC);
+        $expire = new self();// сздаем класс Sitedata
+        $expire = $expire::info();
+        $expire = $expire['cechetime']; // извлекаем из базы время жизни кеша
+        Cache::set($cacheKey, $about, $expire);
+        return $about;
+    }
+
 }

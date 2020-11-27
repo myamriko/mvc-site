@@ -7,6 +7,8 @@ expand = function () {
     if ($search.hasClass('close')) {
         $search.removeClass('close');
         $input.removeClass('square');
+        $('#searchText-right').val('');
+        $('#searchText').val('');
     } else {
         $search.addClass('close');
         $input.addClass('square');

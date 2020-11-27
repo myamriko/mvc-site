@@ -15,7 +15,7 @@
                 <a class="d-inline-block" href="/blog/article/{$article['url']}">
                     <h2>{$article['title']}</h2>
                 </a>
-                <p>{$article['intro']}</p>
+                <p>{$article['intro']|truncate:160:"...":true}</p>
                 <div class="col-12" style="min-height: 20px">
                     <span class=" news_more float-right">
                         <a href="/blog/article/{$article['url']}">Детальніше</a>

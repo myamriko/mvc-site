@@ -21,10 +21,14 @@ class CommentsController
                 $userModel = new UserModel();
                 $user = $userModel->getUserByLogin(null, $userId, null);
             }
+            $getArticle = new ArticlesadmModel();
+            $getArticle->id=$article_id_comment;
+            $getArticle = $getArticle->getArticle();
+
             $Return = $this->captcha();//ExtraTrait
             if ($Return->success == true && $Return->score > 0.5) {//проверка капчи
                 $commentSend = new CommentsModel();
-                $comment = $commentSend->send($userName, $userId, $text, $article_id_comment, $parentId);
+                $comment = $commentSend->send($userName, $userId, $text, $article_id_comment, $parentId, $getArticle['category']);
                 if (!$comment) {
                     $this->getResponse(['success' => false, 'err' => 'Не вдалося внести зміни в БД, поновіть сторінку і спробуйте ще раз. Якщо помилка повториться, зверніться до адміністратора сайту.']);
                 }
@@ -45,6 +49,9 @@ class CommentsController
 
         $commentsModel = new CommentsModel();
         $commentExist = $commentsModel->getCommentById($id);
+        $getArticle = new ArticlesadmModel();
+        $getArticle->id=$commentExist['article_id'];
+        $getArticle = $getArticle->getArticle();
 
         if (!$commentExist) {
             $this->getResponse(['success' => false, 'err' => 'Такого коментаря не існує, будь ласка поновіть сторінку і спробуйте ще раз. Якщо помилка не зникне зверніться до адміністратару сайту.']);
@@ -54,7 +61,7 @@ class CommentsController
             $this->getResponse(['success' => false, 'err' => 'Коментар містить відповіді.<br>Спочатку видаліть відповіді.']);
         }
 
-        $commentRemove = $commentsModel->remove($id);
+        $commentRemove = $commentsModel->remove($id, $getArticle['category']);
         if ($commentRemove){
             Telegram::sender("Користувач: " . $commentExist['username'] . "%0AВидалив коментар: " . $commentExist['mess'] . "%0AДо статті: " . $article_title_comment);
         }
@@ -68,13 +75,17 @@ class CommentsController
 
         $commentsModel = new CommentsModel();
         $commentExist = $commentsModel->getCommentById($id);
+        $getArticle = new ArticlesadmModel();
+        $getArticle->id=$commentExist['article_id'];
+        $getArticle = $getArticle->getArticle();
+
         if (!$commentExist) {
             $this->getResponse(['success' => false, 'err' => 'Такого коментаря не існує, будь ласка поновіть сторінку і спробуйте ще раз. Якщо помилка не зникне зверніться до адміністратару сайту.']);
         }
 
         $Return = $this->captcha();//ExtraTrait
         if ($Return->success == true && $Return->score > 0.5) {//проверка капчи
-        $commentEdit = $commentsModel->edit($id, $text);
+        $commentEdit = $commentsModel->edit($id, $text, $getArticle['category']);
             if (!$commentEdit) {
                 $this->getResponse(['success' => false, 'err' => 'Не вдалося внести зміни в БД, поновіть сторінку і спробуйте ще раз. Якщо помилка повториться, зверніться до адміністратора сайту.']);
             }

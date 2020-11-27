@@ -1,5 +1,6 @@
 function addComment() {
     $('#comment-visibility').fadeToggle("slow");
+    $('#noComments').fadeToggle("slow");
 }
 
 function sendComment(id) {
