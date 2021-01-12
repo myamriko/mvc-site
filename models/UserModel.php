@@ -3,7 +3,7 @@
 
 class UserModel
 {
-
+    use ResponseTrait;
     public $login;
     public $pass;
     public $userName;

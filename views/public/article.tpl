@@ -95,5 +95,6 @@
             </div>
         </div>
         <script src="/public/js/comments.js" defer></script>
+        <script src="/public/them-js/progressive-image.js" defer></script>
     </section>
 {/block}

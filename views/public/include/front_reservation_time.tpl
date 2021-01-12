@@ -10,7 +10,7 @@
                 <a id="sendTimeReservation" class="submit-button" onclick="timeReserv()">призначити<i class="fa ico-angle-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-lg-6">
-                <div class="row">
+                <div class="google-map-container">
                     <div id="google-map" class="google-map">
                     </div>
                 </div>

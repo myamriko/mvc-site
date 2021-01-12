@@ -47,7 +47,6 @@
 {if $smarty.server.REQUEST_URI == "/"}
     <script  src="/public/js/timeRes.js" defer></script>
 {/if}
-<script src="/public/them-js/progressive-image.js" defer></script>
 <script src="/public/js/searchBlog.js" defer></script>
 </body>
 </html>

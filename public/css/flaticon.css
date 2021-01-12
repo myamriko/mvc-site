@@ -4,9 +4,10 @@
 @font-face {
     font-family: "Flaticon";
     src: url("/public/font/Flaticon.eot"); /* IE9 Compat Modes */
-    src: url("/public/font/Flaticon.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("/public/font/Flaticon.otf") format("opentype"), /* Open Type Font */ url("/public/font/Flaticon.svg") format("svg"), /* Legacy iOS */ url("/public/font/Flaticon.ttf") format("truetype"), /* Safari, Android, iOS */ url("/public/font/Flaticon.woff") format("woff"), /* Modern Browsers */ url("/public/font/Flaticon.woff2") format("woff2"); /* Modern Browsers */
+    src: url("/public/font/Flaticon.eot?#iefix") format("embedded-opentype")/*,*//*  IE6-IE8 */ /*url("/public/font/Flaticon.otf") format("opentype")*/, /* Open Type Font */ url("/public/font/Flaticon.svg") format("svg"), /* Legacy iOS */ url("/public/font/Flaticon.ttf") format("truetype"), /* Safari, Android, iOS */ url("/public/font/Flaticon.woff") format("woff"), /* Modern Browsers */ url("/public/font/Flaticon.woff2") format("woff2"); /* Modern Browsers */
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 

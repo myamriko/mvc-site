@@ -144,7 +144,7 @@
         var x =  {$sitedata['x']};{*координаты*}
         var y = {$sitedata['y']};
     </script>
-    <script src="/public/them-js/google-map-settings.js" async defer></script>
+    <script src="/public/them-js/google-map-settings-contacts.js" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6w8j2weabWNNnmQbh4Vsi2-sd7Sqv5zM&callback=initMap"
             async defer></script>
     </section>

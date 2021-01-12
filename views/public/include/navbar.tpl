@@ -1,7 +1,7 @@
 <nav role="navigation" class="nav-container navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target"
      id="gtco-main-nav">
     <div class="container">
-        <a class="navbar-brand">atty<span>.</span>kiev<span>.</span>ua</a>
+        <a class="navbar-brand" href="/">{$sitedata['sitename']}<span>.</span>UA</a>
 
         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" onclick="myFunction(this)"
                 data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false"
@@ -32,7 +32,7 @@
                         <li class="nav dropdown">
                             <a class="nav-link dropdown-toggle  text-dark" id="navbarDropdown" role="button"
                                data-toggle="dropdown" {*onclick="showMenu()*}">
-                            {$smarty.session.user.login}<!-- из сессии берем логин -->
+                            {$smarty.session.user.login}{*<!-- из сессии берем логин -->*}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 {foreach $links as $link}
@@ -40,6 +40,9 @@
                                         {if ({$value['menu_name'] === $menu[1]['menu_name']})}
                                             {if ($value['enabled'] === 'ON')}
                                                 {if  ($smarty.session.user.role === 'admin')}
+                                                    <a class="dropdown-item"
+                                                       href="/{$value['url']}">{$value['title']}</a>
+                                                {elseif ($value['url']=== 'account')}
                                                     <a class="dropdown-item"
                                                        href="/{$value['url']}">{$value['title']}</a>
                                                 {/if}

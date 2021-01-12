@@ -63,6 +63,7 @@ wow.init();
                 startPosition: 1,
                 responsiveClass:true,
                 nav:false,
+
                 responsive:{
                     0:{
                         items:1,
@@ -80,7 +81,7 @@ wow.init();
                 }
             }
         );
-
+/*если по 3*/
         $(".owl-carousel2").owlCarousel(
             {
                 loop:true,

@@ -16,8 +16,8 @@
                     </button>
                     <input type="search" class="ml-md-2 form-control acInput search-panel mb-2 ml-2" id="searchArticle"
                            placeholder="Поиск:">
-                    <input type="text" class="ml-md-2 form-control pageLimit mb-2 ml-2" id="pageLimitArticlePanel"
-                           placeholder="Отображать {$articleLimit} строк" data-cache="article-site">
+                   <span id="pageLimitAdminPanel"><input type="text" class="ml-md-2 form-control pageLimit mb-2 ml-2" id="pageLimitArticlePanel"
+                           placeholder="Отображать {$articleLimit} строк" data-cache="article-site"></span>
                 </div>
                 <table class="table table-striped table-article" id="articles">
                     <thead class="thead-dark">
@@ -53,7 +53,7 @@
                                    href="#"><img class="img-thumbnail" style="height: 70px;"
                                                  src="/public/pic/img-art/{$articl['file']}"></a>
                             </td>
-                            <td data-label="Дата">{$articl['date']|date_format:"%d.%m.%Y,  %H:%M:%S"}</td>
+                            <td data-label="Дата">{$articl['date']|date_format:"%d-%m-%Y %H:%M:%S"}</td>
                             <td data-label="Аффтар">{$articl['author']}</td>
                             <td data-label="Публикация">{$articl['published']}</td>
                             <td data-label="Главная">{$articl['front']}</td>
@@ -81,36 +81,11 @@
                     {/foreach}
                     </tbody>
                 </table>
-                <div class="col-12 justify-content-end">
+                <div id="pagination" class="col-12 justify-content-end">
                     {$pagination}
                 </div>
             </div>
         </div>
-        <script>
-            //сдушаем input по отпущенной клавише извлекаем val потом передаем через POST
-            $('#searchArticle').on('keyup', function () {
-
-                var text = $('#searchArticle').val().trim();
-               /* if (text.length < 3) {
-                    return;//если мение 3х букв в запросе выходим
-                }*/
-               /* $.post('/search/make', {
-                    text: text
-                }, function (res) {
-                    console.log('cache: '+res.cache);
-                    $('#holder').empty();//очистить блок
-                    var len = res.data.length;// колво элементов в массиве
-                    var html = '';
-                    for (var i = 0; i < len; i++) {
-                        html = "<div>" + res.data[i].name + "</div>" +
-                            "<div>" + res.data[i].description + "</div>" +
-                            "<div>" + res.data[i].price +"$" + "</div>" +
-                            "<hr>";
-                        $('#holder').append(html);//добавить в id holder
-                    }
-                });*/
-            });
-        </script>
     </section>
     {include file="admin/modal/img.tpl"}
     {include file="admin/modal/article-add.tpl"}

@@ -14,7 +14,7 @@ class MainController implements Controller
     public function index()
     {
         global $smarty;
-        
+
         /* Бронирование времени */
         $minDate = 0;
         $timeSettings = new TimeresadmModel();
@@ -35,12 +35,12 @@ class MainController implements Controller
         $lastArticles = WidgetModel::lastArticle();
         $this->menuPrincipal();
         $description = $siteData['propaganda'];
-        $front = InfoModel::front();
+        $frontContent = InfoModel::front();
 
         $smarty->assign('siteData', $siteData);
         $smarty->assign('lastArticles', $lastArticles);
         $smarty->assign('description', $description);
-        $smarty->assign('front', $front);
+        $smarty->assign('frontContent', $frontContent);
         /* Бронирование времени */
         $smarty->assign('disabledDates', $disabledDates);
         $smarty->assign('disabledWeekDays', $disabledWeekDays);

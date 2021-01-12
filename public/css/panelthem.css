@@ -517,3 +517,10 @@ tr.calendar-row p {
 #noteTimeRes .form-control {
     border: 0px;
 }
+
+.orange-line {
+    border-left: 3px solid #ff8800;
+}
+.green-line {
+    border-left: 3px solid #358753;
+}

@@ -66,14 +66,18 @@ class SearchController implements Controller
     }
 
     /**
-     * Быстрый поиск в блоге
+     * Быстрый поиск в блоге и в статьях дминки
      */
 
-    public function make()
+    public function make($limit=1)
     {
         $text = filter_var(trim($_POST['text']), FILTER_SANITIZE_STRING);
+        $limitPost = $_POST['limit'];
+        if ($limitPost==='0'){
+            $limit = filter_var(trim($_POST['limit']), FILTER_SANITIZE_STRING);
+        }
         $search = new SearchModel();
-        $search = $search->search($text);
+        $search = $search->search($text,$limit);
         $this->getResponse([$search]);
     }
 

@@ -5,7 +5,9 @@ function makeRegister() {
     var rePass = $('#reg_repass').val().trim().replace(/<[^>]+>/g, '');
     var userName = $('#reg_name').val().trim().replace(/<[^>]+>/g, '');
     var mail = $('#reg_mail').val().trim().replace(/<[^>]+>/g, '');
+    var g_recaptcha_response = $('#g-recaptcha-response').val();
     var data = {
+        g_recaptcha_response:g_recaptcha_response,
         login: login,
         pass: pass,
         repass: rePass,

@@ -29,7 +29,7 @@ $(".edit").on("contextmenu", function () {
             esc(id, oldHtml);//esc.js подключен в admin/layout.tpl
             break;
     }
-})
+});
 
 $(document).ready(function () {// отловим нажатие на энтер
     $(".edit").keyup(function (event) {

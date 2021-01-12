@@ -1467,7 +1467,7 @@ a:hover {
 .google-map-container {
     height: 495px;
     position: relative;
-    overflow: hidden;
+
 }
 
 .google-map-container .background_overlay {
@@ -1483,6 +1483,7 @@ a:hover {
 .google-map-content {
     margin: 5px 5px;
     padding: 3px 3px;
+
 }
 
 .google-map {
@@ -1492,8 +1493,11 @@ a:hover {
     top: 0px;
     left: 0px;
     background-color: rgb(229, 227, 223);
-    border-radius: 40px;
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+#gtco-footer .google-map {
+    border-radius: 40px;
 }
 
 .gm-style-iw {
@@ -2620,6 +2624,18 @@ a:hover {
     position: relative;
 }
 
+.back .news_more a {
+    border-radius: 0px !important;
+    padding: 0px !important;
+    background: none;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: none;
+    color: #1d3ede;
+    position: relative;
+}
+
 .news_more a:before {
     content: '\f161';
     font-weight: 600;
@@ -2629,8 +2645,25 @@ a:hover {
     top: -3px;
     color: #1d3ede;
 }
+.back .news_more a:before {
+
+    content: '\f161';
+    font-weight: 600;
+    position: absolute;
+    font-family: Flaticon;
+    left: -20px;
+    top: 0px;
+    color: #1d3ede;
+}
 
 .news_more a:hover {
+    background: linear-gradient(9deg, #01E6F8 12%, #0ca2ed 45%, #185ee3);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #01E6F8;
+}
+.back .news_more a:hover {
     background: linear-gradient(9deg, #01E6F8 12%, #0ca2ed 45%, #185ee3);
     background-clip: border-box;
     -webkit-background-clip: text;

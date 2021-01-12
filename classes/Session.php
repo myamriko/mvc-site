@@ -26,6 +26,7 @@ class Session
     public static function set($kay, $value)
     {
         $_SESSION[$kay] = $value;
+
     }
 
     /**

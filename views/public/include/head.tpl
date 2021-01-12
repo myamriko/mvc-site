@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="icon" href="/public/pic/res/{$sitedata['ico']}" type="image/x-icon"/>
     <meta name="description" content="{$description}">
+
+    {*предзагр. шрифтов*}
+
     <link rel="preload" href="/public/css/flaticon.css" as="style"/>
     <link rel="preload" href="/public/owl-carousel/assets/owl.carousel.min.css" as="style"/>
     <link rel="preload" href="/public/css/animate.min.css" as="style"/>
@@ -31,11 +34,11 @@
     <link rel="stylesheet" href="/public/css/progressive-image.css">
 
 
-    <script  src="/public/them-js/jquery-3.5.1.min.js" ></script>
+    <script  src="/public/them-js/jquery-3.5.1.min.js" defer></script>
 
     <title>{block name=title}{$sitedata['sitename']}{/block}</title>
     <!-- ReCaptcha  -->
-    <script src='https://www.google.com/recaptcha/api.js?render={$sitedata['sitekey']}'></script>
+    <script src='https://www.google.com/recaptcha/api.js?render={$sitedata['sitekey']}' async defer></script>
     <!-- Facebook Pixel Code -->
     {if ($sitedata['fbpixel'] !== 'off')}
     {literal}

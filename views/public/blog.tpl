@@ -60,4 +60,5 @@
             </div>
         </div>
     </section>
+    <script src="/public/them-js/progressive-image.js" defer></script>
 {/block}

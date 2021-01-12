@@ -231,6 +231,85 @@ function update() {
         }
     });
 }
+var holder = $('#holder').html();
+var pagination = $('#pagination').html();
+var pageLimitArticlePanel = $('#pageLimitAdminPanel').html();
+
+$('#searchArticle').on('keyup', function () {
+    var limit = 0;
+    var text = $('#searchArticle').val().trim().replace(/<[^>]+>/g, '');
+    search(text, limit, holder,pagination, pageLimitArticlePanel);
+});
+
+function search(text, limit, holder, pagination, pageLimitArticlePanel) {
+
+    if (text.length < 3) {
+        $('#holder').html(holder);
+        $('#pagination').html(pagination);
+        $('#pageLimitAdminPanel').html(pageLimitArticlePanel);
+        return;//если мение 3х букв в запросе выходим
+    }
+
+
+    $.post('/search/make', {text: text, limit: limit}, function (res) {
+
+        var len = res[0][0].data.length;
+
+        $('#holder').empty();//очистить блок
+        $('#pagination').empty();//очистить блок
+        $('#pageLimitAdminPanel').empty();//очистить блок
+
+        if (res[0][0].data.length == 0) {
+
+            $('#holder').html('<tr><td class="text-center text-danger font-weight-bold" colspan="11">К сожалению по вашему запросу ничего не найдено. Попробуйте изменить критерии поиска.</td></tr>');
+            return;
+        }
+
+        for (var i = 0; i < len; i++) {
+            var html = '<tr id="' + res[0][0].data[i].id + '">\n' +
+                '                            <td data-label="Id" id="id">' + res[0][0].data[i].id + '</td>\n' +
+                '                            <td data-label="Название"><a class="text-dark text-uppercase" href="/article/{$articl[\'url\']}">' + res[0][0].data[i].title + '</a></td>\n' +
+                '                            <td data-label="Описание">' + res[0][0].data[i].intro + '</td>\n' +
+                '                            <td data-label="Категория"><a class="text-dark" href="/blog/category/' + res[0][0].data[i].category + '">' + res[0][0].data[i].name + '</a></td>\n' +
+                '                            <td ';
+            if (res[0][0].data[i].tags) {
+                html = html + 'data-label="Теги"';
+            };
+                html = html + '>' + res[0][0].data[i].tags + '</td>\n' +
+                '                            <td data-label="Картинка"><a data-toggle="modal"\n' +
+                '                                   onclick="imgView(\''+ res[0][0].data[i].file+'\',\''+ res[0][0].data[i].alt+'\')"\n' +
+                '                                   href="#"><img class="img-thumbnail" style="height: 70px;"\n' +
+                '                                                 src="/public/pic/img-art/'+ res[0][0].data[i].file+'"></a>\n' +
+                '                            </td>\n' +
+                '                            <td data-label="Дата">'+ res[0][0].data[i].date+'</td>\n' +
+                '                            <td data-label="Аффтар">'+ res[0][0].data[i].author+'</td>\n' +
+                '                            <td data-label="Публикация">'+ res[0][0].data[i].published+'</td>\n' +
+                '                            <td data-label="Главная">'+ res[0][0].data[i].front+'</td>\n' +
+                '                            <td data-label=" ">\n' +
+                '                                <div class="btn-group dropleft">\n' +
+                '                                    <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle"\n' +
+                '                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
+                '                                        Редактировать\n' +
+                '                                    </button>\n' +
+                '                                    <div class="dropdown-menu">\n' +
+                '                                        <button type="button" class="dropdown-item text-success"\n' +
+                '                                                onclick="edit(\''+ res[0][0].data[i].id+'\')"><i class="far fa-edit"></i>\n' +
+                '                                            Изменить\n' +
+                '                                        </button>\n' +
+                '                                        <div class="dropdown-divider"></div>\n' +
+                '                                        <button type="button" class="dropdown-item text-danger"\n' +
+                '                                                onclick="removedStart(\''+ res[0][0].data[i].id+'\',\''+ res[0][0].data[i].title+'\',\'articles\')">\n' +
+                '                                            <i class="far fa-trash-alt"></i>\n' +
+                '                                            Удалить\n' +
+                '                                        </button>\n' +
+                '                                    </div>\n' +
+                '                                </div>\n' +
+                '                            </td>\n' +
+                '                        </tr>';
+            $('#holder').append(html);
+        }
+    });
+};
 
 
 

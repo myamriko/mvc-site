@@ -38,7 +38,7 @@ function search(text, breadcrumb, breadcrumbText){
     $('#pagination').attr('style', 'display: none !important;');
     $('#breadcrumb_title').text('Швидкий пошук');
     $.post('/search/make', {text: text}, function (res) {
-console.log(res[0][0].cache);
+
         if (res[0][0].data.length == 0) {
             $('#main-search').attr('style', 'display: block;');
             $('#main-search').prepend('<p>На жаль по вашому запиту нічого не знайдено. Спробуйте змінити критерії пошуку, або скористатися сторінкою <a href="/search">розширеного пошуку</a></p>');

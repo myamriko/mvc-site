@@ -31,20 +31,20 @@ final class InfoModel
 
     public static function front()
     {
-        $cacheKey = self::CACHE_KEY.'-about';
-        $cachedAbout = Cache::get($cacheKey);
-        if ($cachedAbout) {
-            return $cachedAbout;
+        $cacheKey = self::CACHE_KEY.'-frontContent';
+        $cachedContentFront = Cache::get($cacheKey);
+        if ($cachedContentFront) {
+            return $cachedContentFront;
         }
         $dbh = DB::getInstance();
-        $query = 'SELECT * FROM `front` ';
+        $query = 'SELECT * FROM `paginas` WHERE `name` = "front" ORDER BY `id` ASC';
         $res = $dbh->query($query);
-        $about = $res->fetch(PDO::FETCH_ASSOC);
+        $contentFront = $res->fetchAll(PDO::FETCH_ASSOC);
         $expire = new self();// сздаем класс Sitedata
         $expire = $expire::info();
         $expire = $expire['cechetime']; // извлекаем из базы время жизни кеша
-        Cache::set($cacheKey, $about, $expire);
-        return $about;
+        Cache::set($cacheKey, $contentFront, $expire);
+        return $contentFront;
     }
 
 }

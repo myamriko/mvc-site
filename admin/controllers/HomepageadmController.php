@@ -8,8 +8,8 @@ class HomepageadmController implements Contriller
     public function index()
     {
         global $smarty;
-        $front = InfoModel::front();
-        $smarty->assign('front', $front);
+        $frontContent = InfoModel::front();
+        $smarty->assign('frontContent', $frontContent);
         $smarty->display('admin/homepage.tpl');
     }
 }

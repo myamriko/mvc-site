@@ -14,7 +14,7 @@ function initMap() {
         center: coordinates,
         zoom: 17,
         scrollwheel: false,
-
+        disableDefaultUI: true
     });
     /*маркер*/
     marker = new google.maps.Marker({
